@@ -16,7 +16,7 @@
 |building|string||
 |phone_number|string|null: false|
 |encrypted_password|string|null: false|
-|birthday|integer|null: false|
+|birthday|date|null: false|
 |self_introduction|text||
 |image|string||
 
@@ -26,7 +26,7 @@
 - has_one :address
 
 
-## addressesテーブル
+## delivery_addressesテーブル
 |Column|Type|Option|
 |------|----|------|
 |postal_code|string||
