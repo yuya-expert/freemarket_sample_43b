@@ -1,24 +1,119 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Option|
+|------|----|------|
+|nickname|string|null: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_ja|string|null: false|
+|first_name_ja|string|null: false|
+|email|string|null: false, unique: true|
+|postal_code|integer||
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building|string||
+|tel|integer|null: false|
+|encrypted_password|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|self_introduction|content||
+|image|string||
 
-Things you may want to cover:
+### Association
+- has_many :products
+- has_many :reviews
+- has_one :address
 
-* Ruby version
 
-* System dependencies
+## addressesテーブル
+|Column|Type|Option|
+|------|----|------|
+|postal_code|integer||
+|prefecture|string|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building|string||
 
-* Configuration
+### Association
+- belongs_to :user
 
-* Database creation
 
-* Database initialization
+## reviewsテーブル
+|Column|Type|Option|
+|------|----|------|
+|rate|integer|null: false|
+|comment|content||
 
-* How to run the test suite
+### Association
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## productsテーブル
+|Column|Type|Option|
+|------|----|------|
+|name|string|null: false|
+|detail|content|null: false|
+|condition|string|null: false|
+|delivery_fee|integer|null: false|
+|area|string|null: false|
+|shipping_dates|string|null: false|
+|price|integer|null: false|
+|status|string|null: false, default: "出品中"|
 
-* ...
+### Association
+- has_many :images
+- belongs_to :user
+- belongs_to :brand
+- belongs_to :large_brand
+
+
+## imagesテーブル
+|Column|Type|Option|
+|------|----|------|
+|image|string|null: false|
+
+### Association
+- belongs_to :product
+-
+
+
+## brandsテーブル
+|Column|Type|Option|
+|------|----|------|
+|list|string|null: false|
+
+### Association
+- has_many :products
+
+
+## large_categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|list|string|null: false|
+
+### Association
+- has_many :products
+- has_many :middle_categories
+
+
+## middle_categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|list|string|null: false|
+
+### Association
+- belongs_to :large_category
+- has_many :small_categories
+
+
+## small_categoriesテーブル
+|Column|Type|Option|
+|------|----|------|
+|list|string|null: false|
+
+### Association
+- belongs_to :middle_category
+
