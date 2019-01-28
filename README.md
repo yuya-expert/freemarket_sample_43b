@@ -9,17 +9,15 @@
 |last_name_ja|string|null: false|
 |first_name_ja|string|null: false|
 |email|string|null: false, unique: true|
-|postal_code|integer||
+|postal_code|string||
 |prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|tel|integer|null: false|
+|phone_number|string|null: false|
 |encrypted_password|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
-|self_introduction|content||
+|birthday|integer|null: false|
+|self_introduction|text||
 |image|string||
 
 ### Association
@@ -31,11 +29,12 @@
 ## addressesテーブル
 |Column|Type|Option|
 |------|----|------|
-|postal_code|integer||
+|postal_code|string||
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -45,7 +44,8 @@
 |Column|Type|Option|
 |------|----|------|
 |rate|integer|null: false|
-|comment|content||
+|comment|text||
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -55,29 +55,32 @@
 |Column|Type|Option|
 |------|----|------|
 |name|string|null: false|
-|detail|content|null: false|
-|condition|integer|null: false|
+|detail|text|null: false|
+|status|integer|null: false|
 |delivery_fee|integer|null: false|
 |area|integer|null: false|
 |shipping_dates|integer|null: false|
 |price|integer|null: false|
-|status|integer|null: false, default: "出品中"|
+|delivery_status|integer|null: false, default: "出品中"|
+|user_id|integer|null: false, foreign_key: true|
+|brand_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :images
 - belongs_to :user
 - belongs_to :brand
-- belongs_to :large_brand
+- belongs_to :categories
 
 
 ## imagesテーブル
 |Column|Type|Option|
 |------|----|------|
 |image|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product
--
 
 
 ## brandsテーブル
@@ -89,31 +92,11 @@
 - has_many :products
 
 
-## large_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Option|
 |------|----|------|
-|list|string|null: false|
+|parent_id|integer||
+|name|string|null: false|
 
 ### Association
 - has_many :products
-- has_many :middle_categories
-
-
-## middle_categoriesテーブル
-|Column|Type|Option|
-|------|----|------|
-|list|string|null: false|
-
-### Association
-- belongs_to :large_category
-- has_many :small_categories
-
-
-## small_categoriesテーブル
-|Column|Type|Option|
-|------|----|------|
-|list|string|null: false|
-
-### Association
-- belongs_to :middle_category
-
