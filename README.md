@@ -10,7 +10,7 @@
 |first_name_ja|string|null: false|
 |email|string|null: false, unique: true|
 |postal_code|integer||
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
@@ -56,12 +56,12 @@
 |------|----|------|
 |name|string|null: false|
 |detail|content|null: false|
-|condition|string|null: false|
+|condition|integer|null: false|
 |delivery_fee|integer|null: false|
-|area|string|null: false|
-|shipping_dates|string|null: false|
+|area|integer|null: false|
+|shipping_dates|integer|null: false|
 |price|integer|null: false|
-|status|string|null: false, default: "出品中"|
+|status|integer|null: false, default: "出品中"|
 
 ### Association
 - has_many :images
