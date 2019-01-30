@@ -4,7 +4,10 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample43b
     = csrf_meta_tags
+    %link{rel: "stylesheet", href: "normalize.css"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.7.0/css/all.css", integrity: "sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ", crossorigin: "anonymous"}
+
   %body
     = yield
