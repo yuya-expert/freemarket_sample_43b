@@ -1,0 +1,86 @@
+.foot-banner{
+  background-image: url(download-1.jpg);
+  height: 260px;
+  &--pc{
+    width: 750px;
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+  }
+  &--inner{
+    top:35px;
+    left: 10px;
+    position: absolute;
+  }
+  &--inner--top{
+    font-size: 16px;
+  }
+  &--inner--bottom{
+    font-size: 24px;
+  }
+  li{
+    list-style: none;
+    text-align: center;
+    vertical-align:middle;
+    float: left;
+  }
+}
+
+.store-link-logo{
+  float: left;
+  margin-top: 14px;
+}
+.mercari-logo{
+  float: left;
+}
+
+.apple-logo{
+  margin: 0 15px;
+}
+
+.smart-phone-image{
+  text-align: right;
+  margin-right: 160px;
+}
+
+// バナーより下のfooter全体を囲っている
+.global-footer{
+  padding: 60px 0;
+  height: 395px;
+  background-color: #212121;
+  text-align: center;
+  color: #fff;
+  li{
+    list-style: none;
+  }
+}
+
+.footer-nav{
+
+}
+.footer-head{
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.footer-logo{
+  margin: 10px;
+}
+// copylight
+.footer-copylight{
+  font-size: 8px;
+
+}
+
+.footer-cell{
+  display: inline-block;
+  top: 0 !important;
+  font-size: 15px;
+  vertical-align: top;
+  li{
+    margin: 10px;
+  }
+  ul{
+    padding: 0;
+  }
+}
