@@ -1,0 +1,12 @@
+= render "/shared/header"
+
+= render "/shared/exhibit"
+
+= image_tag("slider-1.png",{class: "slider"})
+%p.pickup-category ピックアップカテゴリー
+.contents
+  = render partial: "contents", locals: {content: "レディース"}
+%p.pickup-brand ピックアップブランド
+.contents
+
+= render "/shared/footer"

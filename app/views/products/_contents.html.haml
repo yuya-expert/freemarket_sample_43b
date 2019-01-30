@@ -1,0 +1,26 @@
+.content
+  .content-title
+    = "#{content} 新着アイテム"
+  .items
+    .item
+      = image_tag("rikishi.png")
+      .title 専用CHANEL
+      .price ¥ 43,000
+      .tax (税込)
+    .item
+      = image_tag("rikishi.png")
+      .title 専用CHANEL
+      .price ¥ 17,000
+      .tax (税込)
+    .item
+      = image_tag("rikishi.png")
+      .title yukiさま専用
+      .price ¥ 3,000
+      .tax (税込)
+    .item
+      = image_tag("rikishi.png")
+      .title CHANELカメリア
+      .price ¥ 4,000
+      .tax (税込)
+  .show-all-items
+    = link_to("すべての商品を見る", "#")
