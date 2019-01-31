@@ -1,0 +1,23 @@
+.main-content
+  = render 'head'
+
+  .main-content__main-sign
+    .main-content__main-sign-content
+      .main-content__main-sign-content-head 新規会員登録
+      .main-content__main-sign-content-inner
+        .main-content__main-sign-content-inner-content
+          = link_to 'https://www.mercari.com/jp/signup/registration/',class: 'e-mail' do
+            %i.far.fa-envelope
+            メールアドレスで登録
+          %button.facebook-login
+            %i.fab.fa-facebook.fa-pull-left
+            Facebookで登録
+          %button.google-login
+            %i.fab.fa-google-plus-g.fa-pull-left
+            Googleで登録
+
+
+  = render 'footer'
+
+
+
