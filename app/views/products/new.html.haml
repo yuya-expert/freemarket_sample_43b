@@ -34,7 +34,9 @@
       = f.select :name, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
   // 配送詳細
   .product-delivery.box.double-row
-    .left-side 配送について
+    .left-side
+      %span 配送について
+      %span.fas.fa-question-circle.blue-icon
     .right-side
       .title-wrapper
         %span.product-delivery__title.title-small 配送料の負担
@@ -50,7 +52,9 @@
       = f.select :name, ["---", "1〜2日", "数年後"], {}, {class: "product-delivery__days select-field"}
   // 価格
   .product-price.box.double-row.last-box
-    .left-side 販売価格(300〜9,999,999)
+    .left-side
+      %span 販売価格(300〜9,999,999)
+      %span.fas.fa-question-circle.blue-icon
     .right-side.under-bar
       .right-side__left
         .title-wrapper.left
