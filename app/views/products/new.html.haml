@@ -1,0 +1,91 @@
+.new__main-text.box 商品の情報を入力
+= form_for "#" do |f|
+  // 出品画像
+  .product-image.box
+    .title-wrapper
+      %span.product-image__title.title-big 出品画像
+      %span.must-icon 必須
+    .product-image__info
+      最大10枚までアップロードできます
+    .product-image__upload
+  // 商品名
+  .product-data.box
+    .title-wrapper
+      %span.product-data__title.title-small 商品名
+      %span.must-icon 必須
+    = f.text_field :name, class: "product-data__name text-field", placeholder: "商品名(必須 40文字まで)"
+    .title-wrapper.next
+      %span.product-data__title.title-small 商品の説明
+      %span.must-icon 必須
+    = f.text_area :name, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+  // 商品の詳細
+  .product-detail.box.double-row
+    .left-side 商品の詳細
+    .right-side
+      .title-wrapper
+        %span.product-detail__title.title-small カテゴリー
+        %span.must-icon 必須
+      = f.select :name, ["---", "レディース", "メンズ", "ベビー・キッズ"], {}, {class: "product-detail__category select-field"}
+      .title-wrapper.next
+        %span.product-detail__title.title-small 商品の状態
+        %span.must-icon 必須
+      = f.select :name, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
+  // 配送詳細
+  .product-delivery.box.double-row
+    .left-side 配送について
+    .right-side
+      .title-wrapper
+        %span.product-delivery__title.title-small 配送料の負担
+        %span.must-icon 必須
+      = f.select :name, ["---", "着払い", "送料込み"], {}, {class: "product-delivery__fee select-field"}
+      .title-wrapper.next
+        %span.product-delivery__title.title-small 発送元の地域
+        %span.must-icon 必須
+      = f.select :name, ["---", "北は北海道", "南は山口"], {}, {class: "product-delivery__area select-field"}
+      .title-wrapper.next
+        %span.product-delivery__title.title-small 発送までの日数
+        %span.must-icon 必須
+      = f.select :name, ["---", "1〜2日", "数年後"], {}, {class: "product-delivery__days select-field"}
+  // 価格
+  .product-price.box.double-row.last-box
+    .left-side 販売価格(300〜9,999,999)
+    .right-side.under-bar
+      .right-side__left
+        .title-wrapper.left
+          %span.product-price__title.title-small 価格
+          %span.must-icon 必須
+      .right-side__right
+        %span.yen-mark ¥
+        = f.text_field :name, placeholder: "例）300", class: "product-price__sell text-field text-field__mini"
+    .right-side.under-bar.second
+      .right-side__left
+        .title-wrapper.left
+          .product-price__title.title-toosmall 販売手数料(10%)
+      .right-side__right
+        .show.show-tax -
+    .right-side.under-bar.third
+      .right-side__left
+        .title-wrapper.left
+          .product-price__title.title-toobig 販売利益
+      .right-side__right
+        .show.show-profit -
+  // 注意書きと出品ボタン
+  .product-attention.box
+    .attention-text
+      .attention
+        %p.attention-1
+          = link_to "禁止されている出品", "#", class: "no-line"
+          、
+          = link_to "行為"
+          を必ずご確認ください。
+        %p.attention-2
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to "偽ブランドの販売", "#", class: "no-line"
+          は犯罪であり処罰される可能性があります。
+        %p.attention-3
+          また、出品をもちまして
+          = link_to "加盟店規約", "#", class: "no-line"
+          に同意したことになります。
+    = f.submit "出品する", class: "exhibit-btn"
+    .return-btn__wrapper
+      = button_tag "もどる", class: "return-btn"
