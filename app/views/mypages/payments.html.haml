@@ -1,0 +1,22 @@
+= render "/shared/header"
+.mypages-body
+  = render "/shared/side-bar"
+  .main-all
+    .payment-method
+      .payment-method--head
+        支払い方法
+      .payment-method--container
+        .payment-method--container--inner
+          .payment-method--ichiran
+            クレジットカード一覧
+          .payment-method--img
+            = image_tag 'visa.svg', :size =>'49x15',alt: "mercari_icon.png"
+          .payment-method--number
+            ************8802
+          .payment-method--use-limit
+            04/23
+        = link_to "削除する", "https://www.mercari.com/jp",class: "payment-method--destroy"
+      .payment-method--info
+        = link_to "支払い方法について", "https://www.mercari.com/jp/help_center/category/6/",class: "payment-method--info--text"
+        %i.fas.fa-angle-right.fa-pull-right.fa-lg.payment-method--fa
+= render "/shared/footer"
