@@ -1,0 +1,36 @@
+$(function(){
+  // お知らせ、やることリストのイベント
+  $(".my-page__title-left.info").click(function(){
+    if($(this).hasClass("inactive-tab")){
+      $(this).removeClass("inactive-tab").addClass("active-tab");
+      $(".my-page__title-right.todo").removeClass("active-tab").addClass("inactive-tab");
+      $(".my-page__left-wrapper.info").show();
+      $(".my-page__right-wrapper.todo").hide();
+    }
+  });
+  $(".my-page__title-right.todo").click(function(){
+    if($(this).hasClass("inactive-tab")){
+      $(this).removeClass("inactive-tab").addClass("active-tab");
+      $(".my-page__title-left.info").removeClass("active-tab").addClass("inactive-tab");
+      $(".my-page__right-wrapper.todo").show();
+      $(".my-page__left-wrapper.info").hide();
+    }
+  });
+  // 取引中、過去の取引のイベント
+  $(".my-page__title-left.now").click(function(){
+    if($(this).hasClass("inactive-tab")){
+      $(this).removeClass("inactive-tab").addClass("active-tab");
+      $(".my-page__title-right.past").removeClass("active-tab").addClass("inactive-tab");
+      $(".my-page__left-wrapper.now").show();
+      $(".my-page__right-wrapper.past").hide();
+    }
+  });
+  $(".my-page__title-right.past").click(function(){
+    if($(this).hasClass("inactive-tab")){
+      $(this).removeClass("inactive-tab").addClass("active-tab");
+      $(".my-page__title-left.now").removeClass("active-tab").addClass("inactive-tab");
+      $(".my-page__right-wrapper.past").show();
+      $(".my-page__left-wrapper.now").hide();
+    }
+  });
+})
