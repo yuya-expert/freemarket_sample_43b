@@ -1,0 +1,12 @@
+.main-content__footer
+  .main-content__footer-text-box
+    .clearfix
+      .list-privacy-policy
+        = link_to 'プライバシーポリシー','https://www.mercari.com/jp/privacy/',class: 'privacy'
+      .list-agreement
+        = link_to 'メルカリ利用規約','https://www.mercari.com/jp/tos/',class: 'agreement'
+      .list-tokutei
+        = link_to '特定商取引に関する表記','https://www.mercari.com/jp/tokutei/',class:'tokutei'
+  = link_to 'https://www.mercari.com/jp/',class: 'mercari-logo'  do
+    %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2540802024", :width => "80"}/
+  %p © 2019 Mercari
