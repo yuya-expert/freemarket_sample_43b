@@ -1,0 +1,145 @@
+.mypages-body {
+  width: 1020px;
+  margin: 40px auto;
+  background-color: #F5F5F5;
+  .side-all {
+    float: left;
+  }
+  .main-all {
+    float: right;
+    width: 700px;
+  }
+}
+.my-page__header-image {
+  width: 100%;
+  height: 200px;
+  padding: 40px;
+  box-sizing: border-box;
+  background-image: url("/assets/bubble.png");
+  background-size: cover;
+  .user-data__wrapper {
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    .my-page__header-profimage {
+      margin: 0 auto;
+      width: 60px;
+      height: auto;
+      border-radius: 50px;
+    }
+    .my-page__name {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .review-wrapper {
+      font-size: 14px;
+      margin-top: 10px;
+      .user-page__review{
+        float: left;
+        width: 100px;
+        text-align: left;
+      }
+      .user-page__exhibit-count {
+        float: left;
+        width: 100px;
+        text-align: left;
+      }
+    }
+  }
+}
+.my-page__tabs {
+  height: 74px;
+  .active-tab {
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    line-height: 72px;
+    text-align: center;
+    box-sizing: border-box;
+    border-top: solid 2px red;
+  }
+  .inactive-tab {
+    width: 50%;
+    float: left;
+    font-weight: bold;
+    line-height: 72px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #EEEEEE;
+  }
+}
+.inactive-area {
+  display: none;
+}
+.my-page__left {
+  height: 40px;
+  padding: 20px;
+  border-bottom: solid 1px #EEEEEE;
+  &-image {
+    float: left;
+    overflow: hidden;
+    .left-image {
+      height: 40px;
+      width: auto;
+      margin: 0 14px;
+      vertical-align: middle;
+    }
+  }
+  &-texts {
+    float: left;
+      margin: 0 14px;
+    .my-page__left-text {
+      font-size: 14px;
+      margin: 2px 0;
+    }
+    .my-page__left-time {
+      font-size: 14px;
+      color: #888888;
+    }
+  }
+}
+.my-page__right {
+  height: 40px;
+  padding: 20px;
+  border-bottom: solid 1px #EEEEEE;
+  &-image {
+    float: left;
+    overflow: hidden;
+    .right-image {
+      height: 40px;
+      width: auto;
+      margin: 0 14px;
+      vertical-align: middle;
+    }
+  }
+  &-texts {
+    float: left;
+      margin: 0 14px;
+    .my-page__right-text {
+      font-size: 14px;
+      margin: 2px 0;
+    }
+    .my-page__right-time {
+      font-size: 14px;
+      color: #888888;
+    }
+  }
+}
+.info-todo__show-all {
+  margin: 16px auto;
+  width: 670px;
+  height: 56px;
+  font-size: 14px;
+  line-height: 56px;
+  text-align: center;
+  background-color: #EEEEEE;
+}
+.info-todo__show-all:hover {
+  background-color: white;
+}
+.toransaction-title {
+  margin-top: 56px;
+  padding: 27px 16px;
+  font-size: 16px;
+  font-weight: bold;
+}
