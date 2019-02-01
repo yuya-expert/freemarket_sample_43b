@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  root "test#index"
+  get "mypages/payment"=> "mypages#payments"
+  resources :products
+  resources :mypages do
+    collection do
+      get "payments"
+    end
+  end
+  resources :registrations
+  root "products#index"
 end
