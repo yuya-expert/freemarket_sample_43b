@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+30.times do |number|
+  n = number + 1
+  product = Product.create!(
+    name: "product_#{n}",
+    detail: "#{n}detail#{n}",
+    status: "1",
+    delivery_fee: "#{n + n}",
+    area: "anywhere",
+    shipping_dates: "someday",
+    price: "#{n * n}",
+    delivery_status: "aaa"
+  )
+  product.save!
+end
