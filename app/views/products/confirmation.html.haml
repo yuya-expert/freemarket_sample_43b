@@ -30,7 +30,7 @@
     .confirmation--postage--name
       冒険太郎
     .confirmation--change
-      = link_to "変更する", "/users/:id/edit", class: "confirmation--change"
+      = link_to "変更する", edit_user_path, class: "confirmation--change"
       %i.fas.fa-angle-right.fa-pull-right.fa-lg.confirmation--fa
   .confirmation--payment-method--container
     .confirmation--payment-method--title
@@ -42,6 +42,6 @@
     .confirmation--payment-method--img
       = image_tag 'visa.svg', :size =>'49x15',alt: "mercari_icon.png"
     .confirmation--change
-      = link_to "変更する", "/users/:id/edit", class: "confirmation--change"
+      = link_to "変更する", edit_user_path, class: "confirmation--change"
       %i.fas.fa-angle-right.fa-pull-right.fa-lg.confirmation--fa
 = render "/registrations/footer"
