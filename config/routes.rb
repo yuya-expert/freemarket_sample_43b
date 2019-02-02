@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get "mypages/payment"=> "mypages#payments"
+  get "mypages/profile"=> "mypages#profile"
   resources :products
   resources :mypages do
     collection do
