@@ -68,7 +68,6 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'recaptcha', require: 'recaptcha/rails'
-gem 'jquery-rails'
 
 
 
@@ -80,7 +79,6 @@ gem 'jquery-rails'
 
 
 
-gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry-doc'
 
