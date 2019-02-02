@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :mypages, only: [:index, :edit, :destroy]
-  resources :products, only: [:new]
+  resources :products, only: [:new, :create]
   resources :registrations, only: [:index, :new]
   root "products#index"
 end
