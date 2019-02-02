@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  get "mypages/payment"=> "mypages#payments"
-  get "mypages/profile"=> "mypages#profile"
-  resources :products
-  resources :mypages do
-    collection do
+  resources :users do
+    member do
+      get "address"
       get "payments"
     end
   end
+
+  resources :products
+  resources :mypages
   resources :registrations
   root "products#index"
 end
