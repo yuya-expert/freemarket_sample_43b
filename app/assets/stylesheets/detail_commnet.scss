@@ -1,0 +1,247 @@
+.content-comment{
+  width: 780px;
+  margin: 8px auto;
+  background: #fff;
+
+  &-table{
+    margin: 0;
+    padding: 0;
+
+    &-all{
+      padding: 24px;
+      overflow: auto;
+
+      &-individual{
+        margin: 0;
+        overflow: auto;
+
+        &-item{
+          margin: 1.5em 0 0;
+          padding: 0;
+          overflow: auto;
+
+          &-user{
+            float: left;
+            position: relative;
+            top: -10px;
+            left: 20px;
+            display: inline-block;
+            color: #333;
+
+            &-icon{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: #eee;
+              text-align: center;
+              overflow: hidden;
+
+
+              .user-icon-image{
+                width: 32px;
+                height: 32px;
+                margin: 10px 0 0;
+                vertical-align: bottom;
+              }
+            }
+            .user-name-comment{
+              padding: 0 0 5px 90px;
+            }
+          }
+
+
+
+          &-body{
+            width: 618px;
+            float: right;
+            position: relative;
+            padding: 16px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+
+            div.individual-item-body-text{
+              margin: 0;
+              padding: 0;
+              font-size: 14px;
+              font-weight: 100;
+            }
+
+            &-time{
+              margin: 8px 0 0;
+              overflow: auto;
+
+              div.individual-item-body-time{
+                display: block;
+                color: #aaa;
+                margin: 0;
+                padding: 0;
+
+                i.far.fa-clock{
+                  vertical-align: middle;
+                  display: inline-block;
+                  speak: none;
+                  font-weight: 400;
+                  text-transform: none;
+                  line-height: 1;
+                  font-size: 16px;
+                }
+
+                span.date-comment{
+                  vertical-align: middle;
+                  margin: 0;
+                  padding: 0;
+                  border-width: 0;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-table-second{
+    padding: 0;
+    overflow: auto;
+
+    &-all{
+      padding: 24px;
+      overflow: auto;
+
+      &-individual{
+        margin: 0;
+        overflow: auto;
+
+
+        &-item{
+          margin: 1.5em 0 0;
+          padding: 0;
+          overflow: auto;
+
+          &-user{
+            float: left;
+            position: relative;
+            top: -20px;
+            left: 10px;
+            display: inline-block;
+            color: #333;
+
+            &-icon{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: #eee;
+              text-align: center;
+              overflow: auto;
+
+
+              .user-icon-image{
+                width: 32px;
+                height: 32px;
+                margin: 10px 0 0;
+                vertical-align: bottom;
+              }
+            }
+          }
+
+
+          &-body{
+            width: 618px;
+            position: relative;
+            padding: 16px 16px 16px 50px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+
+            div.individual-item-body-text{
+              margin: 0;
+              padding: 0;
+              font-size: 14px;
+              font-weight: 100;
+            }
+
+            &-time{
+              margin: 8px 0 0;
+              overflow: auto;
+
+              div.individual-item-body-time{
+                display: block;
+                color: #aaa;
+                margin: 0;
+                padding: 0;
+
+                i.far.fa-clock{
+                  vertical-align: middle;
+                  display: inline-block;
+                  speak: none;
+                  font-weight: 400;
+                  text-transform: none;
+                  line-height: 1;
+                  font-size: 16px;
+                }
+
+                span.date-comment{
+                  vertical-align: middle;
+                  margin: 0;
+                  padding: 0;
+                  border-width: 0;
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .content-comment-under{
+  padding: 24px;
+  background: #fff;
+
+  form.product-message-form{
+    padding: 0;
+    margin: 0;
+
+    p.message-alert{
+      padding: 8px;
+      font-size: 14px;
+      background: #fff6de;
+    }
+
+    input.product-message-form-id{
+    }
+
+    input.product-message-form-url{
+    }
+
+    textarea.product-message-form-main{
+      margin: 8px 0 0;
+      display: block;
+      background: #f5f5f5;
+      width: 97%;
+      max-width: 100%;
+      min-width: 104px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      line-height: 1.5;
+      height: 102px;
+    }
+
+    button.message-submit.btn-gray{
+      border: 1px solid #888;
+      background: #888;
+      color: #fff;
+      cursor: not-allowed;
+      width: 100%;
+      margin: 8px 0 0;
+      text-align: center;
+      line-height: 48px;
+    }
+  }
+  }
+}
+.user-name-comment{
+  padding: 0 0 5px 90px;
+}
