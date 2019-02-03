@@ -1,0 +1,101 @@
+.content-item-box-sns{
+  margin: 24px auto;
+  padding: 32px 0;
+  width: 780px;
+  background: #fff;
+  height: 114px;
+
+  &-text{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    &-inner{
+      display: inline-block;;
+      position: relative;
+
+      &-object{
+        vertical-align: top;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+
+        &-inner{
+          border: none;
+          visibility: visible;;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+  &-object{
+    margin: 16px 0 0;
+    text-align: center;
+    list-style: none;
+
+    li.sns.icons{
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0;
+
+      .facebook-detail{
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid blue;
+        background: blue;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+
+        i.fab.fa-facebook-square{
+          line-height: 44px;
+          display: inline-block;
+          color: #fff;
+        }
+      }
+
+      .twitter-detail{
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid #0099e8;
+        background: #0099e8;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        display: block;
+
+        i.fab.fa-twitter{
+          line-height: 44px;
+          color: #fff;
+          display: inline-block;
+        }
+      }
+
+      .printest-detail{
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid red;
+        background: red;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        display: block;
+
+        i.fab.fa-pinterest-square{
+          line-height: 44px;
+          color: #fff;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
