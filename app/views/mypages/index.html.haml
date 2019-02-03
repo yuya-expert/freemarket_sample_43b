@@ -1,6 +1,9 @@
-= render "shared/header"
-= render "shared/exhibit"
+= render "/shared/header"
 
+- breadcrumb :mypages
+= breadcrumbs pretext: "メルカリ", separator: " &rsaquo; ", style: :ul
+
+= render "shared/exhibit"
 .mypages-body
   = render "shared/side-bar"
   // マイページのメイン部分
@@ -72,5 +75,4 @@
           .my-page__right-time
             %span.far.fa-clock
             %span 5日前
-
 = render "shared/footer"
