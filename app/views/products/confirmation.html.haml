@@ -1,0 +1,47 @@
+= render "/registrations/head"
+.confirmation
+  .confirmation--head
+    購入を確定しますか？
+  .confirmation--container
+    = image_tag "m333.jpg",size: "148x148", class: "confirmation--img"
+    .confirmation--item-title
+      素敵なバッグ
+  .confirmation--container--top
+    .confirmation--pay
+      ¥1,300
+    .confirmation--post-marge
+      送料込み
+  .confirmation--point
+    ポイントはありません
+  .confirmation--container--bottom
+    .confirmation--pay-title
+      支払い金額
+    .confirmation--pay
+      ¥1,300
+    .confirmation--btn
+      購入する
+  .confirmation--postage--container
+    .confirmation--postage--spot
+      配送先
+    .confirmation--postage--post
+      〒100-1234
+    .confirmation--postage--adress
+      東京都 葛飾区 高砂3-7-50 ノープログレム202
+    .confirmation--postage--name
+      冒険太郎
+    .confirmation--change
+      = link_to "変更する", edit_user_path, class: "confirmation--change"
+      %i.fas.fa-angle-right.fa-pull-right.fa-lg.confirmation--fa
+  .confirmation--payment-method--container
+    .confirmation--payment-method--title
+      支払い方法
+    .confirmation--payment-method--credit-number
+      *********8802
+    .confirmation--date
+      04/32
+    .confirmation--payment-method--img
+      = image_tag 'visa.svg', :size =>'49x15',alt: "mercari_icon.png"
+    .confirmation--change
+      = link_to "変更する", edit_user_path, class: "confirmation--change"
+      %i.fas.fa-angle-right.fa-pull-right.fa-lg.confirmation--fa
+= render "/registrations/footer"
