@@ -1,0 +1,316 @@
+.item-users-exhibit{
+  width: 780px;
+  margin: 0 auto;
+  padding: 0;
+  background: rgb(245, 245, 245);
+
+  section.item-box-content-top{
+    width: 780px;
+    margin: 0 auto;
+    overflow: auto;
+
+    h2.item-box-content-top-title{
+      margin: 24px 0 8px;
+      font-size: 22px;
+
+      .item-box-content-title-link{
+        color: #0099e8;
+        text-decoration: none
+      }
+    }
+
+    div.item-box-content-top-inner{
+      padding: 0;
+      width: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      overflow: auto;
+
+      section.items-box-left{
+        float: left;
+        display: block;
+        width: 246px;
+        vertical-align: inherit;
+        overflow: auto;
+        background: #fff;
+
+        .photos-box-link{
+          display: inline-block;
+          color: #333;
+          text-decoration: none;
+          padding: 0;
+          margin: 0;
+
+          figure.items-box-photo{
+            width: 246px;
+            height: 220px;
+            position: relative;
+            padding: 0 ;
+            margin: 0;
+
+            img.lazyloaded{
+              width: 246px;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              z-index: 1;
+              position: absolute;;
+            }
+          }
+        }
+
+        .items-box-body{
+          padding: 16px;
+          height: 110px;
+          overflow: auto;
+
+          h3.items-box-name.font-2{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            white-space: normal;
+            font-size: 15px;
+          }
+
+          &-num{
+            margin: 8px 0 0;
+
+            &-price{
+              font-size: 18px;
+              display: inline-block;
+            }
+
+            &-likes{
+              display: inline-block;
+              font-size: 14px;
+              font-weight: 400;
+              color: #333;
+              float: right;
+
+              i.far.fa-heart{
+                margin: 0 4px 0 0;
+                color: #ccc;
+                width: 14px;
+                height: 14px;
+              }
+
+              span.likes-counts{
+                margin: 1px 0 0;
+                vertical-align: middle;
+                padding: 0;
+                display: inline-block;
+              }
+            }
+
+            p.item-box-tax{
+              margin: 0 4px 0 0;
+              height: 14px;
+              color: #333;
+              font-size: 11px;
+            }
+          }
+        }
+      }
+
+      section.items-box-center{
+        float: left;
+        display: inline-block;
+        width: 246px;
+        vertical-align: inherit;
+        overflow: auto;
+        background: #fff;
+        margin: 0 0 20px 20px;
+
+        .photos-box-link{
+          display: block;
+          color: #333;
+          text-decoration: none;
+          padding: 0;
+          margin: 0;
+
+          figure.items-box-photo{
+            width: 246px;
+            height: 220px;
+            position: relative;
+            padding: 0 ;
+            margin: 0;
+
+            .lazyloaded{
+              width: 246px;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              z-index: 1;
+              position: absolute;;
+            }
+          }
+        }
+
+        .items-box-body{
+          padding: 16px;
+          height: 110px;
+          overflow: auto;
+
+          h3.items-box-name.font-2{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            white-space: normal;
+            font-size: 15px;
+          }
+
+          &-num{
+            margin: 8px 0 0;
+
+            &-price{
+              font-size: 18px;
+              display: inline-block;
+            }
+
+            &-likes{
+              display: inline-block;
+              font-size: 14px;
+              font-weight: 400;
+              color: #333;
+              float: right;
+
+              i.far.fa-heart{
+                margin: 0 4px 0 0;
+                color: #ccc;
+                width: 14px;
+                height: 14px;
+              }
+
+              span.likes-counts{
+                margin: 1px 0 0;
+                vertical-align: middle;
+                padding: 0;
+                display: inline-block;
+              }
+            }
+
+            p.item-box-tax{
+              margin: 0 4px 0 0;
+              height: 14px;
+              color: #333;
+              font-size: 11px;
+            }
+          }
+        }
+      }
+
+      section.items-box-right{
+        float: left;
+        display: inline-block;
+        width: 246px;
+        vertical-align: inherit;
+        overflow: auto;
+        background: #fff;
+        margin: 0 0px 20px 20px;
+
+        .photos-box-link{
+          display: block;
+          color: #333;
+          text-decoration: none;
+          padding: 0;
+          margin: 0;
+
+          figure.items-box-photo{
+            width: 246px;
+            height: 220px;
+            position: relative;
+            padding: 0 ;
+            margin: 0;
+
+            img.lazyloaded{
+              width: 246px;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              z-index: 1;
+              position: absolute;;
+            }
+          .item-tag-sold-out-bottom{
+            z-index: 1;
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 100px 100px 0 0;
+            border-color: #ea352d transparent transparent transparent;
+
+            .sold-out-text-bottom{
+              color: #fff;
+              transform: rotate(-45deg);
+              position: absolute;
+              top:-75px;
+              left: 10px;
+              font-weight: 800;
+              letter-spacing: 1.5px;
+            }
+        }
+          }
+        }
+
+        .items-box-body{
+          padding: 16px;
+          height: 110px;
+          overflow: auto;
+
+          h3.items-box-name.font-2{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            white-space: normal;
+            font-size: 15px;
+          }
+
+          &-num{
+            margin: 8px 0 0;
+
+            &-price{
+              font-size: 18px;
+              display: inline-block;
+            }
+
+            &-likes{
+              display: inline-block;
+              font-size: 14px;
+              font-weight: 400;
+              color: #333;
+              float: right;
+
+              i.far.fa-heart{
+                margin: 0 4px 0 0;
+                color: #ccc;
+                width: 14px;
+                height: 14px;
+              }
+
+              span.likes-counts{
+                margin: 1px 0 0;
+                vertical-align: middle;
+                padding: 0;
+                display: inline-block;
+              }
+            }
+
+            p.item-box-tax{
+              margin: 0 4px 0 0;
+              height: 14px;
+              color: #333;
+              font-size: 11px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}

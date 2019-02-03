@@ -1,0 +1,107 @@
+= render 'shared/header'
+= render 'gretel'
+.content
+  .content-item
+    %h1.content-item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+    .content-item-main
+      .content-item-main-photo
+        .content-item-main-photo-objects
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823",class: "bag-main"
+          .item-tag-sold-out-top
+            .sold-out-text-top SOLD
+        .content-item-main-photo-sub
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823", class: "bag-sub-a"
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823", class: "bag-sub-b"
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823",class: "bag-sub-c"
+          =image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823", class: "bag-sub-b"
+      .content-item-main-table
+        .content-item-main-table-list
+          .content-item-main-table-list-user
+            %p.table-list-user-name-left 出品者
+            .table-list-user-name-right
+              = link_to 'デーモンの召喚', '#',class: 'table-list-user-name-right-name'
+              .user-evaluation
+                %i.fas.fa-grin
+                  %span.user-evaluation-count 999
+                %i.fas.fa-meh
+                  %span.user-evaluation-count 0
+                %i.fas.fa-frown
+                  %span.user-evaluation-count 0
+          .content-item-main-table-list-category
+            %p.table-list-category-name-left カテゴリー
+            = link_to 'デーモンの召喚','#',class: 'table-list-category-name-right'
+          .content-item-main-table-list-brand
+            %p.table-list-brand-name-left ブランド
+            = link_to 'デーモンの召喚','#',class: 'table-list-brand-name-right'
+          .content-item-main-table-list-state
+            %p.table-list-state-rank-left 商品状態
+            = link_to ' やや傷や汚れあり','#',class: 'table-list-state-rank-right'
+          .content-item-main-table-list-delivery-fee
+            %p.table-list-delivery-fee-rank-left 配送料の負担
+            = link_to '送料込み(出品者負担)','#',class: 'table-list-delivery-fee-rank-right'
+          .content-item-main-table-list-delivery-method
+            %p.table-list-delivery-method-dicide-left 配送の方法
+            = link_to ' らくらくメルカリ便','#',class: 'table-list-delivery-method-dicide-right'
+          .content-item-main-table-list-delivery-area
+            %p.table-list-delivery-method-refecture-left 配送元地域
+            = link_to '兵庫県','#',class: 'table-list-delivery-method-refecture-right'
+          .content-item-main-table-list-delivery-date
+            %p.table-list-delivery-date-few-left 配送日の目安
+            = link_to '1~2日で発送','#',class: 'table-list-delivery-date-few-right'
+    .content-item-price-box
+      %span.price-total ¥ 3,380
+      %span.price-tax (税込)
+      %span.price-delivery-fee 送料込み
+    .content-item-product-state
+      %p.buy-button-soldout 売り切れました
+    .content-item-description
+      %p.description-detail
+        ※今だけ、フォロワーになって下さった方に、300円のお値引きサービス中！！
+        私の商品検索は、
+        '#Boon'・バッグ　
+        検索してください。
+        質問がありましたらコメントでよろしくお願いします！
+        ■ 商品説明 ■
+        まずはプロフを確認してください☆
+        ■ 商品詳細 ■
+        シンプルな落ち着いたお色味でどんな場面にも合い、
+        どんな服にも合わせやすいお鞄です。使用感有！角擦れはございませんが
+        多少の汚れはあります。内側はとても綺麗です☆
+        使わなくなったのでどなたか使っていただける方お願いします。
+        製造番号　H2K-9294
+        【ブランド】
+        COACH　コーチ
+        【商品名】
+        コーチ大き目シンプル
+        【仕様】
+        外ポケット１　内ポケット４
+        【サイズ】
+        縦：32
+        横：31
+        幅：7
+        紐：130 多少調節可能
+        ＊他にも数多くの商品を出品しているので、ぜひご覧ください。
+        ＊複数購入、お取り置き(５日まで)もできるので、お気軽にお声がけくださいませ。
+        ＊中古品になりますので、予めご理解いただきますよう、お願い致します^_^
+        ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
+        、お願い致します^_^
+        ※自宅保管、素人検品、素人寸法の誤差などにご理解がない方、神経質な方、完璧な物が欲しい方は購入お控えください。
+        '#シンプル #かわいい #大き目 #かばん #バッグ'
+    .content-item-under-function
+      .content-item-under-function-left
+        = link_to '#', class: 'like-button' do
+          %i.far.fa-heart
+          %span.like.letter いいね！
+          %p.likes-count 7
+        = link_to '#', class: 'inappropriate-button' do
+          %i.fas.fa-biohazard
+          %span.inappropriate.letter 不適切な商品の報告
+      .content-item-under-function-right
+        = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+  = render 'detail_comment'
+  = render 'detail_middle'
+  = render 'link_to_sns'
+  = render 'item-users-exhibit'
+= render 'shared/footer'
