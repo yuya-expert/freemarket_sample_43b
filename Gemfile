@@ -51,7 +51,6 @@ group :development, :test do
   gem "rails-controller-testing"
   gem 'faker'
   gem 'pry-rails'
-  gem 'devise'
 end
 
 group :development do
@@ -69,17 +68,5 @@ gem 'haml-rails'
 gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'recaptcha', require: 'recaptcha/rails'
-
-
-
-
-
-
-
-
-
-
-
-gem 'pry-byebug'
-gem 'pry-doc'
-
+gem 'jquery-rails'
+gem 'devise'
