@@ -20,3 +20,15 @@
   )
   product.save!
 end
+
+require'csv'
+
+csv_data = CSV.read('db/csv/categories.csv', headers: true)
+csv_data.each do |data|
+  Category.create!(data.to_hash)
+end
+
+csv_data = CSV.read('db/csv/brands.csv', headers: true)
+csv_data.each do |data|
+  Brand.create!(data.to_hash)
+end
