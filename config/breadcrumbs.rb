@@ -25,14 +25,3 @@ crumb :payments do |payments|
   link "支払い方法", payments_user_path
   parent :mypages
 end
-
-
-
-# crumb :categories do |category|
-#   link category.name, test_path(category)
-#   parent :root
-# end
-
-# crumb :brands do
-#   link "ブランド一覧",
-# end
