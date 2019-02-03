@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    binding.pry
     if product.save
       redirect_to action: :index
     end
@@ -18,7 +17,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status)
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :category)
   end
 
 end
