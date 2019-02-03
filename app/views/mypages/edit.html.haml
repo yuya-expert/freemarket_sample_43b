@@ -1,0 +1,12 @@
+= render "/shared/header"
+.mypages-body
+  = render "/shared/side-bar"
+  .profile
+    .profile--head
+      プロフィール
+    .profile--container
+      = image_tag 'rikishi.png', size: '60x60', alt: "mercari_icon.png", class: "profile--img"
+      %input.profile--nickname
+    %textarea.profile--text-area
+    = link_to "変更する", "https://www.mercari.com/jp",class: "profile--change-btn"
+

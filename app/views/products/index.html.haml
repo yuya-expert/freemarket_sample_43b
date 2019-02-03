@@ -6,7 +6,12 @@
 %p.pickup-category ピックアップカテゴリー
 .contents
   = render partial: "contents", locals: {content: "レディース"}
+.contents
+  = render partial: "contents", locals: {content: "コスメ・香水・美容"}
 %p.pickup-brand ピックアップブランド
 .contents
+  = render partial: "contents", locals: {content: "シャネル"}
+.contents
+  = render partial: "contents", locals: {content: "ナイキ"}
 
 = render "/shared/footer"
