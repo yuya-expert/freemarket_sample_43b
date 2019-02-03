@@ -20,4 +20,6 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :category)
   end
 
+  def confirmation
+  end
 end
