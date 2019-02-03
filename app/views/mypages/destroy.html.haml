@@ -1,4 +1,6 @@
 = render "/shared/header"
+- breadcrumb :destroy, @destroy
+= breadcrumbs pretext: "メルカリ", separator: " &rsaquo; ", style: :ul
 .wrapper
   = render "/shared/side-bar"
   .logout--container
