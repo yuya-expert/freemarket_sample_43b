@@ -1,0 +1,67 @@
+= render "shared/header"
+= render "shared/exhibit"
+
+.mypages-body
+  =render "shared/side-bar"
+  // 本人確認ページのメイン部分
+  .main-all
+    .identification-wrapper
+      .identification-title
+        .identification-title__main 本人情報の登録
+        .identification-title__text お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+      = form_for "#" do |f|
+        .identification-box
+          .title-wrapper
+            %span.title-small お名前
+            %span.must-icon 必須
+          = f.text_field :last_name, class: "text-field"
+          = f.text_field :first_name, class: "text-field text-field__next"
+        .identification-box
+          .title-wrapper
+            %span.title-small お名前カナ
+            %span.must-icon 必須
+          = f.text_field :last_name_ja, class: "text-field"
+          = f.text_field :first_name_ja, class: "text-field text-field__next"
+        .identification-box
+          .title-wrapper
+            %span.title-small 郵便番号
+            %span.optional-icon 任意
+          = f.text_field :postal_code, class: "text-field", placeholder: "例）150-0043"
+        .identification-box
+          .title-wrapper
+            %span.title-small 都道府県
+            %span.must-icon 必須
+          = f.select :prefecture,["---", "北海道", "沖縄"], {}, {class: "select-field"}
+        .identification-box
+          .title-wrapper
+            %span.title-small 市区町村
+            %span.must-icon 必須
+          = f.text_field :city, class: "text-field", placeholder: "例）渋谷区道玄坂"
+        .identification-box
+          .title-wrapper
+            %span.title-small 番地
+            %span.must-icon 必須
+          = f.text_field :address, class: "text-field", placeholder: "例）2丁目23-12"
+        .identification-box
+          .title-wrapper
+            %span.title-small 建物名
+            %span.optional-icon 任意
+          = f.text_field :building, class: "text-field", placeholder: "例）フォンティスビル7F"
+        .identification-box
+          .title-wrapper
+            %span.title-small 生年月日
+            %span.must-icon 必須
+          = f.date_select :birthday, {use_two_digit_numbers: true}, {class: "date-field"}
+          .birth-wrapper
+            %span.string-year 年
+            %span.string-montu 月
+            %span.string-day 日
+          .identification__attention-text
+            ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+        .identification-box
+          = f.submit "登録する", class: "registration-btn"
+          .about-registration__text
+            = link_to "#", {class: "no-line"} do
+              %span 本人情報の登録について
+              %span.fas.fa-angle-right
+= render "shared/footer"

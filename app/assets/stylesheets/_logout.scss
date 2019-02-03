@@ -1,0 +1,32 @@
+@import "variable";
+
+.logout{
+  &--container{
+    float: right;
+    width: 700px;
+    height: 179px;
+    background-color: #fff;
+    position: relative;
+    margin-right: 15%;
+    margin-top: 18px;
+
+  }
+  &--btn{
+    width: 320px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: $btn-color;
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform : translate(-50%,-50%);
+    transform : translate(-50%,-50%);
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+
+  }
+}
