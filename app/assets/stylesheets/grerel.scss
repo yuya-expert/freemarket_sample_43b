@@ -1,0 +1,54 @@
+.pankuzu{
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+
+  .pankuzu-all{
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 17px 0 16px;
+    white-space: normal;
+
+    .pankuzu-all-list-big{
+      text-overflow: ellipsis;
+      white-space: nowrap;;
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+
+      .list-top{
+        text-decoration: none;
+        color: black;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+
+
+      }
+    }
+
+    i.fas.fa-angle-right{
+      margin: 0 8px;
+      color: #888;
+    }
+
+    .pankuzu-all-list-small{
+      font-weight: 600;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      display: inline-block;
+      font-style: 14px;
+      line-height: 1.2;
+      margin: 0;
+      padding: 0;
+
+      .list-second{
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+
+      }
+    }
+  }
+}
