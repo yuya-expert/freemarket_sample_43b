@@ -30,6 +30,10 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :category_id)
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def confirmation
   end
 end
