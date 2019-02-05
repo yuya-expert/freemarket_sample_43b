@@ -50,8 +50,8 @@ $(function(){
   $('.image-preview--lists').on('DOMSubtreeModified propertychange',function(){
     var text = $('p');
     var field = $('.product-image__upload');
-    var threePicture = 3;
-    var fourPicture = 4;
+    const threePicture = 3;
+    const fourPicture = 4;
     if($('li').length == threePictures){
       field.show();
       text.hide();
