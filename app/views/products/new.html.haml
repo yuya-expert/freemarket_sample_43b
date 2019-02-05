@@ -1,7 +1,7 @@
 = render "/registrations/head"
 
-.new__main-text.box 商品の情報を入力
-= form_for "#" do |f|
+.new__main-text.box-first 商品の情報を入力
+= form_for @product, html: {id: "create-btn"} do |f|
   // 出品画像
   .product-image.box
     .title-wrapper
@@ -9,21 +9,24 @@
       %span.must-icon 必須
     .product-image__info
       最大10枚までアップロードできます
-    .product-image__upload
-      = file_field :name, {}, style: "display: none;", class: "image-upload", id: "image-upload"
+    .product-image__upload{draggable: "true"}
+      = f.file_field :image_id, {style: "display: none;", class: "image-upload", id: "image-upload"}
       .image-upload__text{onClick: "$('#image-upload').click();"}
         %p ドラッグアンドドロップ
         %p またはクリックしてファイルをアップロード
+    %p.error-message.error_image 画像がありません
   // 商品名
   .product-data.box
     .title-wrapper
       %span.product-data__title.title-small 商品名
       %span.must-icon 必須
     = f.text_field :name, class: "product-data__name text-field", placeholder: "商品名(必須 40文字まで)"
+    %p.error-message.error_product-name 入力してください
     .title-wrapper.next
       %span.product-data__title.title-small 商品の説明
       %span.must-icon 必須
-    = f.text_area :name, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    = f.text_area :detail, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    %p.error-message.error_product-detail 入力してください
   // 商品の詳細
   .product-detail.box.double-row
     .left-side 商品の詳細
@@ -31,13 +34,31 @@
       .title-wrapper
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
-      = f.select :name, ["---", "レディース", "メンズ", "ベビー・キッズ"], {}, {class: "product-detail__category select-field"}
+      = f.select :category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
+      #hidden-form__wrapper
+      %p.error-message.error_category 選択してください
+      // 隠しサイズフィールド
+      .hidden-wrapper.select-field__hidden#size-select
+        .title-wrapper.next
+          %span.product-detail__title.title-small サイズ
+          %span.must-icon 必須
+        = f.select :status, Product.sizes.keys.to_a, {}, {class: "product-detail__size select-field"}
+        %p.error-message.error_size 選択してください
+      // 隠しブランドフィールド
+      .hidden-wrapper.select-field__hidden#brand-select
+        .title-wrapper.next
+          %span.product-detail__title.title-small ブランド
+          %span.optional-icon 任意
+        = f.text_field :brand_id, class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"
+      .search-results-wrapper
+        #search-results
       .title-wrapper.next
         %span.product-detail__title.title-small 商品の状態
         %span.must-icon 必須
-      = f.select :name, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
+      = f.select :status, Product.statuses.keys.to_a, {}, {class: "product-detail__status select-field"}
+      %p.error-message.error_product-status 選択してください
   // 配送詳細
-  .product-delivery.box.double-row
+  .product-delivery.box.double-row.clearfix
     .left-side
       %span 配送について
       %span.fas.fa-question-circle.blue-icon
@@ -45,42 +66,56 @@
       .title-wrapper
         %span.product-delivery__title.title-small 配送料の負担
         %span.must-icon 必須
-      = f.select :name, ["---", "着払い", "送料込み"], {}, {class: "product-delivery__fee select-field"}
+      = f.select :delivery_fee, Product.delivery_fees.keys.to_a, {}, {class: "product-delivery__fee select-field", id: "which-charge"}
+      %p.error-message.error_delivery-fee 選択してください
+
+      // 配送方法
+      .hidden-wrapper.select-field__hidden#how-to-delivery.clearfix
+        .title-wrapper.next
+          %span.product-detail__title.title-small 配送の方法
+          %span.must-icon 必須
+        = f.select :area, Product.how_to_deliveries.keys.to_a, {}, {class: "product-detail__how-to-delivery select-field"}
+        %p.error-message.error_how-to-delivery 選択してください
+
+
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送元の地域
         %span.must-icon 必須
-      = f.select :name, ["---", "北は北海道", "南は山口"], {}, {class: "product-delivery__area select-field"}
+      = f.select :area, Product.areas.keys.to_a, {}, {class: "product-delivery__area select-field"}
+      %p.error-message.error_area 選択してください
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送までの日数
         %span.must-icon 必須
-      = f.select :name, ["---", "1〜2日", "数年後"], {}, {class: "product-delivery__days select-field"}
+      = f.select :shipping_dates, Product.shipping_dates.keys.to_a, {}, {class: "product-delivery__days select-field"}
+      %p.error-message.error_shipping-dates 選択してください
   // 価格
-  .product-price.box.double-row.last-box
+  .product-price.box.double-row.last-box.clearfix
     .left-side
       %span 販売価格(300〜9,999,999)
       %span.fas.fa-question-circle.blue-icon
-    .right-side.under-bar
+    .right-side-mini.under-bar
       .right-side__left
         .title-wrapper.left
           %span.product-price__title.title-small 価格
           %span.must-icon 必須
       .right-side__right
         %span.yen-mark ¥
-        = f.text_field :name, placeholder: "例）300", class: "product-price__sell text-field text-field__mini"
-    .right-side.under-bar.second
+        = f.text_field :price, placeholder: "例）300", class: "product-price__sell text-field text-field__mini", id: "price-field"
+      %p.error-message.error_price.clearfix 300以上9999999以下で入力してください
+    .right-side-mini.under-bar.second
       .right-side__left
         .title-wrapper.left
           .product-price__title.title-toosmall 販売手数料(10%)
       .right-side__right
-        .show.show-tax -
-    .right-side.under-bar.third
+        .show.show-tax#tax-field -
+    .right-side-mini.under-bar.third
       .right-side__left
         .title-wrapper.left
           .product-price__title.title-toobig 販売利益
       .right-side__right
-        .show.show-profit -
+        .show.show-profit#profit-field -
   // 注意書きと出品ボタン
-  .product-attention.box
+  .product-attention.box.clearfix
     .attention-text
       .attention
         %p.attention-1
@@ -96,7 +131,8 @@
           また、出品をもちまして
           = link_to "加盟店規約", "#", class: "no-line"
           に同意したことになります。
-    = f.submit "出品する", class: "exhibit-btn"
+    = button_to "出品する", "#", {class: "exhibit-btn"}
+    // = f.submit "出品する", {class: "exhibit-btn"}
     .return-btn__wrapper
       = button_tag "もどる", class: "return-btn"
 
