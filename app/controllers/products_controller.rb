@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def confirmation
   end
 end
