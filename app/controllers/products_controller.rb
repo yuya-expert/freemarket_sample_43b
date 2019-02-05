@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def destroy
+    products = Product.find(params[:id])
+    products.destroy
+    redirect_to root_path
+  end
+
   def confirmation
   end
 end
