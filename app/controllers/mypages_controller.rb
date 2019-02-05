@@ -12,4 +12,7 @@ class MypagesController < ApplicationController
   def profile
   end
 
+  def destroy
+  end
+
 end
