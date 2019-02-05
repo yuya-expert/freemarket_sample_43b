@@ -9,12 +9,16 @@
       %span.must-icon 必須
     .product-image__info
       最大10枚までアップロードできます
-    .product-image__upload{draggable: "true"}
-      = f.file_field :image_id, {style: "display: none;", class: "image-upload", id: "image-upload"}
-      .image-upload__text{onClick: "$('#image-upload').click();"}
-        %p ドラッグアンドドロップ
-        %p またはクリックしてファイルをアップロード
-    %p.error-message.error_image 画像がありません
+    .wrapper.image-preview
+      .image-preview--left
+        %ul.image-preview--lists
+      .product-image__upload
+        = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
+        .image-upload__text{onClick: "$('#image-upload').click();"}
+          %p
+            ドラッグアンドドロップ
+            %br
+            またはクリックしてファイルをアップロード
   // 商品名
   .product-data.box
     .title-wrapper
