@@ -50,14 +50,17 @@ $(function(){
   $('.image-preview--lists').on('DOMSubtreeModified propertychange',function(){
     var text = $('p');
     var field = $('.product-image__upload');
-    if($('li').length === 3){
-      text.parents('field').show();
+    var threePicture = 3;
+    var fourPicture = 4;
+    if($('li').length == threePictures){
+      field.show();
       text.hide();
-    }else if($('li').length === 4){
-      text.parents('field').hide();
+    }else if($('li').length === fourPictures){
+      field.hide();
     }
     else{
-      text.show().parents('field').show();
+      text.show();
+      field.show();
     }
   })
 });
