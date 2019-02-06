@@ -9,8 +9,11 @@ class ProductsController < ApplicationController
 
   def destroy
     products = Product.find(params[:id])
-    products.destroy
-    redirect_to root_path
+    if products.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def confirmation
