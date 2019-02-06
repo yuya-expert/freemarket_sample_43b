@@ -8,11 +8,7 @@ Rails.application.routes.draw do
 
   resources :mypages, only: [:index, :edit, :destroy]
 
-<<<<<<< HEAD
   resources :products, only: [:new, :edit,:show, :destroy] do
-=======
-  resources :products, only: [:new, :edit] do
->>>>>>> wonder-boooy/master
     member do
       get "confirmation"
     end
