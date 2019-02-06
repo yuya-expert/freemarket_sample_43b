@@ -12,4 +12,11 @@ describe ProductsController do
         expect(response.status).to eq 200
     end
   end
+
+  describe 'delete #destroy' do
+    it "deletes the product" do
+      product = create(:product)
+        expect{delete :destroy, id: product}.to change(Product,:count).by(-1)
+    end
+  end
 end
