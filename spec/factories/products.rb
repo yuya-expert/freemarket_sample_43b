@@ -2,7 +2,7 @@ FactoryBot.define do
 
   factory :product do
     name {"111"}
-    detail {"222}{"}
+    detail {"222"}
     status {"333"}
     delivery_fee {"444"}
     area {"555"}
