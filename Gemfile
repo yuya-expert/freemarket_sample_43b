@@ -69,4 +69,9 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'jquery-rails'
+<<<<<<< HEAD
 gem 'seed_dump'
+=======
+gem 'devise'
+gem 'gretel'
+>>>>>>> wonder-boooy/master

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20190203080056) do
+=======
+ActiveRecord::Schema.define(version: 20190203081129) do
+>>>>>>> wonder-boooy/master
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "list",       null: false
@@ -37,6 +41,26 @@ ActiveRecord::Schema.define(version: 20190203080056) do
     t.index ["user_id"], name: "index_delivery_addresses_on_user_id", using: :btree
   end
 
+<<<<<<< HEAD
+=======
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "image",      null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_images_on_product_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
+>>>>>>> wonder-boooy/master
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                      null: false
     t.text     "detail",          limit: 65535,             null: false
@@ -92,5 +116,9 @@ ActiveRecord::Schema.define(version: 20190203080056) do
   end
 
   add_foreign_key "delivery_addresses", "users"
+<<<<<<< HEAD
+=======
+  add_foreign_key "images", "products"
+>>>>>>> wonder-boooy/master
   add_foreign_key "reviews", "users"
 end

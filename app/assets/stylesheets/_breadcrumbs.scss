@@ -1,0 +1,28 @@
+.breadcrumbs{
+  display: block;
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+  padding: 16px 0 ;
+  font-size: 14px;
+  font-weight: 400;
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  box-shadow: 1px 1px 10px #CCC;
+  width: 100vw;
+
+  .pretext{
+    display: inline-block;
+    margin-left: 15vw;
+    padding: 0 5px;
+  }
+
+  li{
+    display: inline;
+    margin: 3px;
+  }
+
+  .current{
+    font-weight: 700;
+  }
+}
