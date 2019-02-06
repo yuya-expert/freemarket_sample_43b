@@ -1,9 +1,10 @@
 $(function(){
   $("#create-btn").submit(function(e){
-    console.log(e);
     var judge = 0;
-    // バリデーションの非同期通信開始
-    console.log("イベント停止");
+    // バリデーション
+    // 出品画像
+    console.log($(".preview-file").children().attr("src"));
+
     // 商品名
     if($(".product-data__name").val() == ""){
       $(".error-message.error_product-name").show();
@@ -75,10 +76,7 @@ $(function(){
     } else {
       $(".error-message.error_price").hide();
     }
-    if(judge == 0){
-      console.log(judge);
-      console.log(e);
-    } else {
+    if(judge != 0){
       e.preventDefault();
     }
   })
