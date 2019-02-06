@@ -1,0 +1,82 @@
+= render 'shared/header'
+= render 'product_detail/gretel'
+.content-my-product
+  .content-my-product--detail
+    .content-my-product--detail--inner
+      .content-my-product--detail--inner--main
+        %h2.exhibit-user-item-name マスク
+        .content-my-product--detail--inner--main--box
+          .content-my-product--detail--inner--main--box--photo
+            .content-my-product--detail--inner--main--box--photo--inner
+              .content-my-product--detail--inner--main--box--photo--inner--list
+                = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554',class: 'item-photo-exhibited'
+            .content-my-product--detail--inner--main--box--photo--underbox
+              %ul.content-item-main-photo-sub
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_3.jpg?1549190249" alt="マスク" class="owl-lazy', class: 'item-sub'
+
+          %table.item-detail-table-exhibit
+            %tbody.item-detail-table-exhibit--body
+              %tr.record--name
+                %th.record--name--left 出品者
+                %td.record--name--right
+                  =link_to "出品者","#", class: "exhibit-product-user-name"
+              %tr.record--category
+                %th.record--category--left カテゴリー
+                %td.record--category--right
+                  = link_to "インテリア・住まい・小物","#", class: "exhibit-prodct-category"
+                  = link_to "季節/年中行事","#",class: " exhibit-prodct-category"
+                  = link_to "その他","#",class: "exhibit-prodct-category"
+              %tr.record--brand
+                %th.record--brand--left ブランド
+                %td.record--brand--right
+                  = link_to "ブランド","#", class: "exhibt-product-brand"
+              %tr.record--state
+                %th.record--state--left 商品の状態
+                %td.record--state--right 新品、未使用
+              %tr.record--delivery-fee
+                %th.record--delivery-fee--left 配送料の負担
+                %td.record--delivery-fee--right 着払い(購入者負担)
+              %tr.record--delivery-method
+                %th.record--delivery-method--left 配送の方法
+                %td.record--delivery-method--right 未定
+              %tr.record--delivery-area
+                %th.record--delivery-area--left 配送元地域
+                %td.record--delivery-area--right
+                  = link_to "東京都","#",class: "exhibit-delivery-area"
+              %tr.record--delivery-date
+                %th.record--delivery-date--left 発送日の目安
+                %td.record--delivery-date--right 4〜7日で発送
+        .content-my-product--detail--inner--main--price
+          %span.exhibit-product-price ¥1,000,000
+          %span.exhibit-product-fee (税込)
+          %span.exhibit-product-method 着払い
+        .content-my-product--detail--inner--main--description
+          %p.description-about-product コメント　スペース　を　空ける
+          改行
+
+      .content-my-product--detail--inner--middle
+        = link_to "商品の編集", "#" ,class: "exhibit-product-edit"
+        %p.content-my-product--detail--inner--middle--center-text or
+        %form.stop-exhibit-product
+          %input.stop-exhibit-product--send
+          %button.stop-exhibit-product--submit 出品を一旦停止する
+        %form.delete-exhibit-product 商品を削除する
+        .content-jquery
+          .content-jquery--text-box
+            .content-jquery--text-box--inner
+              .content-jquery--text-box--inner--title 確認
+              %p.content-jquery--text-box--text 削除すると二度と復活できません。
+              %p.content-jquery--text-box--text 削除する代わりに停止することもできます。
+              %p.content-jquery--text-box--text 本当に削除しますか？
+            .content-jquery--text-box--bottom
+              = link_to 'キャンセル','/products/1/edit',class: 'content-jquery--text-box--bottom--left'
+              .content-jquery--text-box--bottom--right
+                = link_to '削除する',product_path, method: :delete, class: 'delete-product-bottom'
+= render 'shared/footer'
