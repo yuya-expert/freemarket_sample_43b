@@ -6,14 +6,19 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @image = Image.new
     @categories = Category.where("parent_id= '0'")
     @categories = @categories.map{|a| [a[:name], a[:id]] }
   end
 
   def create
-    product = Product.new(product_params)
-    if product.save
-      redirect_to action: :index
+    @product = Product.new(product_params)
+    if @product.save
+      @image = Image.new(image_params)
+      binding.pry
+        if @image.save
+          redirect_to action: :index
+        end
     end
   end
 
@@ -28,6 +33,10 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :category_id)
+  end
+
+  def image_params
+    params.require(:image).permit(image: []).merge(product_id: @product.id)
   end
 
   def edit

@@ -3,22 +3,24 @@
 .new__main-text.box-first 商品の情報を入力
 = form_for @product, html: {id: "create-btn"} do |f|
   // 出品画像
-  .product-image.box
-    .title-wrapper
-      %span.product-image__title.title-big 出品画像
-      %span.must-icon 必須
-    .product-image__info
-      最大10枚までアップロードできます
-    .wrapper.image-preview
-      .image-preview--left
-        %ul.image-preview--lists
-      .product-image__upload
-        = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
-        .image-upload__text{onClick: "$('#image-upload').click();"}
-          %p
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+  = fields_for @image do |fin|
+    .product-image.box
+      .title-wrapper
+        %span.product-image__title.title-big 出品画像
+        %span.must-icon 必須
+      .product-image__info
+        最大10枚までアップロードできます
+      .wrapper.image-preview
+        .image-preview--left
+          %ul.image-preview--lists
+        .product-image__upload
+          = fin.file_field :image, {class: "image-upload", id: "image-upload", multiple: "true", enctype: "multipart/form-data"}
+          // = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
+          .image-upload__text{onClick: "$('#image-upload').click();"}
+            %p
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
   // 商品名
   .product-data.box
     .title-wrapper
