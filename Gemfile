@@ -69,3 +69,4 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'jquery-rails'
+gem 'seed_dump'
