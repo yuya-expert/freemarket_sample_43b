@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20190203081129) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image",      null: false
-    t.integer  "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image",      default: "", null: false
+    t.integer  "product_id",              null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
