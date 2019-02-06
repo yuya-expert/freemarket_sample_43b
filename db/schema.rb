@@ -10,9 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190202113357) do
-=======
 ActiveRecord::Schema.define(version: 20190203081129) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -20,7 +17,6 @@ ActiveRecord::Schema.define(version: 20190203081129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
->>>>>>> master
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "parent_id"
@@ -28,8 +24,6 @@ ActiveRecord::Schema.define(version: 20190203081129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-<<<<<<< HEAD
-=======
 
   create_table "delivery_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "postal_code"
@@ -59,7 +53,6 @@ ActiveRecord::Schema.define(version: 20190203081129) do
     t.index ["product_id"], name: "index_likes_on_product_id", using: :btree
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
->>>>>>> master
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                      null: false
@@ -72,9 +65,6 @@ ActiveRecord::Schema.define(version: 20190203081129) do
     t.integer  "delivery_status",               default: 1, null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
-<<<<<<< HEAD
-    t.integer  "category"
-=======
     t.integer  "user_id"
     t.integer  "brand_id"
     t.integer  "category_id"
@@ -116,10 +106,11 @@ ActiveRecord::Schema.define(version: 20190203081129) do
     t.datetime "updated_at",                                        null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
->>>>>>> master
   end
 
   add_foreign_key "delivery_addresses", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "reviews", "users"
 end
