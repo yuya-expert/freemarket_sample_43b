@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
   end
-<<<<<<< HEAD
+
   def destroy
     products = Product.find(params[:id])
     if products.destroy
@@ -19,8 +19,7 @@ class ProductsController < ApplicationController
       render :show
     end
   end
-=======
->>>>>>> wonder-boooy/master
+
 
   def confirmation
   end
