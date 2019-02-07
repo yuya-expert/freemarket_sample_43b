@@ -5,22 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-30.times do |number|
-  n = number + 1
-  product = Product.create!(
-    name: "product_#{n}",
-    detail: "#{n}detail#{n}",
-    status: "1",
-    delivery_fee: "#{n + n}",
-    area: "anywhere",
-    shipping_dates: "someday",
-    price: "#{n * n}",
-    delivery_status: "aaa"
-  )
-  product.save!
-end
-
 require'csv'
 
 csv_data = CSV.read('db/csv/categories.csv', headers: true)
@@ -31,4 +15,22 @@ end
 csv_data = CSV.read('db/csv/brands.csv', headers: true)
 csv_data.each do |data|
   Brand.create!(data.to_hash)
+end
+
+30.times do |number|
+  n = number + 1
+  product = Product.create!(
+    name: "product_#{n}",
+    detail: "#{n}detail#{n}",
+    status: rand(1..6),
+    delivery_fee: rand(1..2),
+    area: rand(1..47),
+    shipping_dates: rand(1..3),
+    price: rand(1..9)*1000,
+    delivery_status: 1,
+    user_id: rand(1..5),
+    brand_id: rand(1..10),
+    category_id: rand(1..100)
+  )
+  product.save!
 end
