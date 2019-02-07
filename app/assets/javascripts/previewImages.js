@@ -1,8 +1,5 @@
 $(function(){
   function buildHTML(image){
-
-    console.log(typeof image);
-    console.log(`imageは ${image}`);
     var preview = `<li class="preview">
                       <div class="preview-file">
                         <img src=${image} >
