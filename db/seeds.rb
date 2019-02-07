@@ -5,6 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+n = 1
+5.times do |user|
+  user = User.create!(
+    nickname: "ピカチュウ",
+    last_name: "サトシ",
+    first_name: "オオキド",
+    last_name_ja: "さとし",
+    first_name_ja: "おおきど",
+    email: "satoshi#{n}@mail",
+    postal_code: "123-4567",
+    prefecture: rand(1..47),
+    city: "渋谷区",
+    address: "道玄坂",
+    building: "フォンティスビル",
+    phone_number: "08012345678",
+    birthday: "1995-12-30",
+    password: "password"
+  )
+  user.save!
+  n += 1
+end
+
 require'csv'
 
 csv_data = CSV.read('db/csv/categories.csv', headers: true)
