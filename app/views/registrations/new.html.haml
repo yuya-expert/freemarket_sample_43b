@@ -1,6 +1,5 @@
 .main-content
   = render 'head'
-
   .main-content__main-log
     .main-content__main-log-all
       .main-content__main-log-all-no-account
@@ -17,7 +16,6 @@
         .form-login
           .form-login-email
             %input.login-email{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-
           .form-login-password
             %input.login-password{:name => "password", :placeholder => "パスワード", :type => "password", :value => ""}/
           .form-login-no-robot
@@ -25,9 +23,4 @@
               %iframe.function{:frameborder => "0",:name => "a-d94ji2azf20f", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1548052318968&size=normal&cb=l0ai797j6fud",}
           %button.login-submit{:type => "submit"} ログイン
           =link_to 'パスワードをお忘れの方','https://www.mercari.com/jp/password/reset/start/',class: 'forget-password'
-
-
-
-
-
   = render 'footer'
