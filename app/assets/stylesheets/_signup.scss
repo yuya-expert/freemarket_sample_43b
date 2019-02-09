@@ -1,0 +1,28 @@
+p.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+.sign-up {
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  background-color: white;
+  &__main-text {
+    height: 97px;
+    line-height: 97px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #F5F5F5;
+    margin-bottom: 60px;
+  }
+  &__form-wrapper {
+    width: 320px;
+    margin: 0 auto;
+    .form-set {
+      margin-top: 36px;
+    }
+  }
+}

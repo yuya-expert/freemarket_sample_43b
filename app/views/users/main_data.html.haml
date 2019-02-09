@@ -1,0 +1,29 @@
+.main-content
+  = render 'registrations/head'
+  .sign-up
+    .sign-up__main-text
+      会員情報入力
+    .sign-up__form-wrapper
+      = form_for @user do |f|
+        .form-set
+          .title-wrapper
+            %span.title-small メールアドレス
+            %span.must-icon 必須
+          = f.email_field :email, {class: "text-field sign-up__email", placeholder: "PC・携帯どちらでも可"}
+          %p.error-text.email-error メールアドレスを入力してください
+          %p.error-text.email-format-error フォーマットが不適切です
+        .form-set
+          .title-wrapper
+            %span.title-small パスワード
+            %span.must-icon 必須
+          = f.password_field :password, {class: "text-field sign-up__password", placeholder: "6文字以上"}
+          %p.error-text.password-error パスワードを入力してください
+          %p.error-text.password-length-error パスワードは6文字以上128文字以下で入力してください
+        .form-set
+          .title-wrapper
+            %span.title-small パスワード(確認)
+            %span.must-icon 必須
+          = f.password_field :password_confirmation, {class: "text-field sign-up__password_confirmation", placeholder: "6文字以上"}
+          %p.error-text.password_confirmation-error パスワード(確認)を入力してください
+        = f.button "次へ進む", {class: "exhibit-btn"}
+  = render 'registrations/footer'
