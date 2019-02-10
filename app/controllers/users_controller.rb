@@ -7,15 +7,6 @@ class UsersController < ApplicationController
   def sms_confirmation
   end
 
-  def create
-    user = User.new(users_params)
-    if user.save
-      redirect_to controller: :products, action: :index
-    else
-      render :main_data
-    end
-  end
-
   def edit
   end
 
