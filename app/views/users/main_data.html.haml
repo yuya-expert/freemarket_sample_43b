@@ -25,5 +25,6 @@
             %span.must-icon 必須
           = f.password_field :password_confirmation, {class: "text-field sign-up__password_confirmation", placeholder: "6文字以上"}
           %p.error-text.password_confirmation-error パスワード(確認)を入力してください
+          %p.error-text.password_confirmation-integrity-error パスワードとパスワード (確認) が一致しません
         = f.button "次へ進む", {class: "exhibit-btn"}
   = render 'registrations/footer'
