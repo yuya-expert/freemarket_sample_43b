@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :mypages, only: [:index, :edit, :destroy]
+
   resources :products, only: [:new, :edit,:show, :destroy] do
     resources :likes, only: [:create, :destroy]
     member do
