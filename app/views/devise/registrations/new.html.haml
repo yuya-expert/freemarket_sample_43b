@@ -1,26 +1,20 @@
 .main-content
   = render 'registrations/head'
-  .main-content__main-log
-    .main-content__main-log-all
-      .main-content__main-log-all-no-account
-        %p アカウントをお持ちでない方はこちら
-        = link_to '新規会員登録', main_data_users_path ,class: 'link-signin'
-      .main-content__main-log-all-login
-        %button.facebook
-          %i.fab.fa-facebook.fa-pull-left
-          Facebookでログイン
-        %button.google
-          %i.fab.fa-google-plus-g.fa-pull-left
-          Googleでログイン
-      %form{:action => "https://www.mercari.com/jp/login/", :method => "#", :novalidate => "#"}
-        .form-login
-          .form-login-email
-            %input.login-email{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-          .form-login-password
-            %input.login-password{:name => "password", :placeholder => "パスワード", :type => "password", :value => ""}/
-          .form-login-no-robot
-            .form-login-no-robot-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
-              %iframe.function{:frameborder => "0",:name => "a-d94ji2azf20f", :role => "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=2&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=v1548052318968&size=normal&cb=l0ai797j6fud",}
-          %button.login-submit{:type => "submit"} ログイン
-          =link_to 'パスワードをお忘れの方','https://www.mercari.com/jp/password/reset/start/',class: 'forget-password'
+  .main-content__main-sign
+    .main-content__main-sign-content
+      .main-content__main-sign-content-head 新規会員登録
+      .main-content__main-sign-content-inner
+        .main-content__main-sign-content-inner-content
+          = link_to  main_data_users_path ,class: 'e-mail' do
+            %i.far.fa-envelope
+            メールアドレスで登録
+          %button.facebook-login
+            %i.fab.fa-facebook.fa-pull-left
+            Facebookで登録
+          %button.google-login
+            %i.fab.fa-google-plus-g.fa-pull-left
+            Googleで登録
   = render 'registrations/footer'
+
+
+

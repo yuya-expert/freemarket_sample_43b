@@ -13,11 +13,13 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index, :edit, :destroy]
 
   resources :products, only: [:new, :edit,:show, :destroy] do
+    resources :likes, only: [:create, :destroy]
     member do
       get "confirmation"
+      get "detail"
+
     end
   end
-
   resources :registrations, only: [:index, :new]
   root "products#index"
 end

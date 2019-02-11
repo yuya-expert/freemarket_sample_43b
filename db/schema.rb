@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20190209074646) do
     t.integer  "user_id"
     t.integer  "brand_id"
     t.integer  "category_id"
+    t.integer  "shipping_method"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
