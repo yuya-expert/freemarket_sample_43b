@@ -7,7 +7,22 @@ class ProductsController < ApplicationController
   def new
   end
 
-  def show
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def destroy
+    products = Product.find(params[:id])
+    if products.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+
+
+  def detail
     @product = Product.find(params[:id])
     @product_user = Product.find_by(user_id: params[:user_id])
     @category_id = Category.find(@product.category_id)
@@ -22,8 +37,6 @@ class ProductsController < ApplicationController
     @likes_count = Like.where(product_id: @product.id).count
     @after_item = Product.order("RAND()").first
     @before_item = Product.order("RAND()").last
-    # Product.find(params[:user_id])
-    # これをwhereの中に追加する
   end
 
   def confirmation

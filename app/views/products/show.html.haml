@@ -1,90 +1,82 @@
-%input{name: "sold", type: "hidden", value:  @product.status, class: 'sold' }/
 = render 'shared/header'
-= render 'shared/gretel'
-.content
-  .content-item
-    %h1.content-item-name
-      = @product.name
-    .content-item-main
-      .content-item-main-photo
-        .content-item-main-photo-objects
-          = image_tag @product.images[0].image,class: "item-main"
-          .item-tag-sold-out-top
-            .sold-out-text-top SOLD
-        %ul.content-item-main-photo-sub
-          %li.item-sub
-            = image_tag @product.images[0].image, class: "item-sub"
-          %li.item-sub
-            = image_tag @product.images[1].image, class: "item-sub"
-          %li.item-sub
-            = image_tag @product.images[2].image,class: "item-sub"
-          %li.item-sub
-            =image_tag @product.images[3].image, class: "item-sub"
-      .content-item-main-table
-        .content-item-main-table-list
-          .content-item-main-table-list-user
-            %p.table-list-user-name-left 出品者
-            .table-list-user-name-right
-              = link_to "#{@product.user.nickname}", '#',class: 'table-list-user-name-right-name'
-              .user-evaluation
-                %i.fas.fa-grin
-                  %span.user-evaluation-count
-                  = @review_good
-                %i.fas.fa-meh
-                  %span.user-evaluation-count
-                  = @review_nomal
-                %i.fas.fa-frown
-                  %span.user-evaluation-count
-                  = @review_bad
-          .content-item-main-table-list-category
-            %p.table-list-category-name-left カテゴリー
-            = link_to "#{@category_parent_id.name}",'#',class: 'table-list-category-name-right--top'
-            %p
-            %i.fas.fa-chevron-right.category-icon
-            = link_to "#{@category_child_id.name}",'#',class: 'table-list-category-name-right'
+= render 'product_detail/gretel'
+.content-my-product
+  .content-my-product--detail
+    .content-my-product--detail--inner
+      .content-my-product--detail--inner--main
+        %h2.exhibit-user-item-name マスク
+        .content-my-product--detail--inner--main--box
+          .content-my-product--detail--inner--main--box--photo
+            .content-my-product--detail--inner--main--box--photo--inner
+              .content-my-product--detail--inner--main--box--photo--inner--list
+                = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554',class: 'item-photo-exhibited'
+            .content-my-product--detail--inner--main--box--photo--underbox
+              %ul.content-item-main-photo-sub
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                %li.item-sub
+                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_3.jpg?1549190249" alt="マスク" class="owl-lazy', class: 'item-sub'
 
-            %p
-            %i.fas.fa-chevron-right.category-icon
-            = link_to "#{@product.category.name}",'#',class: 'table-list-category-name-right'
+          %table.item-detail-table-exhibit
+            %tbody.item-detail-table-exhibit--body
+              %tr.record--name
+                %th.record--name--left 出品者
+                %td.record--name--right
+                  =link_to "出品者","#", class: "exhibit-product-user-name"
+              %tr.record--category
+                %th.record--category--left カテゴリー
+                %td.record--category--right
+                  = link_to "インテリア・住まい・小物","#", class: "exhibit-prodct-category"
+                  = link_to "季節/年中行事","#",class: " exhibit-prodct-category"
+                  = link_to "その他","#",class: "exhibit-prodct-category"
+              %tr.record--brand
+                %th.record--brand--left ブランド
+                %td.record--brand--right
+                  = link_to "ブランド","#", class: "exhibt-product-brand"
+              %tr.record--state
+                %th.record--state--left 商品の状態
+                %td.record--state--right 新品、未使用
+              %tr.record--delivery-fee
+                %th.record--delivery-fee--left 配送料の負担
+                %td.record--delivery-fee--right 着払い(購入者負担)
+              %tr.record--delivery-method
+                %th.record--delivery-method--left 配送の方法
+                %td.record--delivery-method--right 未定
+              %tr.record--delivery-area
+                %th.record--delivery-area--left 配送元地域
+                %td.record--delivery-area--right
+                  = link_to "東京都","#",class: "exhibit-delivery-area"
+              %tr.record--delivery-date
+                %th.record--delivery-date--left 発送日の目安
+                %td.record--delivery-date--right 4〜7日で発送
+        .content-my-product--detail--inner--main--price
+          %span.exhibit-product-price ¥1,000,000
+          %span.exhibit-product-fee (税込)
+          %span.exhibit-product-method 着払い
+        .content-my-product--detail--inner--main--description
+          %p.description-about-product コメント　スペース　を　空ける
+          改行
 
-          .content-item-main-table-list-brand
-            %p.table-list-brand-name-left ブランド
-            = link_to "#{@product.brand.list}",'#',class: 'table-list-brand-name-right'
-          .content-item-main-table-list-state
-            %p.table-list-state-rank-left 商品状態
-            = link_to ' やや傷や汚れあり','#',class: 'table-list-state-rank-right'
-          .content-item-main-table-list-delivery-fee
-            %p.table-list-delivery-fee-rank-left 配送料の負担
-            = link_to '送料込み(出品者負担)','#',class: 'table-list-delivery-fee-rank-right'
-          .content-item-main-table-list-delivery-method
-            %p.table-list-delivery-method-dicide-left 配送の方法
-            = @product.shipping_method
-          .content-item-main-table-list-delivery-area
-            %p.table-list-delivery-method-refecture-left 配送元地域
-            .table-list-delivery-method-dicide-right
-            = @product.area
-          .content-item-main-table-list-delivery-date
-            %p.table-list-delivery-date-few-left
-              配送日の目安
-            %p.table-list-delivery-method-dicide-right
-              = @product.shipping_dates
-    .content-item-price-box
-      %span.price-total
-        = "¥#{@product.price}"
-      %span.price-tax (税込)
-      %span.price-delivery-fee 送料込み
-    .content-item-product-state
-      %p.buy-button-soldout 売り切れました
-    .content-item-product-state-buy
-      = link_to "購入画面に進む", confirmation_product_path, class: 'buy-button-buy'
-    .content-item-description
-      %p.description-detail
-        = @product.detail
-    = render "likes/like",product: @product
-  = render 'shared/detail_comment'
-  = render 'shared/detail_middle'
-  = render 'shared/link_to_sns'
-  = render 'shared/item-users-exhibit'
+      .content-my-product--detail--inner--middle
+        = link_to "商品の編集", "#" ,class: "exhibit-product-edit"
+        %p.content-my-product--detail--inner--middle--center-text or
+        %form.stop-exhibit-product
+          %input.stop-exhibit-product--send
+          %button.stop-exhibit-product--submit 出品を一旦停止する
+        %form.delete-exhibit-product 商品を削除する
+        .content-jquery
+          .content-jquery--text-box
+            .content-jquery--text-box--inner
+              .content-jquery--text-box--inner--title 確認
+              %p.content-jquery--text-box--text 削除すると二度と復活できません。
+              %p.content-jquery--text-box--text 削除する代わりに停止することもできます。
+              %p.content-jquery--text-box--text 本当に削除しますか？
+            .content-jquery--text-box--bottom
+              = link_to 'キャンセル','/products/1/edit',class: 'content-jquery--text-box--bottom--left'
+              .content-jquery--text-box--bottom--right
+                = link_to '削除する',product_path, method: :delete, class: 'delete-product-bottom'
 = render 'shared/footer'
-
-

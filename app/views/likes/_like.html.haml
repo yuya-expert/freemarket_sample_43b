@@ -27,39 +27,3 @@
         = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-
-
-/ .content-item-under-function
-/   .content-item-under-function-left
-/     - if product.like?(current_user)
-/       .like-button
-/         = form_for(product.likes.build, remote: true) do |f|
-/           %div= hidden_field_tag :product_id, product.id
-/           = button_tag(class: "btn btn-default btn-xs") do
-/             = content_tag :span, "", class: "input i fas fa-heart like-icon"
-/           %span.like.letter いいね！
-/           %p.likes-count
-/             = @likes_count
-/       = link_to '#', class: 'inappropriate-button' do
-/         %i.fas.fa-biohazard
-/         %span.inappropriate.letter 不適切な商品の報告
-/       .content-item-under-function-right
-/         = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
-/           %i.fas.fa-lock
-/           %span あんしん・あんぜんへの取り組み
-/     - else
-/       .like-button
-/         = form_for(product.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f|
-/           = button_tag(class: "btn btn-default btn-xs") do
-/             = content_tag :span, "", class: "i fas fa-heart unlike-icon"
-/           %span.like.letter いいね！
-/           %p.likes-count
-/             = @likes_count
-/       = link_to '#', class: 'inappropriate-button' do
-/         %i.fas.fa-biohazard
-/         %span.inappropriate.letter 不適切な商品の報告
-/       .content-item-under-function-right
-/         = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
-/           %i.fas.fa-lock
-/           %span あんしん・あんぜんへの取り組み
-
