@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20190205071300) do
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "image",      null: false
-    t.integer  "product_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image",      default: "", null: false
+    t.integer  "product_id",              null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
@@ -111,5 +111,7 @@ ActiveRecord::Schema.define(version: 20190205071300) do
 
   add_foreign_key "delivery_addresses", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
   add_foreign_key "reviews", "users"
 end
