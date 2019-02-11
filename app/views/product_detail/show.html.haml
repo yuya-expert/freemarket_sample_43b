@@ -1,8 +1,9 @@
 = render 'shared/header'
-= render 'gretel'
+= render 'shared/gretel'
 .content
   .content-item
-    %h1.content-item-name 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+    %h1.content-item-name
+      = @product.name
     .content-item-main
       .content-item-main-photo
         .content-item-main-photo-objects
@@ -10,10 +11,10 @@
           .item-tag-sold-out-top
             .sold-out-text-top SOLD
         .content-item-main-photo-sub
-          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823", class: "bag-sub-a"
-          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823", class: "bag-sub-b"
-          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823",class: "bag-sub-c"
-          =image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823", class: "bag-sub-b"
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_1.jpg?1539045823", class: "bag-sub"
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_2.jpg?1539045823", class: "bag-sub"
+          = image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_3.jpg?1539045823",class: "bag-sub"
+          =image_tag "https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m70068440240_4.jpg?1539045823", class: "bag-sub"
       .content-item-main-table
         .content-item-main-table-list
           .content-item-main-table-list-user
@@ -100,8 +101,8 @@
         = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-  = render 'detail_comment'
-  = render 'detail_middle'
-  = render 'link_to_sns'
-  = render 'item-users-exhibit'
+  = render 'shared/detail_comment'
+  = render 'shared/detail_middle'
+  = render 'shared/link_to_sns'
+  = render 'shared/item-users-exhibit'
 = render 'shared/footer'
