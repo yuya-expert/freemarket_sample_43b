@@ -1,0 +1,13 @@
+%ul.link.to.product
+  %li.item-prev
+    = link_to "#{@before_item.id}", class: "detail-product-prev" do
+      %i.fas.fa-chevron-left
+      %span.detail-product-prev-text
+        = @before_item.name
+  %li.item-next
+    = link_to "{@after_item.id}", class: "detail-product-next" do
+      %span.detail-product-next-text
+        = @after_item.name
+      %i.fas.fa-chevron-right
+
+

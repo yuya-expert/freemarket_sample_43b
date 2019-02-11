@@ -7,13 +7,12 @@ Rails.application.routes.draw do
   end
 
   resources :mypages, only: [:index, :edit, :destroy]
-
-  resources :products, only: [:new] do
+  resources :products, only: [:new, :show] do
+    resources :likes, only: [:create, :destroy]
     member do
       get "confirmation"
     end
   end
-
   resources :registrations, only: [:index, :new]
   root "products#index"
 end
