@@ -30,15 +30,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  private
-  def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)
-  end
-
-  def image_params
-    params.require(:image).permit(image: []).merge(product_id: @product.id)
-  end
-
   def edit
     @product = Product.find(params[:id])
   end
@@ -71,4 +62,14 @@ class ProductsController < ApplicationController
 
   def confirmation
   end
+
+  private
+  def product_params
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)
+  end
+
+  def image_params
+    params.require(:image).permit(image: []).merge(product_id: @product.id)
+  end
+
 end
