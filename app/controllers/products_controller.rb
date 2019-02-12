@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = Image.new
-    @categories = Category.where("parent_id= '0'")
-    @categories = @categories.map{|a| [a[:name], a[:id]] }
+    @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
 
   def create
