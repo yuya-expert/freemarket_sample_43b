@@ -1,0 +1,29 @@
+.content-item-under-function
+  .content-item-under-function-left
+    - if current_user.already_liked?(@product)
+      .like-button
+        = link_to "", product_like_path(@product), method: :delete, remote: "true", class: "i fas fa-heart unlike-icon"
+        %span.like.letter いいね！
+        %p.likes-count
+          = @likes_count
+      = link_to '#', class: 'inappropriate-button' do
+        %i.fas.fa-biohazard
+        %span.inappropriate.letter 不適切な商品の報告
+      .content-item-under-function-right
+        = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
+    - else
+      .like-button
+        = form_for [@product, @like] do |f|
+          %button{type:"submit", class: "input i fas fa-heart like-icon", remote: "true"}
+          %span.like.letter いいね！
+          %p.likes-count
+            = @likes_count
+      = link_to '#', class: 'inappropriate-button' do
+        %i.fas.fa-biohazard
+        %span.inappropriate.letter 不適切な商品の報告
+      .content-item-under-function-right
+        = link_to 'https://www.mercari.com/jp/safe/description/', class: 'efforts-for' do
+          %i.fas.fa-lock
+          %span あんしん・あんぜんへの取り組み
