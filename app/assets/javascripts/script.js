@@ -83,7 +83,6 @@ $(document).on("turbolinks:load",function(){
     }
   })
   // 非同期通信専用専用js
-  console.log("スタート");
   var results = $("#search-results");
   // ブランド入力時のインクリメンタルサーチ
     $(document).on("keyup", "#brand-field", function(){
@@ -92,7 +91,6 @@ $(document).on("turbolinks:load",function(){
         results.append(html);
       }
       var $val = $(this).val();
-      console.log($val);
       if($val != "") {
         // 非同期通信
         $.ajax({
@@ -103,7 +101,6 @@ $(document).on("turbolinks:load",function(){
         })
         .done(function(data){
           results.empty();
-          console.log(data);
           if(data.length != 0){
             data.forEach(function(brand){
               addHTML(brand);
@@ -120,8 +117,6 @@ $(document).on("turbolinks:load",function(){
   $(document).on("click", ".search-result", function(){
     selected_brand_name = $(this).html();
     selected_brand_id = $(this).attr("data-id");
-    console.log(selected_brand_name);
-    console.log(selected_brand_id);
     var new_html = `<input type="text" class="product-detail__brand text-field" placeholder="例）ヤムル" id="brand-field" value="${selected_brand_name}"">
     <input type="hidden" name="product[brand_id]" value=${selected_brand_id}>`
     $("#brand-field").remove();

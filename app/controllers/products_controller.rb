@@ -32,9 +32,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    # binding.pry
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)
-    # binding.pry
   end
 
   def image_params

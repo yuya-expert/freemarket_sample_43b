@@ -2,9 +2,6 @@ $(function(){
   $("#create-btn").submit(function(e){
     var judge = 0;
     // バリデーション
-    // 出品画像
-    console.log($(".preview-file").children().attr("src"));
-
     // 商品名
     if($(".product-data__name").val() == ""){
       $(".error-message.error_product-name").show();
