@@ -22,8 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def search_category
-    @child_categories = Category.where(("parent_id= #{params[:id]}"))
-    @child_categories = @child_categories.map{|a| [a[:name], a[:id]]}
+    @child_categories = Category.where(("parent_id= #{params[:id]}")).map{|a| [a[:name], a[:id]]}
     respond_to do |format|
       format.json
     end
