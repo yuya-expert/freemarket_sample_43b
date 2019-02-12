@@ -1,4 +1,3 @@
-// $(function(){
 $(document).on("turbolinks:load",function(){
   // 商品カテゴリー大 選択時の処理
   $("#first-select").change(function(){
@@ -33,47 +32,8 @@ $(document).on("turbolinks:load",function(){
       });
     }
   });
-})
-// ここまでがsecond-form追加
-$(document).on("change", "#second-select", function(){
-  // 商品カテゴリー中 選択時の処理
-  $("#hidden-form__third").remove();
-  if($("#second-select option:selected").text() == "---"){
-  } else {
-    // 親カテゴリー決定後の非同期通信
-    function addThirdForm(categories) {
-      var $hidden = $("#hidden-form__wrapper")
-      $hidden.append(`<div id="hidden-form__third"><select class="product-detail__category select-field select-field__add" id="third-select" name="product[category_id]"></select></div>`);
-      var $select = $("#third-select");
-      var html_unselect = `<option value="">---</option>`;
-      $select.append(html_unselect);
-      categories.forEach(function(category){
-        var html = `<option value=${category.id}>${category.name}</option>`;
-        $select.append(html);
-      });
-    };
-    var $id = $("#second-select option:selected").val();
-    $.ajax({
-      type: "post",
-      url: "/products/search_category",
-      data: {id: $id},
-      dataType: "json"
-    })
-    .done(function(data){
-      addThirdForm(data);
-    })
-    .fail(function(){
-      alert("カテゴリー検索に失敗しました。");
-    });
-  }
-});
-// ここまでがthird-form追加
-$(document).on("change", "#third-select", function(){
-  $("#size-select").show();
-  $("#brand-select").show();
-})
-// 配送料の負担 選択時の処理
-$(document).on("turbolinks:load",function(){
+  // ここまでがsecond-form追加
+  // 配送料の負担 選択時の処理
   $("#which-charge").change(function(){
     if($(this).val() == "---"){
       $(".product-detail__how-to-delivery").val("---");
@@ -123,9 +83,7 @@ $(document).on("turbolinks:load",function(){
     $("#brand-result").append(new_html);
     results.empty();
   })
-})
-// 販売手数料の計算
-$(document).on("turbolinks:load",function(){
+  // 販売手数料の計算
   $("#price-field").keyup(function(){
     if($(this).val() == "") {
       $("#tax-field").html("-");
@@ -138,4 +96,41 @@ $(document).on("turbolinks:load",function(){
     $("#tax-field").html("¥" + numberWithComma.format(tax));
     $("#profit-field").html("¥" + numberWithComma.format(profit));
   })
+})
+$(document).on("change", "#second-select", function(){
+  // 商品カテゴリー中 選択時の処理
+  $("#hidden-form__third").remove();
+  if($("#second-select option:selected").text() == "---"){
+  } else {
+    // 親カテゴリー決定後の非同期通信
+    function addThirdForm(categories) {
+      var $hidden = $("#hidden-form__wrapper")
+      $hidden.append(`<div id="hidden-form__third"><select class="product-detail__category select-field select-field__add" id="third-select" name="product[category_id]"></select></div>`);
+      var $select = $("#third-select");
+      var html_unselect = `<option value="">---</option>`;
+      $select.append(html_unselect);
+      categories.forEach(function(category){
+        var html = `<option value=${category.id}>${category.name}</option>`;
+        $select.append(html);
+      });
+    };
+    var $id = $("#second-select option:selected").val();
+    $.ajax({
+      type: "post",
+      url: "/products/search_category",
+      data: {id: $id},
+      dataType: "json"
+    })
+    .done(function(data){
+      addThirdForm(data);
+    })
+    .fail(function(){
+      alert("カテゴリー検索に失敗しました。");
+    });
+  }
+});
+// ここまでがthird-form追加
+$(document).on("change", "#third-select", function(){
+  $("#size-select").show();
+  $("#brand-select").show();
 })
