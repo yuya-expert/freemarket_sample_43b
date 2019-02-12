@@ -4,5 +4,5 @@
 .wrapper
   = render "/shared/side-bar"
   .logout--container
-    = link_to "ログアウト", "/mypages",class: "logout--btn"
+    = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout--btn")
 = render "/shared/footer"
