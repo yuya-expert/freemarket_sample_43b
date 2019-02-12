@@ -229,7 +229,17 @@
       height: 102px;
     }
 
-    button.message-submit.btn-gray{
+    .message-submit.btn-gray{
+      border: 1px solid #888;
+      background: #888;
+      color: #fff;
+      cursor: not-allowed;
+      width: 100%;
+      margin: 8px 0 0;
+      text-align: center;
+      line-height: 48px;
+    }
+    .message-submit.btn-gray-buy{
       border: 1px solid #888;
       background: #888;
       color: #fff;
