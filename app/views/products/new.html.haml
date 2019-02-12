@@ -14,8 +14,8 @@
         .image-preview--left
           %ul.image-preview--lists
         .product-image__upload
-          = fin.file_field :image, {class: "image-upload", id: "image-upload", multiple: "true", enctype: "multipart/form-data"}
-          // = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
+          / # = fin.file_field :image, {class: "image-upload", id: "image-upload", enctype: "multipart/form-data"}
+          = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
           .image-upload__text{onClick: "$('#image-upload').click();"}
             %p
               ドラッグアンドドロップ
@@ -56,7 +56,9 @@
         .title-wrapper.next
           %span.product-detail__title.title-small ブランド
           %span.optional-icon 任意
-        = f.text_field :brand_id, class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"
+        #brand-result
+          %input{type: "text", class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"}
+        //= f.text_field :brand_id, class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"
       .search-results-wrapper
         #search-results
       .title-wrapper.next
@@ -138,7 +140,7 @@
           また、出品をもちまして
           = link_to "加盟店規約", "#", class: "no-line"
           に同意したことになります。
-    = button_to "出品する", "#", {class: "exhibit-btn"}
+    = f.button "出品する", {class: "exhibit-btn"}
     // = f.submit "出品する", {class: "exhibit-btn"}
     .return-btn__wrapper
       = button_tag "もどる", class: "return-btn"
