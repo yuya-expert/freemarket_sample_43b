@@ -44,9 +44,7 @@ $(document).on("turbolinks:load",function(){
       $(".password_confirmation-integrity-error").hide();
     }
     if(judge != 0) {
-      console.log(judge);
       e.preventDefault();
     }
-    console.log("ストップ");
   })
 })
