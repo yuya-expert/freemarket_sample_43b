@@ -124,6 +124,7 @@ $(document).on("turbolinks:load",function(){
     results.empty();
   })
 })
+// 販売手数料の計算
 $(document).on("turbolinks:load",function(){
   $("#price-field").keyup(function(){
     if($(this).val() == "") {

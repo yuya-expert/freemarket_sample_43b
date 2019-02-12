@@ -1,70 +1,33 @@
-$(function(){
+$(document).on("turbolinks:load", function(){
   $("#create-btn").submit(function(e){
     var judge = 0;
-    // バリデーション
+    // バリデーションの関数
+    function validation_blanc(selecta) {
+      if(selecta.val() == "" || selecta.val() == "---") {
+        selecta.next().show();
+        judge += 1;
+      } else {
+        selecta.next().hide();
+      }
+    }
     // 商品名
-    if($(".product-data__name").val() == ""){
-      $(".error-message.error_product-name").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_product-name").hide();
-    }
+    validation_blanc($(".product-data__name"));
     // 商品の詳細
-    if($(".product-data__detail").val() == ""){
-      $(".error-message.error_product-detail").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_product-detail").hide();
-    }
+    validation_blanc($(".product-data__detail"));
     // カテゴリー
-    if($(".product-detail__category").val() == "" || $(".product-detail__category").val() == "---"){
-      $(".error-message.error_category").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_category").hide();
-    }
+    validation_blanc($(".product-detail__category"));
     // サイズ
-    if($(".product-detail__size").val() == "---"){
-      $(".error-message.error_size").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_size").hide();
-    }
+    validation_blanc($(".product-detail__size"));
     // 商品の状態
-    if($(".product-detail__status").val() == "---"){
-      $(".error-message.error_product-status").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_product-status").hide();
-    }
+    validation_blanc($(".product-detail__status"));
     // 配送料の負担
-    if($(".product-delivery__fee").val() == "---"){
-      $(".error-message.error_delivery-fee").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_delivery-fee").hide();
-    }
+    validation_blanc($(".product-delivery__fee"));
     // 配送の方法
-    if($(".product-detail__how-to-delivery").val() == "---"){
-      $(".error-message.error_how-to-delivery").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_how-to-delivery").hide();
-    }
+    validation_blanc($(".product-detail__how-to-delivery"));
     // 発送元の地域
-    if($(".product-delivery__area").val() == "---"){
-      $(".error-message.error_area").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_area").hide();
-    }
+    validation_blanc($(".product-delivery__area"));
     // 発送までの日数
-    if($(".product-delivery__days").val() == "---"){
-      $(".error-message.error_shipping-dates").show();
-      judge += 1;
-    } else {
-      $(".error-message.error_shipping-dates").hide();
-    }
+    validation_blanc($(".product-delivery__days"));
     // 価格
     $price = Number($(".product-price__sell").val())
     if($price >= 10000000 || $price < 300 ){
@@ -74,6 +37,7 @@ $(function(){
       $(".error-message.error_price").hide();
     }
     if(judge != 0){
+      console.log(judge)
       e.preventDefault();
     }
   })

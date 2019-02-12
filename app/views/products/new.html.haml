@@ -41,8 +41,8 @@
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
       = f.select :category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
-      #hidden-form__wrapper
       %p.error-message.error_category 選択してください
+      #hidden-form__wrapper
       // 隠しサイズフィールド
       .hidden-wrapper.select-field__hidden#size-select
         .title-wrapper.next
