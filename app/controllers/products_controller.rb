@@ -1,24 +1,24 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
+
   def index
     @products = Product.limit(4).order("created_at desc")
   end
 
   def new
-    @product = current_user.products.new
+    @product = Product.new
     @image = Image.new
     @categories = Category.where("parent_id= '0'")
     @categories = @categories.map{|a| [a[:name], a[:id]] }
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
     if @product.save
-      @image = Image.new(image_params)
-        if @image.save
-          redirect_to action: :index
-        end
+      redirect_to action: :index
+    else
+      redirect_to action: :new
     end
   end
 
@@ -32,8 +32,9 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    binding.pry
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :user_id, :brand_id, :category_id)
+    # binding.pry
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)
+    # binding.pry
   end
 
   def image_params

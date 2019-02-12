@@ -123,7 +123,7 @@ $(document).on("turbolinks:load",function(){
     console.log(selected_brand_name);
     console.log(selected_brand_id);
     var new_html = `<input type="text" class="product-detail__brand text-field" placeholder="例）ヤムル" id="brand-field" value="${selected_brand_name}"">
-    <input type="hidden" name="group[brand_id]" value=${selected_brand_id}>`
+    <input type="hidden" name="product[brand_id]" value=${selected_brand_id}>`
     $("#brand-field").remove();
     $("#brand-result").append(new_html);
     results.empty();

@@ -14,7 +14,6 @@
         .image-preview--left
           %ul.image-preview--lists
         .product-image__upload
-          / # = fin.file_field :image, {class: "image-upload", id: "image-upload", enctype: "multipart/form-data"}
           = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
           .image-upload__text{onClick: "$('#image-upload').click();"}
             %p
@@ -58,7 +57,6 @@
           %span.optional-icon 任意
         #brand-result
           %input{type: "text", class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"}
-        //= f.text_field :brand_id, class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"
       .search-results-wrapper
         #search-results
       .title-wrapper.next
@@ -83,7 +81,7 @@
         .title-wrapper.next
           %span.product-detail__title.title-small 配送の方法
           %span.must-icon 必須
-        = f.select :area, Product.how_to_deliveries.keys.to_a, {}, {class: "product-detail__how-to-delivery select-field"}
+        = f.select :shipping_method, Product.shipping_methods.keys.to_a, {}, {class: "product-detail__how-to-delivery select-field"}
         %p.error-message.error_how-to-delivery 選択してください
 
 
