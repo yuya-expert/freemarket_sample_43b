@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :set_product, only: [:edit, :update]
   protect_from_forgery except: :update
 
   def index
@@ -29,12 +30,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
     @images = Image.where(product_id: params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.update(images_params)
       unless params[:images].nil?
         params[:images]['image'].each do |i|
@@ -71,5 +70,9 @@ class ProductsController < ApplicationController
 
   def images_params
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status,images_attributes: [:id, :image, :product_id])
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end
