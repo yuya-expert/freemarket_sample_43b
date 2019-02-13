@@ -17,13 +17,20 @@
             ブランドから探す
       .l-right
         .header-user-nav
-          .list-mypage
-            = image_tag("//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png")
-            %div マイページ
-          .list-notice
-            .fas.fa-bell
-              &nbsp;お知らせ
-          .list-to-do
-            .fas.fa-check
-              やることリスト
-
+          - if user_signed_in?
+            .list-mypage
+              = image_tag("//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png")
+              %div マイページ
+            .list-notice
+              .fas.fa-bell
+                &nbsp;お知らせ
+            .list-to-do
+              .fas.fa-check
+                やることリスト
+          - else
+            = link_to new_user_session_path, class: "no-line" do
+              .header-btn.header-btn__login
+                ログイン
+            = link_to new_user_registration_path, class: "no-line" do
+              .header-btn.header-btn__signup
+                新規会員登録
