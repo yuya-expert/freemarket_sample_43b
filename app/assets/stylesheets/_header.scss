@@ -116,6 +116,26 @@
               color: #333;
             }
           }
+          .header-btn {
+            font-size: 15px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-flex;
+          }
+          .header-btn__login {
+            color: white;
+            background-color: #EA352C;
+            margin-right: 10px;
+          }
+          .header-btn__signup {
+            color: #0099E8;
+            border: solid 1px #0099E8;
+          }
+          .header-btn__signup:hover {
+            color: white;
+            background-color: #0099E8;
+            transition: 0.3s;
+          }
         }
       }
     }
