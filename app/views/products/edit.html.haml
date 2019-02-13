@@ -1,24 +1,29 @@
 = render "/registrations/head"
 
 .new__main-text.box 商品の情報を入力
-= form_for "#" do |f|
+= form_for [@product], remote: true do |f|
   // 出品画像
-  .product-image.box
-    .title-wrapper
-      %span.product-image__title.title-big 出品画像
-      %span.must-icon 必須
-    .product-image__info
-      最大10枚までアップロードできます
-    .wrapper.image-preview
-      .image-preview--left
-        %ul.image-preview--lists
-      .product-image__upload
-        = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
-        .image-upload__text{onClick: "$('#image-upload').click();"}
-          %p
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+  = f.fields_for :image do |i|
+    .product-image.box
+      .title-wrapper
+        %span.product-image__title.title-big 出品画像
+        %span.must-icon 必須
+      .product-image__info
+        最大10枚までアップロードできます
+      .wrapper.image-preview
+        .image-preview--left
+          %ul.image-preview--lists
+            - @images.each do |image|
+              %li.preview{data: {id: image.id}}
+                .preview-file
+                  = image_tag image.image,{class: 'preview-file'}
+                .preview-delete
+                  = link_to "削除", product_image_path(image.product_id, image.id), method: :delete, class: "delete-picture", remote: true, data: {id: image.id}
+        .product-image__upload
+          = i.file_field :images, style: "display: none", class: "image-upload", id: "image-upload", multiple: "true", name: "images[image][]", remote: true
+          .image-upload__text{onClick: "$('#image-upload').click();"}
+            %p ドラッグアンドドロップ
+            %p  またはクリックしてファイルをアップロード
   // 商品名
   .product-data.box
     .title-wrapper
@@ -28,7 +33,7 @@
     .title-wrapper.next
       %span.product-data__title.title-small 商品の説明
       %span.must-icon 必須
-    = f.text_area :name, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    = f.text_area :detail, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
   // 商品の詳細
   .product-detail.box.double-row
     .left-side 商品の詳細
@@ -36,11 +41,11 @@
       .title-wrapper
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
-      = f.select :name, ["---", "レディース", "メンズ", "ベビー・キッズ"], {}, {class: "product-detail__category select-field"}
+      = f.select :category_id, ["---", "レディース", "メンズ", "ベビー・キッズ"], {}, {class: "product-detail__category select-field"}
       .title-wrapper.next
         %span.product-detail__title.title-small 商品の状態
         %span.must-icon 必須
-      = f.select :name, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
+      = f.select :status, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
   // 配送詳細
   .product-delivery.box.double-row
     .left-side
@@ -50,15 +55,15 @@
       .title-wrapper
         %span.product-delivery__title.title-small 配送料の負担
         %span.must-icon 必須
-      = f.select :name, ["---", "着払い", "送料込み"], {}, {class: "product-delivery__fee select-field"}
+      = f.select :delivery_fee, ["---", "着払い", "送料込み"], {}, {class: "product-delivery__fee select-field"}
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送元の地域
         %span.must-icon 必須
-      = f.select :name, ["---", "北は北海道", "南は山口"], {}, {class: "product-delivery__area select-field"}
+      = f.select :area, ["---", "北は北海道", "南は山口"], {}, {class: "product-delivery__area select-field"}
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送までの日数
         %span.must-icon 必須
-      = f.select :name, ["---", "1〜2日", "数年後"], {}, {class: "product-delivery__days select-field"}
+      = f.select :shipping_dates, Product.shipping_dates.keys.to_a, {}, {class: "product-delivery__days select-field"}
   // 価格
   .product-price.box.double-row.last-box
     .left-side
@@ -71,7 +76,7 @@
           %span.must-icon 必須
       .right-side__right
         %span.yen-mark ¥
-        = f.text_field :name, placeholder: "例）300", class: "product-price__sell text-field text-field__mini"
+        = f.text_field :price, placeholder: "例）300", class: "product-price__sell text-field text-field__mini"
     .right-side.under-bar.second
       .right-side__left
         .title-wrapper.left
