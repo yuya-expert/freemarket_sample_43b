@@ -1,3 +1,6 @@
+body {
+  background-color: #F5F5F5;
+}
 .slider {
   height: 390px;
   width: 100%;
@@ -28,6 +31,7 @@
       .item {
         height: 330px;
         width: 213px;
+        background-color: white;
         display: inline-block;
         img {
           margin: 0;
