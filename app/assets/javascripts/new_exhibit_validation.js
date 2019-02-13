@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function(){
     var judge = 0;
     // バリデーションの関数
     function validation_blanc(selecta) {
-      if(selecta.val() == "" || selecta.val() == "---") {
+      if(selecta.val() == "" || selecta.val() == "---" || selecta.val() == 0) {
         selecta.next().show();
         judge += 1;
       } else {

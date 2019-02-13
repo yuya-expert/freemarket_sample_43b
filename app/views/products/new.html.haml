@@ -88,7 +88,7 @@
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送元の地域
         %span.must-icon 必須
-      = f.select :area, ApplicationRecord.areas.keys.to_a, {}, {class: "product-delivery__area select-field"}
+      = f.select :area, Prefecture.data.map{ |a| [a[:name], a[:id]]}, {}, {class: "product-delivery__area select-field"}
       %p.error-message.error_area 選択してください
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送までの日数
