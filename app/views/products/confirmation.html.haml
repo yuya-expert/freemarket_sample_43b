@@ -21,8 +21,6 @@
     .confirmation--btn
       = form_tag(action: :completion, method: :post) do
         %script.payjp-button{"data-key" => "pk_test_6d8f33d7d30fe243d9254591", src: "https://checkout.pay.jp", type: "text/javascript", "data-text" => "購入する"}
-        / = link_to '購入する', completion_product_path, method: :post, params: { status: 1 }
-
   .confirmation--postage--container
     .confirmation--postage--spot
       配送先
