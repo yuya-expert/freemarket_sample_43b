@@ -19,7 +19,7 @@
           .form-login-password
             = f.password_field :password, {class: "login-password", placeholder: "パスワード"}
           .form-login-no-robot
-            / = recaptcha_tags
+            = recaptcha_tags
           = f.button "ログイン", {class: "login-submit"}
           =link_to 'パスワードをお忘れの方','https://www.mercari.com/jp/password/reset/start/',class: 'forget-password'
   = render 'registrations/footer'
