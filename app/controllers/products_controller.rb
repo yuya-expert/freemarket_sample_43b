@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(images_params)
+    if @product.update(update_params)
       unless params[:images].nil?
         params[:images]['image'].each do |i|
           @image = @product.images.create!(image: i, product_id: @product.id)
@@ -68,8 +68,8 @@ class ProductsController < ApplicationController
     params.require(:image).permit(image: []).merge(product_id: @product.id)
   end
 
-  def images_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status,images_attributes: [:id, :image, :product_id])
+  def update_params
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, images_attributes: [:id, :image, :product_id])
   end
 
   def set_product
