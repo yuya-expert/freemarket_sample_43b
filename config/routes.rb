@@ -17,13 +17,9 @@ Rails.application.routes.draw do
     member do
       get "confirmation"
       get "detail"
-
-    end
-    collection do
-      post "search_category"
+      post "completion"
     end
   end
   resources :registrations, only: [:index, :new]
-  resources :brands, only: [:show]
   root "products#index"
 end
