@@ -8,19 +8,19 @@
 n = 1
 5.times do |user|
   user = User.create!(
-    nickname: "ピカチュウ",
-    last_name: "サトシ",
-    first_name: "オオキド",
-    last_name_ja: "さとし",
-    first_name_ja: "おおきど",
+    # nickname: "ピカチュウ",
+    # last_name: "サトシ",
+    # first_name: "オオキド",
+    # last_name_ja: "さとし",
+    # first_name_ja: "おおきど",
     email: "satoshi#{n}@mail",
-    postal_code: "123-4567",
-    prefecture: rand(1..47),
-    city: "渋谷区",
-    address: "道玄坂",
-    building: "フォンティスビル",
-    phone_number: "08012345678",
-    birthday: "1995-12-30",
+    # postal_code: "123-4567",
+    # prefecture: rand(1..47),
+    # city: "渋谷区",
+    # address: "道玄坂",
+    # building: "フォンティスビル",
+    # phone_number: "08012345678",
+    # birthday: "1995-12-30",
     password: "password"
   )
   user.save!
@@ -40,10 +40,10 @@ csv_data.each do |data|
 end
 
 30.times do |number|
-  n = number + 1
+  number = number + 1
   product = Product.create!(
-    name: "product_#{n}",
-    detail: "#{n}detail#{n}",
+    name: "product_#{number}",
+    detail: Faker::Food.description,
     status: rand(1..6),
     delivery_fee: rand(1..2),
     area: rand(1..47),

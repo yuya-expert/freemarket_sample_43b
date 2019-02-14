@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :mypages, only: [:index, :edit, :destroy]
-  resources :products, only: [:new, :create, :edit, :show, :destroy] do
+  resources :products, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :images, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
     member do
       get "confirmation"
