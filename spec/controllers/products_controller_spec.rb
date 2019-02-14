@@ -13,6 +13,19 @@ describe ProductsController do
     end
   end
 
+  describe "GET#edit" do
+    let(:product) {attributes_for(:product)}
+    let(:image) {attributes_for(:image)}
+
+    describe "edit" do
+      it '#edit' do
+        product = create(:product)
+        get :edit, params: {id: product}
+        expect(response).to have_http_status(200)
+      end
+    end
+  end
+
   describe 'delete #destroy' do
     it "deletes the product" do
       product = create(:product)
