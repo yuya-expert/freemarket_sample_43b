@@ -5,10 +5,10 @@
   .confirmation--container
     = image_tag "m333.jpg",size: "148x148", class: "confirmation--img"
     .confirmation--item-title
-      素敵なバッグ
+      = @product.name
   .confirmation--container--top
     .confirmation--pay
-      ¥1,300
+      = "¥#{@product.price}"
     .confirmation--post-marge
       送料込み
   .confirmation--point
@@ -17,18 +17,21 @@
     .confirmation--pay-title
       支払い金額
     .confirmation--pay
-      ¥1,300
+      = "¥#{@product.price}"
     .confirmation--btn
-      購入する
+      = form_tag(action: :completion, method: :post) do
+        %script.payjp-button{"data-key" => "pk_test_6d8f33d7d30fe243d9254591", src: "https://checkout.pay.jp", type: "text/javascript", "data-text" => "購入する"}
+        / = link_to '購入する', completion_product_path, method: :post, params: { status: 1 }
+
   .confirmation--postage--container
     .confirmation--postage--spot
       配送先
     .confirmation--postage--post
-      〒100-1234
+      = "〒#{@user.postal_code}"
     .confirmation--postage--adress
-      東京都 葛飾区 高砂3-7-50 ノープログレム202
+      = "#{@user.prefecture}" + "#{@user.city}" + "#{@user.building}"
     .confirmation--postage--name
-      冒険太郎
+      = "#{@user.first_name}" + "#{@user.last_name}"
     .confirmation--change
       = link_to "変更する", edit_user_path, class: "confirmation--change"
       %i.fas.fa-angle-right.fa-pull-right.fa-lg.confirmation--fa

@@ -59,6 +59,19 @@ class ProductsController < ApplicationController
   end
 
   def confirmation
+    @product = Product.find(params[:id])
+    @user = User.find(current_user)
+  end
+
+  def completion
+    @product = Product.find(params[:id])
+    @product[:shipping_method] = 1
+    @product.save
+    Payjp.api_key = PAYJP_SECRET_KEY
+    Payjp::Charge.create(
+      currency: 'jpy',
+      amount: @product.price,
+      card: params['payjp-token'])
   end
 
   private
@@ -69,5 +82,4 @@ class ProductsController < ApplicationController
   def image_params
     params.require(:image).permit(image: []).merge(product_id: @product.id)
   end
-
 end

@@ -1,4 +1,3 @@
-
 $(function(){
 var sold = $('.sold').val();
 $(document).on("turbolinks:load", function() {
@@ -18,7 +17,6 @@ $(document).on("turbolinks:load", function() {
   $('.buy-button-buy').show();
   $('.content-item-product-state').hide();
   $('.content-item-product-state-buy').show();
-  console.log("ffffff")
   }
   });
 });

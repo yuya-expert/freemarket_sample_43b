@@ -11,18 +11,15 @@ Rails.application.routes.draw do
   end
 
   resources :mypages, only: [:index, :edit, :destroy]
-  resources :products, only: [:new, :create, :edit, :show, :destroy] do
+
+  resources :products, only: [:new, :edit,:show, :destroy] do
     resources :likes, only: [:create, :destroy]
     member do
       get "confirmation"
       get "detail"
-
-    end
-    collection do
-      post "search_category"
+      post "completion"
     end
   end
   resources :registrations, only: [:index, :new]
-  resources :brands, only: [:show]
   root "products#index"
 end
