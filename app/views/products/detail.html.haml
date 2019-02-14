@@ -8,24 +8,24 @@
     .content-item-main
       .content-item-main-photo
         .content-item-main-photo-objects
-          = image_tag @product.images[0].image,class: "item-main"
+          = image_tag @product.images[0].image,class: "item-main" if @product.images != []
           .item-tag-sold-out-top
             .sold-out-text-top SOLD
         %ul.content-item-main-photo-sub
           %li.item-sub
-            = image_tag @product.images[0].image, class: "item-sub"
+            = image_tag @product.images[0].image, class: "item-sub" if @product.images[0]
           %li.item-sub
-            = image_tag @product.images[1].image, class: "item-sub"
+            = image_tag @product.images[1].image, class: "item-sub" if @product.images[1]
           %li.item-sub
-            = image_tag @product.images[2].image,class: "item-sub"
+            = image_tag @product.images[2].image,class: "item-sub" if @product.images[2]
           %li.item-sub
-            =image_tag @product.images[3].image, class: "item-sub"
+            =image_tag @product.images[3].image, class: "item-sub" if @product.images[3]
       .content-item-main-table
         .content-item-main-table-list
           .content-item-main-table-list-user
             %p.table-list-user-name-left 出品者
             .table-list-user-name-right
-              = link_to "#{@product.user.nickname}", '#',class: 'table-list-user-name-right-name'
+              = link_to "#{@product.user}", '#',class: 'table-list-user-name-right-name'
               .user-evaluation
                 %i.fas.fa-grin
                   %span.user-evaluation-count
@@ -62,7 +62,7 @@
           .content-item-main-table-list-delivery-area
             %p.table-list-delivery-method-refecture-left 配送元地域
             .table-list-delivery-method-dicide-right
-            = @product.area
+            = Prefecture.data[@product.area][:name]
           .content-item-main-table-list-delivery-date
             %p.table-list-delivery-date-few-left
               配送日の目安
