@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:edit, :update]
+  before_action :set_categories, only: [:new, :edit]
   protect_from_forgery except: :update
 
   def index
@@ -10,7 +11,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = Image.new
-    @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
 
   def create
@@ -74,5 +74,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
 end
