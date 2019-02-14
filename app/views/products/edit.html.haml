@@ -1,34 +1,43 @@
 = render "/registrations/head"
 
 .new__main-text.box 商品の情報を入力
-= form_for "#" do |f|
+= form_for [@product], remote: true do |f|
   // 出品画像
-  .product-image.box
-    .title-wrapper
-      %span.product-image__title.title-big 出品画像
-      %span.must-icon 必須
-    .product-image__info
-      最大10枚までアップロードできます
-    .wrapper.image-preview
-      .image-preview--left
-        %ul.image-preview--lists
-      .product-image__upload
-        = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
-        .image-upload__text{onClick: "$('#image-upload').click();"}
-          %p
-            ドラッグアンドドロップ
-            %br
-            またはクリックしてファイルをアップロード
+  = f.fields_for :image do |i|
+    .product-image.box
+      .title-wrapper
+        %span.product-image__title.title-big 出品画像
+        %span.must-icon 必須
+      .product-image__info
+        最大10枚までアップロードできます
+      .wrapper.image-preview
+        .image-preview--left
+          %ul.image-preview--lists
+            - @images.each do |image|
+              %li.preview{data: {id: image.id}}
+                .preview-file
+                  = image_tag image.image,{class: 'preview-file'}
+                .preview-delete
+                  = link_to "削除", product_image_path(image.product_id, image.id), method: :delete, class: "delete-picture", remote: true, data: {id: image.id}
+        .product-image__upload
+          = i.file_field :images, style: "display: none", class: "image-upload", id: "image-upload", multiple: "true", name: "images[image][]", remote: true
+          .image-upload__text{onClick: "$('#image-upload').click();"}
+            %p ドラッグアンドドロップ
+            %p  またはクリックしてファイルをアップロード
+
   // 商品名
   .product-data.box
     .title-wrapper
       %span.product-data__title.title-small 商品名
       %span.must-icon 必須
     = f.text_field :name, class: "product-data__name text-field", placeholder: "商品名(必須 40文字まで)"
+    %p.error-message.error_product-name 入力してください
     .title-wrapper.next
       %span.product-data__title.title-small 商品の説明
       %span.must-icon 必須
-    = f.text_area :name, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    = f.text_area :detail, class: "product-data__detail text-area", placeholder: "商品の説明（1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    %p.error-message.error_product-detail 入力してください
+
   // 商品の詳細
   .product-detail.box.double-row
     .left-side 商品の詳細
@@ -36,13 +45,32 @@
       .title-wrapper
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
-      = f.select :name, ["---", "レディース", "メンズ", "ベビー・キッズ"], {}, {class: "product-detail__category select-field"}
+      = f.select :category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
+      %p.error-message.error_category 選択してください
+      #hidden-form__wrapper
+      // 隠しサイズフィールド
+      .hidden-wrapper.select-field__hidden#size-select
+        .title-wrapper.next
+          %span.product-detail__title.title-small サイズ
+          %span.must-icon 必須
+        = f.select :status, Product.sizes.keys.to_a, {}, {class: "product-detail__size select-field"}
+        %p.error-message.error_size 選択してください
+      // 隠しブランドフィールド
+      .hidden-wrapper.select-field__hidden#brand-select
+        .title-wrapper.next
+          %span.product-detail__title.title-small ブランド
+          %span.optional-icon 任意
+        #brand-result
+          %input{type: "text", class: "product-detail__brand text-field", placeholder: "例）ヤムル", id: "brand-field"}
+      .search-results-wrapper
+        #search-results
       .title-wrapper.next
         %span.product-detail__title.title-small 商品の状態
         %span.must-icon 必須
-      = f.select :name, ["---", "新品", "むしろ未完成", "ていうか素材"], {}, {class: "product-detail__status select-field"}
+      = f.select :status, Product.statuses.keys.to_a, {}, {class: "product-detail__status select-field"}
+      %p.error-message.error_product-status 選択してください
   // 配送詳細
-  .product-delivery.box.double-row
+  .product-delivery.box.double-row.clearfix
     .left-side
       %span 配送について
       %span.fas.fa-question-circle.blue-icon
@@ -50,40 +78,54 @@
       .title-wrapper
         %span.product-delivery__title.title-small 配送料の負担
         %span.must-icon 必須
-      = f.select :name, ["---", "着払い", "送料込み"], {}, {class: "product-delivery__fee select-field"}
+      = f.select :delivery_fee, Product.delivery_fees.keys.to_a, {}, {class: "product-delivery__fee select-field", id: "which-charge"}
+      %p.error-message.error_delivery-fee 選択してください
+
+      // 配送方法
+      .hidden-wrapper.select-field__hidden#how-to-delivery.clearfix
+        .title-wrapper.next
+          %span.product-detail__title.title-small 配送の方法
+          %span.must-icon 必須
+        = f.select :shipping_method, Product.shipping_methods.keys.to_a, {}, {class: "product-detail__how-to-delivery select-field"}
+        %p.error-message.error_how-to-delivery 選択してください
+
+
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送元の地域
         %span.must-icon 必須
-      = f.select :name, ["---", "北は北海道", "南は山口"], {}, {class: "product-delivery__area select-field"}
+      = f.select :area, Prefecture.data.map{ |a| [a[:name], a[:id]]}, {}, {class: "product-delivery__area select-field"}
+      %p.error-message.error_area 選択してください
       .title-wrapper.next
         %span.product-delivery__title.title-small 発送までの日数
         %span.must-icon 必須
-      = f.select :name, ["---", "1〜2日", "数年後"], {}, {class: "product-delivery__days select-field"}
+      = f.select :shipping_dates, Product.shipping_dates.keys.to_a, {}, {class: "product-delivery__days select-field"}
+      %p.error-message.error_shipping-dates 選択してください
   // 価格
-  .product-price.box.double-row.last-box
+  .product-price.box.double-row.last-box.clearfix
     .left-side
       %span 販売価格(300〜9,999,999)
       %span.fas.fa-question-circle.blue-icon
-    .right-side.under-bar
+    .right-side-mini.under-bar
       .right-side__left
         .title-wrapper.left
           %span.product-price__title.title-small 価格
           %span.must-icon 必須
       .right-side__right
         %span.yen-mark ¥
-        = f.text_field :name, placeholder: "例）300", class: "product-price__sell text-field text-field__mini"
-    .right-side.under-bar.second
+        = f.text_field :price, placeholder: "例）300", class: "product-price__sell text-field text-field__mini", id: "price-field"
+      %p.error-message.error_price.clearfix 300以上9999999以下で入力してください
+    .right-side-mini.under-bar.second
       .right-side__left
         .title-wrapper.left
           .product-price__title.title-toosmall 販売手数料(10%)
       .right-side__right
-        .show.show-tax -
-    .right-side.under-bar.third
+        .show.show-tax#tax-field -
+    .right-side-mini.under-bar.third
       .right-side__left
         .title-wrapper.left
           .product-price__title.title-toobig 販売利益
       .right-side__right
-        .show.show-profit -
+        .show.show-profit#profit-field -
   // 注意書きと出品ボタン
   .product-attention.box
     = f.submit "変更する", class: "exhibit-btn"
