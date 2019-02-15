@@ -12,6 +12,6 @@ class Product < ApplicationRecord
   enum shipping_dates:{'---': 0, '1~2日': 1, '2~3日': 2, '4~7日': 3}, _suffix: true
   enum sizes:{'---': 0, S: 1, M: 2, L:3}, _suffix: true
   enum shipping_method:{'---': 0, 未定: 1, らくらくメルカリ便: 2, ゆうメール: 3, レターパック: 4}, _suffix: true
-  enum delivery_status: [:販売中, :取引中, :取引完了]
+  enum delivery_status: [:取引中, :販売中, :取引完了]
 
 end
