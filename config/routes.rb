@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :users, only: [:edit, :create] do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  resources :users, only: [:new, :edit, :create] do
     member do
       get "payments"
     end
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
     member do
       get "confirmation"
       get "detail"
-
     end
     collection do
       post "search_category"
