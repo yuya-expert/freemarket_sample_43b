@@ -1,4 +1,4 @@
-%input{name: "sold", type: "hidden", value:  @product.shipping_method, class: 'sold' }/
+%input{name: "sold", type: "hidden", value:  @product.delivery_status, class: 'sold' }/
 = render 'shared/header'
 = render 'shared/gretel'
 .content
@@ -25,7 +25,7 @@
           .content-item-main-table-list-user
             %p.table-list-user-name-left 出品者
             .table-list-user-name-right
-              = link_to "#{@product.user}", '#',class: 'table-list-user-name-right-name'
+              = link_to "#{@product.user.nickname}", '#',class: 'table-list-user-name-right-name'
               .user-evaluation
                 %i.fas.fa-grin
                   %span.user-evaluation-count

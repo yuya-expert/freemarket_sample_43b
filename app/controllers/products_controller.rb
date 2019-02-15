@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
 
   def completion
     @product = Product.find(params[:id])
-    @product[:shipping_method] = 1
+    @product[:delivery_status] = 1
     @product.save
     Payjp.api_key = PAYJP_SECRET_KEY
     Payjp::Charge.create(

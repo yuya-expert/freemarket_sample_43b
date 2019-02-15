@@ -8,7 +8,7 @@ class Users < ActiveRecord::Migration[5.0]
     add_column :users, :postal_code, :string
     add_column :users, :prefecture, :integer
     add_column :users, :city, :string
-    add_column :users, :address, :string
+    add_column :users, :add_ress, :string
     add_column :users, :building, :string
     add_column :users, :phone_number, :string
     add_column :users, :birthday, :date
