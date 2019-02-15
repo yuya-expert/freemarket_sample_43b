@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20190213024445) do
     t.integer  "area",                                      null: false
     t.integer  "shipping_dates",                            null: false
     t.integer  "price",                                     null: false
-    t.integer  "delivery_status",               default: 1, null: false
+    t.integer  "delivery_status",               default: 0, null: false
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
     t.integer  "user_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20190213024445) do
     t.string   "postal_code"
     t.integer  "prefecture"
     t.string   "city"
-    t.string   "address"
+    t.string   "add_ress"
     t.string   "building"
     t.string   "phone_number"
     t.date     "birthday"
