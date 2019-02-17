@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:edit, :update, :detail]
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_categories, only: [:new, :edit, :search]
   protect_from_forgery except: :update
 
   def index
@@ -85,6 +85,9 @@ class ProductsController < ApplicationController
     @likes_count = Like.where(product_id: @product.id).count
     @after_item = Product.order("RAND()").first
     @before_item = Product.order("RAND()").last
+  end
+
+  def search
   end
 
   private
