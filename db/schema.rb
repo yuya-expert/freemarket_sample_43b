@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20190213024445) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -83,6 +84,15 @@ ActiveRecord::Schema.define(version: 20190213024445) do
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                             null: false
     t.string   "encrypted_password",                   default: "", null: false
@@ -114,4 +124,5 @@ ActiveRecord::Schema.define(version: 20190213024445) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sns_credentials", "users"
 end
