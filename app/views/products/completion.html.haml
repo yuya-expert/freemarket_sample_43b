@@ -1,0 +1,19 @@
+= render "/registrations/head"
+.completion
+  .completion--info
+    %p.completion--main
+      発送をお待ちください
+    %p.completion--sub
+      出品者からの発送通知をお待ちください
+  %p.completion--message
+    購入が完了しました
+  .completion--product-img
+    = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554',class: 'completion--product-img'
+  %p.completion--product-name
+    = @product.name
+  %ul.completion--price
+    %li.completion--price--main
+      = "¥#{@product.price}"
+    %li.completion--price--postage
+      送料込み
+= render "/registrations/footer"

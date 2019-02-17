@@ -49,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem "rails-controller-testing"
-  gem 'faker'
   gem 'pry-rails'
 end
 
@@ -76,3 +75,9 @@ gem 'active_hash', '2.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'payjp'
+gem 'unf_ext', '0.0.7.5'
+gem 'faker'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
