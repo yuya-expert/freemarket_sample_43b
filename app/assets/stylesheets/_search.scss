@@ -1,0 +1,124 @@
+.search-body {
+  display: flex;
+  flex-direction: row;
+  width: 1060px;
+  margin: 0 auto;
+  padding-top: 40px;
+  &__side-bar {
+    margin-right: 40px;
+    width: 280px;
+    .search-kind {
+      margin-bottom: 40px;
+    }
+    .search-contents {
+      padding: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: white;
+      .search-content {
+        margin-top: 24px;
+        .select-field__second {
+          margin-top: 8px;
+        }
+        .check-boxes {
+          overflow: auto;
+          .check-box {
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 8px;
+            width: 50%;
+            float: left;
+          }
+        }
+        .search-prices__min-max {
+          margin-top: 8px;
+          overflow: auto;
+          .text-field__left {
+            width: 45%;
+            float: left;
+          }
+          .text-field__right {
+            width: 45%;
+            float: right;
+          }
+        }
+        .search-btns {
+          overflow: auto;
+          .search-btn {
+            float: left;
+            color: white;
+            width: 112px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: normal;
+          }
+          .search-btn__clear {
+            margin-right: 24px;
+            background-color: #AAAAAA;
+          }
+          .search-btn__complete {
+            background-color: #EA352C;
+          }
+        }
+      }
+      .search-content__next {
+        margin-top: 42px;
+      }
+      .search-content p {
+        font-size: 14px;
+        margin: 8px 0;
+      }
+    }
+  }
+  &__search-results {
+    .search-result__text {
+      h2 {
+        margin-top: 0;
+        font-size: 22px;
+        font-weight: normal;
+      }
+      p {
+        font-size: 14px;
+      }
+      h3 {
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 12px;
+      }
+    }
+    .search-result__items {
+      max-width: 900px;
+      .search-result__item {
+        display: inline-block;
+        width: 160px;
+        min-width: 160px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        background-color: white;
+        .search-result__image {
+          height: 160px;
+          text-align: center;
+        }
+        h4, p {
+          padding-left: 16px;
+          margin-top: 10px;
+        }
+        .search-result__introduction {
+          font-weight: normal;
+          margin-top: 16px;
+          margin-bottom: 36px;
+        }
+        .search-result__price {
+          margin-bottom: 0;
+        }
+        p {
+          margin-top: 0;
+          margin-bottom: 6px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -14,4 +14,5 @@ class Product < ApplicationRecord
   enum shipping_method:{'---': 0, 未定: 1, らくらくメルカリ便: 2, ゆうメール: 3, レターパック: 4}, _suffix: true
   enum delivery_status: [:販売中, :取引中, :取引完了]
 
+  enum search_kind: [:並び替え, :価格の安い順, :価格の高い順, :出品の古い順, :出品の新しい順, :"いいね!の多い順"]
 end

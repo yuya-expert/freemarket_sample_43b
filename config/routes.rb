@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       post "completion"
     end
     collection do
+      get "search"
       post "search_category"
     end
   end
