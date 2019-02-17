@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     member do
       get "confirmation"
       get "detail"
+      post "completion"
     end
     collection do
       post "search_category"
