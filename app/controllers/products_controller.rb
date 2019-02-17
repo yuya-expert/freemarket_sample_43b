@@ -10,13 +10,17 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @image = Image.new
   end
 
   def create
-    @product = current_user.products.new(product_params)
-    if @product.save
-      redirect_to action: :index
+    @product = current_user.products.build(product_params)
+    if @product.save!
+      unless params[:images].nil?
+        params[:images]['image'].each do |i|
+          @image = @product.images.create!(image: i, product_id: @product.id)
+        end
+      end
+      redirect_to controller: :mypages , action: :index
     else
       redirect_to action: :new
     end
@@ -34,7 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update(update_params)
+    if @product.update(product_params)
       unless params[:images].nil?
         params[:images]['image'].each do |i|
           @image = @product.images.create!(image: i, product_id: @product.id)
@@ -91,16 +95,9 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)
-  end
-
-  def image_params
-    params.require(:image).permit(image: []).merge(product_id: @product.id)
-  end
-
-  def update_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, images_attributes: [:id, :image, :product_id])
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
   end
 
   def set_product
