@@ -3,7 +3,7 @@
 .new__main-text.box-first 商品の情報を入力
 = form_for @product, html: {id: "create-btn"} do |f|
   // 出品画像
-  = fields_for @image do |fin|
+  = f.fields_for :image do |i|
     .product-image.box
       .title-wrapper
         %span.product-image__title.title-big 出品画像
@@ -14,12 +14,10 @@
         .image-preview--left
           %ul.image-preview--lists
         .product-image__upload
-          = file_field_tag "images[]", style: "display: none", class: "image-upload", id: "image-upload", multiple: "true"
+          = i.file_field :images, style: "display: none", class: "image-upload", id: "image-upload", multiple: "true", name: "images[image][]", remote: true
           .image-upload__text{onClick: "$('#image-upload').click();"}
-            %p
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+            %p ドラッグアンドドロップ
+            %p  またはクリックしてファイルをアップロード
   // 商品名
   .product-data.box
     .title-wrapper
@@ -138,8 +136,7 @@
           また、出品をもちまして
           = link_to "加盟店規約", "#", class: "no-line"
           に同意したことになります。
-    = f.button "出品する", {class: "exhibit-btn"}
-    // = f.submit "出品する", {class: "exhibit-btn"}
+    = f.submit "出品する", {class: "exhibit-btn"}
     .return-btn__wrapper
       = button_tag "もどる", class: "return-btn"
 
