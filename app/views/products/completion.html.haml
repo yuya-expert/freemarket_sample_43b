@@ -8,7 +8,7 @@
   %p.completion--message
     購入が完了しました
   .completion--product-img
-    = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554',class: 'completion--product-img'
+    = image_tag @image.image ,class: 'completion--product-img'
   %p.completion--product-name
     = @product.name
   %ul.completion--price
