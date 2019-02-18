@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_product, only: [:edit, :update, :detail]
+  before_action :set_new_product, only: [:new, :search]
+  before_action :set_product, only: [:edit, :update, :detail,]
   before_action :set_categories, only: [:new, :edit, :search]
   protect_from_forgery except: :update
 
@@ -9,7 +10,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
   end
 
   def create
@@ -92,12 +92,19 @@ class ProductsController < ApplicationController
   end
 
   def search
+    if params[:product]
+      @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%")
+    end
   end
 
   private
 
   def product_params
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
+  end
+
+  def set_new_product
+    @product = Product.new
   end
 
   def set_product
