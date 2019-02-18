@@ -3,7 +3,7 @@
   .confirmation--head
     購入を確定しますか？
   .confirmation--container
-    = image_tag "m333.jpg",size: "148x148", class: "confirmation--img"
+    = image_tag @image.image ,size: "148x148", class: "confirmation--img"
     .confirmation--item-title
       = @product.name
   .confirmation--container--top
