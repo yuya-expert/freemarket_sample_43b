@@ -67,10 +67,12 @@ class ProductsController < ApplicationController
   def confirmation
     @product = Product.find(params[:id])
     @user = User.find(current_user)
+    @image = Image.find_by(product_id: params[:id])
   end
 
   def completion
     @product = Product.find(params[:id])
+    @image = Image.find_by(product_id: params[:id])
     @product[:delivery_status] = 1
     @product.save
     Payjp.api_key = PAYJP_SECRET_KEY
