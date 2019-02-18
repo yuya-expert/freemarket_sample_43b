@@ -1,6 +1,9 @@
 class MypagesController < ApplicationController
 
   def index
+    @user = current_user
+    @reviews = Review.where(params[:user_id]).count
+    @products = Product.where(params[:user_id]).count
   end
 
   def payments
@@ -9,7 +12,8 @@ class MypagesController < ApplicationController
   def show
   end
 
-  def profile
+  def edit
+    @user = current_user
   end
 
   def destroy
