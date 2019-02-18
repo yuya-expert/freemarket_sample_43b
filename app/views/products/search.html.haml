@@ -2,61 +2,72 @@
 = render "shared/exhibit"
 = render "shared/gretel"
 .search-body
-  = form_for "@product" do |f|
+  = form_for @product, url: "/products/search", method: :get do |f|
     .search-body__side-bar
-      = f.select "ダミー", Product.search_kinds.keys.to_a, {}, {class: "search-kind select-field"}
+      // 並び替えフィールド
+      %select.search-kind.select-field{name: "search-kind"}
+        - Product.search_kinds.keys.to_a.each_with_index do |search_kind, index|
+          %option{value: index}
+            = search_kind
       .search-contents
         詳細検索
+        // キーワード検索(商品名)
         .search-content
           %p.search-content__title
             %span.fas.fa-plus
             %span キーワードを追加する
-          = f.text_field "ダミー", {class: "text-field", placeholder: "例）値下げ"}
+          = f.text_field :name, {class: "text-field", placeholder: "例）値下げ"}
+        // カテゴリー検索
         .search-content.search-content__next
           %p.search-content__title
             %span.fas.fa-list-ul
             %span カテゴリーを選択する
-          = f.select "ダミー", Product.search_kinds.keys.to_a, {}, {class: "search-category select-field"}
-          = f.select "ダミー", Product.search_kinds.keys.to_a, {}, {class: "search-category select-field select-field__second"}
+          = f.select :category_id, @categories, {prompt: "すべて"}, {class: "select-field", id:"search-category"}
+          #search-category__child
+          #search-category__grand-child
+        // ブランド検索
         .search-content.search-content__next
           %p.search-content__title
             %span.fas.fa-tag
             %span ブランド名から探す
-          = f.text_field "ダミー", {class: "text-field"}
+          = f.text_field :brand_id, {class: "text-field", placeholder: "例）シャネル"}
+        // サイズ検索
         .search-content.search-content__next
           %p.search-content__title
             %span.fas.fa-expand
             %span サイズを指定する
-          = f.select "ダミー", Product.sizes.keys.to_a, {}, {class: "search-size select-field"}
+          %select.search-size.select-field
+            - Product.search_sizes.keys.to_a.each do |search_size|
+              %option
+                = search_size
           .check-boxes
-            .check-box
-              %span
-                = f.check_box "ダミー", {}, true, false
-              %span S
-            .check-box
-              %span
-                = f.check_box "ダミー", {}, true, false
-              %span M
-            .check-box
-              %span
-                = f.check_box "ダミー", {}, true, false
-              %span L
-            .check-box
-              %span
-                = f.check_box "ダミー", {}, true, false
-              %span XL
+            - Product.search_cloth_sizes.keys.to_a.each do |search_cloth_size|
+              .check-box
+                %span
+                  = check_box :add, :size, {}, true, false
+                %span
+                  = search_cloth_size
+        // 価格検索
         .search-content.search-content__next
           %p.search-content__title
             %span.fab.fa-bitcoin
             %span 価格
-          = f.select "ダミー", Product.sizes.keys.to_a, {}, {class: "search-price select-field"}
+          = f.select :price, Product.search_prices.keys.to_a, {}, {class: "search-price select-field"}
           .search-prices__min-max
-            = f.text_field "ダミー", {class: "text-field text-field__left", placeholder: "¥ Min"}
-            = f.text_field "ダミー", {class: "text-field text-field__right", placeholder: "¥ Max"}
+            = text_field :add, :min_price, {class: "text-field text-field__left", placeholder: "¥ Min"}
+            = text_field :add, :max_price, {class: "text-field text-field__right", placeholder: "¥ Max"}
+            %span.center-wave.clearfix ~
         .search-content.search-content__next
           %p.search-content__title
             %span.fas.fa-star
             %span 商品の状態
+            .check-boxes
+              - Product.search_statuses.keys.to_a.each_with_index do |search_status, index|
+                .check-box{value: "#{index}_check"}
+                  %span
+                    = f.check_box :status, {}, true, false
+                  %span
+                    = search_status
         .search-content.search-content__next
           %p.search-content__title
             %span.fas.fa-truck
@@ -68,56 +79,13 @@
         .search-content.search-content__next
           .search-btns
             = link_to "クリア", "#", class: "search-btn search-btn__clear no-line"
-            = link_to "完了", "#", class: "search-btn search-btn__complete no-line"
+            = f.submit "完了", class: "search-btn search-btn__complete no-line"
   .search-body__search-results
     .search-result__text
       %h2 検索結果 ◯◯件
       %p 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
       %h3 新着商品
     .search-result__items
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
-      .search-result__item
-        = image_tag "bubble.png", {class: "search-result__image"}
-        %h4.search-result__introduction スマートウォッチ
-        %h4.search-result__price ¥ 1,890
-        %p (税込)
+      - if @products
+        = render partial: "shared/search-item", locals: {products: @products}
 = render "shared/footer"
