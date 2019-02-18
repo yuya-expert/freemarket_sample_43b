@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function() {
   $('.content-item-product-state-buy').hide();
   $('.message-submit.btn-gray-buy').hide();
   // 購入できる場合の処理
-  if( sold == "未定"){
+  if( sold == "販売中"){
       // 商品のSOLD OUT表示を削除
     $('.item-tag-sold-out-top').hide();
       // 商品購入ボタンの表示

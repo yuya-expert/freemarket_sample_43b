@@ -8,19 +8,19 @@
 n = 1
 5.times do |user|
   user = User.create!(
-    # nickname: "ピカチュウ",
-    # last_name: "サトシ",
-    # first_name: "オオキド",
-    # last_name_ja: "さとし",
-    # first_name_ja: "おおきど",
+    nickname: "ピカチュウ",
+    last_name: "サトシ",
+    first_name: "オオキド",
+    last_name_ja: "さとし",
+    first_name_ja: "おおきど",
     email: "satoshi#{n}@mail",
-    # postal_code: "123-4567",
-    # prefecture: rand(1..47),
-    # city: "渋谷区",
-    # address: "道玄坂",
-    # building: "フォンティスビル",
-    # phone_number: "08012345678",
-    # birthday: "1995-12-30",
+    postal_code: "123-4567",
+    prefecture: rand(1..47),
+    city: "渋谷区",
+    add_ress: "道玄坂",
+    building: "フォンティスビル",
+    phone_number: "08012345678",
+    birthday: "1995-12-30",
     password: "password"
   )
   user.save!
@@ -46,13 +46,14 @@ end
     detail: Faker::Food.description,
     status: rand(1..6),
     delivery_fee: rand(1..2),
+    shipping_method: rand(1..4),
     area: rand(1..47),
     shipping_dates: rand(1..3),
     price: rand(1..9)*1000,
-    delivery_status: 1,
+    delivery_status: 0,
     user_id: rand(1..5),
     brand_id: rand(1..10),
-    category_id: rand(1..100)
+    category_id: rand(159..581)
   )
   product.save!
 end
