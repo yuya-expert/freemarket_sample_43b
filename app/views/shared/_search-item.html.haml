@@ -1,0 +1,9 @@
+- products.each do |product|
+  .search-result__item
+    = image_tag "bubble.png", {class: "search-result__image"}
+    %h4.search-result__introduction
+      = product.name
+    %h4.search-result__price
+      ¥
+      = product.price
+    %p (税込)

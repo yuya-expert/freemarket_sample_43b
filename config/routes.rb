@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index, :edit, :destroy]
+  resources :mypages, only: [:index, :edit, :update, :destroy]
   resources :products, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :images, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       post "completion"
     end
     collection do
+      get "search"
       post "search_category"
     end
   end
