@@ -82,10 +82,16 @@
             = f.submit "完了", class: "search-btn search-btn__complete no-line"
   .search-body__search-results
     .search-result__text
-      %h2 検索結果 ◯◯件
-      %p 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
-      %h3 新着商品
-    .search-result__items
-      - if @products
-        = render partial: "shared/search-item", locals: {products: @products}
+      - if @products.length == 0
+        %h2
+          = "検索結果 0件"
+        %p 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+        %h3 新着商品
+        .search-result__items
+          = render partial: "shared/search-item", locals: {products: @all_products}
+      - else
+        %h2
+          = "検索結果 1-#{@products.length}件"
+        .search-result__items
+          = render partial: "shared/search-item", locals: {products: @products}
 = render "shared/footer"

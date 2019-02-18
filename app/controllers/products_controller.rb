@@ -92,8 +92,16 @@ class ProductsController < ApplicationController
   end
 
   def search
-    if params[:product]
+    # 商品名検索
+    if params[:product] && params[:product][:name] != ""
       @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%")
+    else
+      @products = []
+      @all_products = Product.order("id DESC")
+    end
+
+    if @products.length == 0
+      @all_products = Product.order("id DESC")
     end
   end
 
