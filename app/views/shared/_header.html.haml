@@ -4,8 +4,8 @@
       .l-left
         = link_to root_path do
           = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1857733084")
-      = form_tag "https://www.mercari.com/jp/search/", {class: "header-form l-right"} do
-        %input{name: "keyword", placeholder: "キーワードから探す", type: "search", value: "", class: "input-default"}
+      = form_tag search_products_path, method: :get, class: "header-form l-right" do
+        = text_field :product, :name, {class: "input-default", placeholder: "キーワードから探す"}
         %i.fas.fa-search
 
     .header-nav-box
