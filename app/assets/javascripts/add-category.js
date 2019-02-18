@@ -5,7 +5,7 @@ $(document).on("turbolinks:load",function(){
     } else {
       // 子カテゴリーのhtml定義
       function addCategory (categories) {
-        var html = `<select class="select-field select-field__second" id="second_category" name="product[category_id]"></select>`;
+        var html = `<select class="select-field search-contents__second" id="second_category" name="product[category_id]"></select>`;
         $("#search-category__child").html(html);
         var default_select = `<option value="">すべて</option>`
         $("#second_category").append(default_select);

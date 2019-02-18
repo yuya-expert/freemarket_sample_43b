@@ -15,19 +15,19 @@
       font-size: 15px;
       font-weight: bold;
       background-color: white;
+      &__second {
+        margin-top: 8px;
+      }
       .search-content {
         margin-top: 24px;
-        .select-field__second {
-          margin-top: 8px;
-        }
-        .search-prices__min-max {
+        .search-prices {
           margin-top: 8px;
           overflow: auto;
-          .text-field__left {
+          &__left {
             width: 45%;
             float: left;
           }
-          .text-field__right {
+          &__right {
             width: 45%;
             float: right;
           }
@@ -49,16 +49,16 @@
             text-align: center;
             font-weight: normal;
           }
-          .search-btn__clear {
+          &__clear {
             margin-right: 24px;
             background-color: #AAAAAA;
           }
-          .search-btn__complete {
+          &__complete {
             background-color: #EA352C;
           }
         }
       }
-      .search-content__next {
+      &__next {
         margin-top: 42px;
       }
       .search-content p {
@@ -68,7 +68,7 @@
     }
   }
   &__search-results {
-    .search-result__text {
+    .search-result {
       h2 {
         margin-top: 0;
         font-size: 22px;
@@ -82,10 +82,10 @@
         margin-top: 30px;
         margin-bottom: 12px;
       }
-    }
-    .search-result__items {
-      max-width: 900px;
-      .search-result__item {
+      &__items {
+        max-width: 900px;
+      }
+      &__item {
         display: inline-block;
         width: 160px;
         min-width: 160px;
@@ -93,27 +93,27 @@
         margin-bottom: 20px;
         margin-right: 20px;
         background-color: white;
-        .search-result__image {
-          height: 160px;
-          text-align: center;
-        }
-        h4, p {
-          padding-left: 16px;
-          margin-top: 10px;
-        }
-        .search-result__introduction {
-          font-weight: normal;
-          margin-top: 16px;
-          margin-bottom: 36px;
-        }
-        .search-result__price {
-          margin-bottom: 0;
-        }
-        p {
-          margin-top: 0;
-          margin-bottom: 6px;
-          font-size: 12px;
-        }
+      }
+      &__image {
+        height: 160px;
+        text-align: center;
+      }
+      h4, p {
+        padding-left: 16px;
+        margin-top: 10px;
+      }
+      &__introduction {
+        font-weight: normal;
+        margin-top: 16px;
+        margin-bottom: 36px;
+      }
+      &__price {
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 12px;
       }
     }
   }
