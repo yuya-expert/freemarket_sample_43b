@@ -3,7 +3,7 @@
 = breadcrumbs separator: " &rsaquo; ", style: :ul
 .mypages-body
   = render "/shared/side-bar"
-  = form_for users_path do |f|
+  = form_for @user, url: mypage_path do |f|
     .profile
       .profile--head
         プロフィール
@@ -12,7 +12,7 @@
           = image_tag @user.image, size: '60x60', alt: "mercari_icon.png", class: "profile--img"
         - else
           = image_tag "rikishi.png", size: '60x60', alt: "mercari_icon.png", class: "profile--img"
-        = f.text_field :name, class: "profile--nickname", value: "#{@user.nickname}"
+        = f.text_field :nickname, class: "profile--nickname", value: "#{@user.nickname}"
       = f.text_area :self_introduction, class: "profile--text-area", value: "#{@user.self_introduction}"
       = f.submit "変更する", class: "profile--change-btn"
 

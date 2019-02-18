@@ -58,7 +58,7 @@
       設定
     %ul.mypage-nav--list
       %li.mypage-nav--list--item
-        プロフィール
+        = link_to 'プロフィール', edit_mypage_path(current_user.id)
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
         住所変更
