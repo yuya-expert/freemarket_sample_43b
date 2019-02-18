@@ -106,61 +106,61 @@
           display: block;
           overflow-y:hidden;
 
-          &--photo{
-            float: left;
-            min-width: 300px;
-            max-width: 300px;
-            min-height: 375px;
-            position: relative;
-            background: rgb(245, 245, 245);
+          // &--photo{
+          //   float: left;
+          //   min-width: 300px;
+          //   max-width: 300px;
+          //   min-height: 375px;
+          //   position: relative;
+          //   background: rgb(245, 245, 245);
 
-            &--inner{
-              position: relative;
-              margin: 0;
-              padding: 0;
-              height: 300px;
+          //   // &--inner{
+          //   //   position: relative;
+          //   //   margin: 0;
+          //   //   padding: 0;
+          //   //   height: 300px;
 
-              &--list{
-                height: 300px;
-              }
+          //   //   &--list{
+          //   //     height: 300px;
+          //   //   }
 
-              .item-photo-exhibited{
-                position: relative;
-                width: 100%;
-                height: 100%;
-                opacity: 1;
-              }
-            }
+          //   //   .item-photo-exhibited{
+          //   //     position: relative;
+          //   //     width: 100%;
+          //   //     height: 100%;
+          //   //     opacity: 1;
+          //   //   }
+          //   // }
 
-            &--underbox{
-              position: relative;
-              width: 100%;
-              height: 75px;
+          //   // &--underbox{
+          //   //   position: relative;
+          //   //   width: 100%;
+          //   //   height: 75px;
 
-              ul.content-item-main-photo-sub{
-                display: inline-block;
-                opacity: 1;
-                margin: 0;
-                padding: 0;
-                height: 75px;
-                font-size:0;
+          //   //   ul.content-item-main-photo-sub{
+          //   //     display: inline-block;
+          //   //     opacity: 1;
+          //   //     margin: 0;
+          //   //     padding: 0;
+          //   //     height: 75px;
+          //   //     font-size:0;
 
-                li.item-sub{
-                  list-style: none;
-                  height: 75px;
-                  overflow: auto;
-                  display: inline-block;
+          //   //     li.item-sub{
+          //   //       list-style: none;
+          //   //       height: 75px;
+          //   //       overflow: auto;
+          //   //       display: inline-block;
 
 
-                  .item-sub{
-                  width: 75px;
-                  height: 75px;
-                  max-height: none;
-                  }
-                }
-              }
-            }
-          }
+          //   //       .item-sub{
+          //   //       width: 75px;
+          //   //       height: 75px;
+          //   //       max-height: none;
+          //   //       }
+          //   //     }
+          //   //   }
+          //   // }
+          // }
 
           table.item-detail-table-exhibit{
             float: right;
@@ -521,6 +521,70 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+
+.content-my-product--detail--inner--main--box--photo{
+  float: left;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 375px;
+  margin: auto 0;
+  background: #fafafa;
+  padding: 0;
+  overflow: auto;
+
+  .content-my-product--detail--inner--main--box--photo--inner{
+    width: 300px;
+    height: 300px;
+    float:left;
+    min-height: 1px;
+
+    img.item-main{
+      width: 100%;
+      opacity: 1;
+    }
+    .item-tag-sold-out-top{
+      z-index: 1;
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: 315px;
+      border-style: solid;
+      border-width: 130px 130px 0 0;
+      border-color: #ea352d transparent transparent transparent;
+
+      .sold-out-text-top{
+        color: #fff;
+        transform: rotate(-45deg);
+        position: absolute;
+        top:-100px;
+        left: 10px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        font-size: 22px;
+      }
+    }
+  }
+  .content-item-main-photo-sub{
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 75px;
+    font-size: 0;
+
+    .item-sub{
+      width: 75px;
+      height: 75px;
+      max-height: none;
+      display: inline-block;
+      opacity: 1;
+      :hover{
+        opacity: 0.7;
       }
     }
   }
