@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :detail]
-  before_action :set_images, only: [:show, :edit, :detail]
-  before_action :set_categories, only: [:new, :edit]
+  before_action :set_categories, only: [:new, :edit, :search]
   before_action :set_category_id, only: [:show, :detail]
+  before_action :set_images, only: [:show, :edit, :detail]
   protect_from_forgery except: :update
 
   def index
@@ -91,6 +91,12 @@ class ProductsController < ApplicationController
     @likes_count = Like.where(product_id: @product.id).count
     @after_item = Product.order("RAND()").first
     @before_item = Product.order("RAND()").last
+  end
+
+  def search
+    # 商品名検索
+    @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%") if params[:product][:name].present?
+    @all_products = Product.order("id DESC")
   end
 
   private
