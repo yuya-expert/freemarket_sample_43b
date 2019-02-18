@@ -1,0 +1,131 @@
+.search-body {
+  display: flex;
+  flex-direction: row;
+  width: 1060px;
+  margin: 0 auto;
+  padding-top: 40px;
+  &__side-bar {
+    margin-right: 40px;
+    width: 280px;
+    .search-kind {
+      margin-bottom: 40px;
+    }
+    .search-contents {
+      padding: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      background-color: white;
+      &__second {
+        margin-top: 8px;
+      }
+      .search-content {
+        margin-top: 24px;
+        .search-prices {
+          margin-top: 8px;
+          overflow: auto;
+          &__left {
+            width: 45%;
+            float: left;
+          }
+          &__right {
+            width: 45%;
+            float: right;
+          }
+          .center-wave {
+            font-weight: normal;
+            position: relative;
+            left: 9px;
+            top: 16px;
+          }
+        }
+        .search-btns {
+          overflow: auto;
+          .search-btn {
+            float: left;
+            color: white;
+            width: 112px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: normal;
+          }
+          &__clear {
+            margin-right: 24px;
+            background-color: #AAAAAA;
+          }
+          &__complete {
+            background-color: #EA352C;
+          }
+        }
+      }
+      &__next {
+        margin-top: 42px;
+      }
+      .search-content p {
+        font-size: 14px;
+        margin: 8px 0;
+      }
+    }
+  }
+  &__search-results {
+    .search-result {
+      h2 {
+        margin-top: 0;
+        font-size: 22px;
+        font-weight: normal;
+      }
+      p {
+        font-size: 14px;
+      }
+      h3 {
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 12px;
+      }
+      &__items {
+        max-width: 900px;
+      }
+      &__item {
+        display: inline-block;
+        width: 160px;
+        min-width: 160px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        background-color: white;
+      }
+      &__image {
+        height: 160px;
+        text-align: center;
+      }
+      h4, p {
+        padding-left: 16px;
+        margin-top: 10px;
+      }
+      &__introduction {
+        font-weight: normal;
+        margin-top: 16px;
+        margin-bottom: 36px;
+      }
+      &__price {
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.check-boxes {
+  overflow: auto;
+  .check-box {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 8px;
+    width: 50%;
+    float: left;
+  }
+}

@@ -1,0 +1,97 @@
+= render "shared/header"
+= render "shared/exhibit"
+= render "shared/gretel"
+.search-body
+  = form_tag "/products/search", method: :get do
+    .search-body__side-bar
+      // 並び替えフィールド
+      %select.search-kind.select-field{name: "search-kind"}
+        - Product.search_kinds.keys.to_a.each_with_index do |search_kind, index|
+          %option{value: index}
+            = search_kind
+      .search-contents
+        詳細検索
+        // キーワード検索(商品名)
+        .search-content
+          %p.search-content__title
+            %span.fas.fa-plus
+            %span キーワードを追加する
+          = text_field :product, :name, {class: "text-field", placeholder: "例）値下げ"}
+        // カテゴリー検索
+        .search-content.search-contents__next
+          %p.search-content__title
+            %span.fas.fa-list-ul
+            %span カテゴリーを選択する
+          = select :product, :category_id, @categories, {prompt: "すべて"}, {class: "select-field", id:"search-category"}
+          #search-category__child
+          #search-category__grand-child
+        // ブランド検索
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fas.fa-tag
+            %span ブランド名から探す
+          = text_field :product, :brand_id, {class: "text-field", placeholder: "例）シャネル"}
+        // サイズ検索
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fas.fa-expand
+            %span サイズを指定する
+          %select.search-size.select-field
+            - Product.search_sizes.keys.to_a.each do |search_size|
+              %option
+                = search_size
+          .check-boxes
+            - Product.search_cloth_sizes.keys.to_a.each do |search_cloth_size|
+              .check-box
+                %span
+                  = check_box :product, :size, {}, true, false
+                %span
+                  = search_cloth_size
+        // 価格検索
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fab.fa-bitcoin
+            %span 価格
+          = select :product, :price, Product.search_prices.keys.to_a, {}, {class: "search-price select-field"}
+          .search-prices
+            = text_field :add, :min_price, {class: "text-field search-prices__left", placeholder: "¥ Min"}
+            = text_field :add, :max_price, {class: "text-field search-prices__right", placeholder: "¥ Max"}
+            %span.center-wave.clearfix ~
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fas.fa-star
+            %span 商品の状態
+            .check-boxes
+              - Product.search_statuses.keys.to_a.each_with_index do |search_status, index|
+                .check-box{value: "#{index}_check"}
+                  %span
+                    = check_box :product, :status, {}, true, false
+                  %span
+                    = search_status
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fas.fa-truck
+            %span 配送料の負担
+        .search-content.search-content__next
+          %p.search-content__title
+            %span.fas.fa-shopping-cart
+            %span 販売状況
+        .search-content.search-content__next
+          .search-btns
+            = link_to "クリア", "#", class: "search-btn search-btns__clear no-line"
+            = submit_tag "完了", class: "search-btn search-btns__complete no-line"
+  .search-body__search-results
+    .search-result
+      - if @products.nil?
+        %h2
+          = "検索結果 0件"
+        %p 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+        %h3 新着商品
+        .search-result__items
+          = render partial: "shared/search-item", locals: {products: @all_products}
+      - else
+        %h2
+          = "検索結果 1-#{@products.length}件"
+        .search-result__items
+          = render partial: "shared/search-item", locals: {products: @products}
+= render "shared/footer"
