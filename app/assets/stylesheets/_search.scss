@@ -20,16 +20,6 @@
         .select-field__second {
           margin-top: 8px;
         }
-        .check-boxes {
-          overflow: auto;
-          .check-box {
-            font-size: 14px;
-            font-weight: normal;
-            margin-top: 8px;
-            width: 50%;
-            float: left;
-          }
-        }
         .search-prices__min-max {
           margin-top: 8px;
           overflow: auto;
@@ -40,6 +30,12 @@
           .text-field__right {
             width: 45%;
             float: right;
+          }
+          .center-wave {
+            font-weight: normal;
+            position: relative;
+            left: 9px;
+            top: 16px;
           }
         }
         .search-btns {
@@ -120,5 +116,16 @@
         }
       }
     }
+  }
+}
+
+.check-boxes {
+  overflow: auto;
+  .check-box {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 8px;
+    width: 50%;
+    float: left;
   }
 }
