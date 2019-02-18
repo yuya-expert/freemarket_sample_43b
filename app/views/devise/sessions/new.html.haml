@@ -8,10 +8,10 @@
       .main-content__main-log-all-login
         %button.facebook
           %i.fab.fa-facebook.fa-pull-left
-          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: 'facebook-link'
         %button.google
           %i.fab.fa-google-plus-g.fa-pull-left
-          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path
+          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: 'google-link'
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-login
           .form-login-email
