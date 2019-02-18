@@ -11,15 +11,15 @@
   box-shadow: 1px 1px 10px #CCC;
   width: 100vw;
 
-  .pretext{
-    display: inline-block;
-    margin-left: 15vw;
-    padding: 0 5px;
-  }
-
   li{
     display: inline;
     margin: 3px;
+  }
+
+    li:first-child{
+    display: inline-block;
+    margin-left: 15vw;
+    padding: 0 5px;
   }
 
   .current{
