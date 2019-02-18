@@ -31,6 +31,3 @@ $(document).on("turbolinks:load",function(){
     }
   })
 })
-// 孫カテゴリーの追加(未実装)
-$(document).on("change", "#second_category", function(){
-})
