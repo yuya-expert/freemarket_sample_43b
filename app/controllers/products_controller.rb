@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_product, only: [:edit, :update, :detail]
+  before_action :set_product, only: [:show, :edit, :update, :detail]
+  before_action :set_images, only: [:show, :edit, :detail]
   before_action :set_categories, only: [:new, :edit]
+  before_action :set_category_id, only: [:show, :detail]
   protect_from_forgery except: :update
 
   def index
@@ -33,8 +35,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def edit
-    @images = Image.where(product_id: params[:id])
   end
 
   def update
@@ -63,10 +67,12 @@ class ProductsController < ApplicationController
   def confirmation
     @product = Product.find(params[:id])
     @user = User.find(current_user)
+    @image = Image.find_by(product_id: params[:id])
   end
 
   def completion
     @product = Product.find(params[:id])
+    @image = Image.find_by(product_id: params[:id])
     @product[:delivery_status] = 1
     @product.save
     Payjp.api_key = PAYJP_SECRET_KEY
@@ -77,11 +83,7 @@ class ProductsController < ApplicationController
   end
 
   def detail
-    @product = Product.find(params[:id])
     @product_user = Product.find_by(user_id: params[:user_id])
-    @category_id = Category.find(@product.category_id)
-    @category_child_id = Category.find(@category_id.parent_id)
-    @category_parent_id = Category.find(@category_child_id.parent_id)
     @review_good = Review.where(rate: 0).count
     @review_nomal = Review.where(rate: 1).count
     @review_bad = Review.where(rate: 2).count
@@ -99,6 +101,16 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def set_images
+    @images = Image.where(product_id: params[:id])
+  end
+
+  def set_category_id
+    @category_id = Category.find(@product.category_id)
+    @category_child_id = Category.find(@category_id.parent_id) unless @category_id.parent_id == 0
+    @category_parent_id = Category.find(@category_child_id.parent_id) unless @category_child_id.nil? || @category_child_id.parent_id == 0
   end
 
   def set_categories

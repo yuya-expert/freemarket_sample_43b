@@ -1,68 +1,74 @@
 = render 'shared/header'
-= render 'shared/gretel'
+- breadcrumb :show, @product
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .content-my-product
   .content-my-product--detail
     .content-my-product--detail--inner
       .content-my-product--detail--inner--main
-        %h2.exhibit-user-item-name マスク
+        %h2.exhibit-user-item-name
+          = @product.name
         .content-my-product--detail--inner--main--box
           .content-my-product--detail--inner--main--box--photo
             .content-my-product--detail--inner--main--box--photo--inner
-              .content-my-product--detail--inner--main--box--photo--inner--list
-                = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554',class: 'item-photo-exhibited'
+              = image_tag @product.images[0].image,class: "item-main" if @product.images != []
+              .item-tag-sold-out-top
+                .sold-out-text-top SOLD
             .content-my-product--detail--inner--main--box--photo--underbox
               %ul.content-item-main-photo-sub
                 %li.item-sub
-                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                  = image_tag @product.images[0].image, class: "item-sub" if @product.images[0]
                 %li.item-sub
-                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                  = image_tag @product.images[1].image, class: "item-sub" if @product.images[1]
                 %li.item-sub
-                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_1.jpg?1549180554', class: 'item-sub'
+                  = image_tag @product.images[2].image,class: "item-sub" if @product.images[2]
                 %li.item-sub
-                  = image_tag 'https://static-mercari-jp-imgtr2.akamaized.net/item/detail/orig/photos/m59862661016_3.jpg?1549190249" alt="マスク" class="owl-lazy', class: 'item-sub'
+                  =image_tag @product.images[3].image, class: "item-sub" if @product.images[3]
 
           %table.item-detail-table-exhibit
             %tbody.item-detail-table-exhibit--body
               %tr.record--name
                 %th.record--name--left 出品者
                 %td.record--name--right
-                  =link_to "出品者","#", class: "exhibit-product-user-name"
+                  =link_to @product.user.nickname,"#", class: "exhibit-product-user-name"
               %tr.record--category
                 %th.record--category--left カテゴリー
                 %td.record--category--right
-                  = link_to "インテリア・住まい・小物","#", class: "exhibit-prodct-category"
-                  = link_to "季節/年中行事","#",class: " exhibit-prodct-category"
-                  = link_to "その他","#",class: "exhibit-prodct-category"
+                  - unless @category_parent_id.nil?
+                    = link_to @category_parent_id.name ,"#", class: "exhibit-prodct-category"
+                  - unless @category_child_id.nil?
+                    = link_to @category_child_id.name ,"#",class: " exhibit-prodct-category"
+                  = link_to @product.category.name ,"#",class: "exhibit-prodct-category"
               %tr.record--brand
                 %th.record--brand--left ブランド
                 %td.record--brand--right
-                  = link_to "ブランド","#", class: "exhibt-product-brand"
+                  = link_to @product.brand.list,"#", class: "exhibt-product-brand"
               %tr.record--state
                 %th.record--state--left 商品の状態
-                %td.record--state--right 新品、未使用
+                %td.record--state--right= @product.status
               %tr.record--delivery-fee
                 %th.record--delivery-fee--left 配送料の負担
-                %td.record--delivery-fee--right 着払い(購入者負担)
+                %td.record--delivery-fee--right= @product.delivery_fee
               %tr.record--delivery-method
                 %th.record--delivery-method--left 配送の方法
-                %td.record--delivery-method--right 未定
+                %td.record--delivery-method--right= @product.shipping_method
               %tr.record--delivery-area
                 %th.record--delivery-area--left 配送元地域
                 %td.record--delivery-area--right
-                  = link_to "東京都","#",class: "exhibit-delivery-area"
+                  = link_to Prefecture.data[@product.area][:name] ,"#",class: "exhibit-delivery-area"
               %tr.record--delivery-date
                 %th.record--delivery-date--left 発送日の目安
-                %td.record--delivery-date--right 4〜7日で発送
+                %td.record--delivery-date--right= @product.shipping_dates
         .content-my-product--detail--inner--main--price
-          %span.exhibit-product-price ¥1,000,000
+          %span.exhibit-product-price
+            ="¥#{@product.price}"
           %span.exhibit-product-fee (税込)
-          %span.exhibit-product-method 着払い
+          %span.exhibit-product-method
+            = @product.delivery_fee
         .content-my-product--detail--inner--main--description
-          %p.description-about-product コメント　スペース　を　空ける
-          改行
+          %p.description-about-product= @product.detail
 
       .content-my-product--detail--inner--middle
-        = link_to "商品の編集", "#" ,class: "exhibit-product-edit"
+        = link_to "商品の編集", edit_product_path ,class: "exhibit-product-edit"
         %p.content-my-product--detail--inner--middle--center-text or
         %form.stop-exhibit-product
           %input.stop-exhibit-product--send
