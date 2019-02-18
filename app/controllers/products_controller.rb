@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_new_product, only: [:new, :search]
+  before_action :set_new_product, only: [:new]
   before_action :set_product, only: [:show, :edit, :update, :detail]
   before_action :set_categories, only: [:new, :edit, :search]
   before_action :set_category_id, only: [:show, :detail]
@@ -95,16 +95,12 @@ class ProductsController < ApplicationController
 
   def search
     # 商品名検索
-    if params[:product] && params[:product][:name] != ""
+    if params[:product] && params[:product][:name].present?
       @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%")
     else
-      @products = []
       @all_products = Product.order("id DESC")
     end
-
-    if @products.length == 0
-      @all_products = Product.order("id DESC")
-    end
+    @all_products = Product.order("id DESC") if @products.nil?
   end
 
   private
