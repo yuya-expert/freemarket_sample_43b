@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     session[:building] = params[:user][:building]
     session[:phone_number] = params[:user][:phone_number]
 
-    @user = User.new(nickname: session[:nickname],email: session[:email],password: session[:password],last_name: session[:last_name],first_name: session[:first_name],last_name_ja: session[:last_name_ja],first_name_ja: session[:first_name_ja],birthday: session[:birthday],postal_code: session[:position],prefecture: session[:prefecture],city: session[:city],add_ress: session[:add_ress],building: session[:building],phone_number: session[:phone_number])
+    @user = User.new(nickname: session[:nickname],email: session[:email],password: session[:password],last_name: session[:last_name],first_name: session[:first_name],last_name_ja: session[:last_name_ja],first_name_ja: session[:first_name_ja],birthday: session[:birthday],postal_code: session[:postal_code],prefecture: session[:prefecture],city: session[:city],add_ress: session[:add_ress],building: session[:building],phone_number: session[:phone_number])
   end
 
   private

@@ -4,7 +4,6 @@ $(function(){
       $('.progress-state--first--line').css("background","#ea352d");
 
       $('.progress-state--second--line-left').css("background","#ea352d");
-      $('.progress-state--second--line-left').css("background","#ea352d");
 
       $('.progress-state--second').css("background","#ea352d");
 
