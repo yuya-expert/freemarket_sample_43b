@@ -4,14 +4,12 @@
 
 = image_tag("slider-1.png",{class: "slider"})
 %p.pickup-category ピックアップカテゴリー
-.contents
-  = render partial: "contents", locals: {content: "レディース"}
-.contents
-  = render partial: "contents", locals: {content: "コスメ・香水・美容"}
+- @categories.each_with_index do |category, index|
+  - unless index >= 3
+    .contents
+      = render partial: "category", locals: {category: category}
 %p.pickup-brand ピックアップブランド
-.contents
-  = render partial: "contents", locals: {content: "シャネル"}
-.contents
-  = render partial: "contents", locals: {content: "ナイキ"}
-
+- @brands.each do |brand|
+  .contents
+    = render partial: "brand", locals: {brand: brand}
 = render "/shared/footer"

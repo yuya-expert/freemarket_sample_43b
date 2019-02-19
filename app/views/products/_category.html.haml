@@ -1,0 +1,22 @@
+.content
+  .content-title
+    = "#{category[0]} 新着アイテム"
+  .items
+    - count = 0
+    - @products.each do |product|
+      - unless count >= 4
+      - bottom_category = Category.find(product.category_id)
+      - middle_category = Category.find(bottom_category.parent_id)
+      - top_category = Category.find(middle_category.parent_id)
+        - if category[1] == top_category.id
+          = link_to detail_product_path(product) do
+            .item
+              = image_tag("rikishi.png")
+              .title
+                = product.name
+              .price
+                = product.price
+              .tax (税込)
+          - count += 1
+  .show-all-items
+    = link_to("すべての商品を見る", "#")
