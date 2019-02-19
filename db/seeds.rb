@@ -39,7 +39,7 @@ csv_data.each do |data|
   Brand.create!(data.to_hash)
 end
 
-2000.times do |number|
+30.times do |number|
   number = number + 1
   product = Product.create!(
     name: Faker::Pokemon.name,
@@ -49,10 +49,10 @@ end
     shipping_method: rand(1..4),
     area: rand(1..47),
     shipping_dates: rand(1..3),
-    price: rand(0..9)*1000 + rand(0..9)*100,
+    price: rand(3..99)*100,
     delivery_status: 0,
     user_id: rand(1..5),
-    brand_id: rand(1..33),
+    brand_id: rand(1..3),
     category_id: rand(159..581)
   )
   product.save!
