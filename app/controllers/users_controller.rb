@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:main_data, :sms_confirmation]
+  before_action :set_user, only:[:main_data, :sms_confirmation, :certification, :check, :address,]
   require "date"
   def main_data
-    @user = User.new
   end
 
   def sms_confirmation
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
   end
 
   def certification
-    @user = User.new
     year =params[:user]['birthday(1i)'].to_s
     month =params[:user]['birthday(2i)'].to_s
     day = params[:user]['birthday(3i)'].to_s
@@ -35,12 +33,10 @@ class UsersController < ApplicationController
   end
 
   def check
-    @user = User.new
     session[:phone_number] = params[:user][:phone_number]
   end
 
   def address
-    @user = User.new
   end
 
   def creditcard
@@ -52,5 +48,10 @@ class UsersController < ApplicationController
     session[:phone_number] = params[:user][:phone_number]
 
     @user = User.new(nickname: session[:nickname],email: session[:email],password: session[:password],last_name: session[:last_name],first_name: session[:first_name],last_name_ja: session[:last_name_ja],first_name_ja: session[:first_name_ja],birthday: session[:birthday],postal_code: session[:position],prefecture: session[:prefecture],city: session[:city],add_ress: session[:add_ress],building: session[:building],phone_number: session[:phone_number])
+  end
+
+  private
+    def set_user
+    @user = User.new
   end
 end
