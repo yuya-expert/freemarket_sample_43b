@@ -1,0 +1,335 @@
+.address-registration{
+  background: rgb(245, 245, 245);
+  width: 1405px;
+  height: 1500px;
+  display: block;
+  position: absolute;
+
+  &--content{
+    display: block;
+
+    &--inner{
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      overflow: auto;
+
+      h2.new-member-title{
+          padding: 32px 16px;
+          font-size: 22px;
+          line-height: 1.5;
+          text-align: center;
+      }
+
+      .address-registration--content--inner--form{
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        margin: 0;
+
+        &--content{
+          max-width: 320px;
+          margin: 0 126px;
+          display: block;
+
+          &--postal-code{
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+
+            label.address-registration--postal-code-label {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-postal-code{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .address-registration--postal-code{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+
+            .error-text-postal-code{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+
+          &--city-governments{
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.address-registration--city-governments {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-city-governments{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+
+            .select-city-governments{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+              -webkit-appearance: none;
+            }
+
+            i.fas.fa-angle-down{
+              position: absolute;
+              right: 16px;
+              top: 55%;
+              z-index: 2;
+              color: #888;
+              font-size: 24px;
+            }
+
+            .error-text-prefecture{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+
+          &--cities{
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.address-registration--cities {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-cities{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .address-registration--cities-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+
+            .error-text-city{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+
+          &--address-detail{
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.address-registration--address-detail {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-address-detail{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .address-registration--address-detail-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+
+            .error-text-address{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+
+          &--building {
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.address-registration--building  {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-building {
+              line-height: 1.8;
+              background: #ccc;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .address-registration--building-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+          }
+
+          &--phone-number {
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.address-registration--phone-number {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.address-registration-form-necesarry-phone-number{
+              line-height: 1.8;
+              background: #ccc;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .address-registration--phone-number-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+          }
+        }
+        &--bottom{
+          max-width: 320px;
+          margin: 0 auto;
+
+          .address-registration--net-btn{
+            margin: 40px 0 0;
+            background: $progress-color;
+            border: 1px solid $progress-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
