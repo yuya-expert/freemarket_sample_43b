@@ -1,0 +1,13 @@
+= render "header-registration"
+.certification-main
+  %section.certification-title
+    %h2.phone-number-certification 認証番号の確認
+    .certification-main--content
+      .certification-main--content--inner
+        .certification-main--content--inner--text-group
+          %label.phone-number-label 認証の番号
+          %input.phone-number-text-field{:placeholder => "認証番号を入力"}
+          .error-text-check 認証番号を確認してください
+          %p.check-advice-text SMSで届いた認証番号を入力してください
+        = link_to "SMSを送信する", address_users_path, class: "SMS-submit"
+  = render "registrations/footer"
