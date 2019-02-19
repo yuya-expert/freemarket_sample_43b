@@ -8,8 +8,8 @@
   - unless index >= 3
     .contents
       = render partial: "category", locals: {category: category}
-//%p.pickup-brand ピックアップブランド
-//- @brands.each do |brand|
-//  .contents
-//    = render partial: "contents", locals: {content: brand}
+%p.pickup-brand ピックアップブランド
+- @brands.each do |brand|
+  .contents
+    = render partial: "brand", locals: {brand: brand}
 = render "/shared/footer"

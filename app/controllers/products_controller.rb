@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.order("created_at desc")
+    @brands = Brand.where('id < 3')
   end
 
   def new
