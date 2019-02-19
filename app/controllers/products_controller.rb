@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :detail]
-  before_action :set_categories, only: [:new, :edit, :search]
+  before_action :set_categories, only: [:index, :new, :edit, :search]
   before_action :set_category_id, only: [:show, :detail]
   before_action :set_images, only: [:show, :edit, :detail]
   protect_from_forgery except: :update
 
   def index
-    @products = Product.limit(4).order("created_at desc")
+    @products = Product.order("created_at desc")
+    @brands = Brand.where('id < 3')
   end
 
   def new
