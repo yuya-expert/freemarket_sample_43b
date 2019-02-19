@@ -1,0 +1,42 @@
+= render "header-registration"
+.address-registration
+  .address-registration--content
+    .address-registration--content--inner
+      %h2.new-member-title 住所入力
+      = form_for @user, url: creditcard_users_path do |f|
+        .address-registration--content--inner--form
+          .address-registration--content--inner--form--content
+            .address-registration--content--inner--form--content--postal-code
+              %label.address-registration--postal-code-label 郵便番号
+              %span.address-registration-form-necesarry-postal-code 必須
+              = f.text_area :postal_code, class: "address-registration--postal-code", placeholder: "例) 123-4567"
+              .error-text-postal-code 郵便番号を入力してください
+
+            .address-registration--content--inner--form--content--city-governments
+              %label.address-registration--city-governments 都道府県
+              %span.address-registration-form-necesarry-city-governments 必須
+              = f.select :prefecture,Prefecture.data.map{ |a| [a[:name], a[:id]]}, {}, {class: "select-city-governments"}
+              .error-text-prefecture 都道府県を選択してください
+              %i.fas.fa-angle-down
+            .address-registration--content--inner--form--content--cities
+              %label.address-registration--cities 市区町村
+              %span.address-registration-form-necesarry-cities 必須
+              = f.text_area :city, class: "address-registration--cities-textarea", placeholder: "例) 横浜市緑区"
+              .error-text-city 市町村を入力してください
+            .address-registration--content--inner--form--content--address-detail
+              %label.address-registration--address-detail 番地
+              %span.address-registration-form-necesarry-address-detail 必須
+              = f.text_area :add_ress, class: "address-registration--address-detail-textarea", placeholder: "例) 青山1-1-1"
+              .error-text-address 番地を入力してください
+            .address-registration--content--inner--form--content--building
+              %label.address-registration--building 建物名
+              %span.address-registration-form-necesarry-building 任意
+              = f.text_area :building, class: "address-registration--building-textarea", placeholder: "例) 青山ビル"
+            .address-registration--content--inner--form--content--phone-number
+              %label.address-registration--phone-number 電話番号
+              %span.address-registration-form-necesarry-phone-number 任意
+              = f.text_area :phone_number, class: "address-registration--phone-number-textarea", placeholder: "例) 09012345678"
+          .address-registration--content--inner--form--bottom
+            = button_tag "次に進む", class: "address-registration--net-btn"
+
+  = render "registrations/footer"

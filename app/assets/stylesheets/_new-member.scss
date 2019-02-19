@@ -1,0 +1,536 @@
+.new-registration{
+  background: rgb(245, 245, 245);
+  width: 1405px;
+  height: 2300px;
+  display: block;
+  position: absolute;
+
+  &--content{
+    display: block;
+
+    &--inner{
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+
+      h2.new-member-title{
+        padding: 32px 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .new-member-form{
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        margin: 0;
+
+        .new-registration--content--inner--main{
+          max-width: 320px;
+          margin: 0 126px;
+          display: block;
+
+
+          &--nickname{
+            margin: 0;
+            padding: 0;
+            display: block;
+
+            label.new-registration--nickname-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+            span.form-add-necesarry-nickname{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--nickname-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+
+            .error-text-nickname{
+              color: $progress-color;
+              font-size: 14px;
+              margin-top: 10px;
+              display: none;
+            }
+          }
+          &--mail-address{
+            margin: 40px 0 0;
+
+            label.new-registration--mail-address-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+            span.form-add-necesarry-mail{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--mail-address{
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-mail{
+              color: $progress-color;
+              font-size: 14px;
+              margin-top: 10px;
+              display: none;
+            }
+          }
+          &--password{
+            margin: 40px 0 0;
+            padding: 0;
+            display: block;
+
+            label.new-registration--password-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+            span.form-add-necesarry-password{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--password{
+              width: 100%;
+              margin: 8px 0 0;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              height: 48px;
+              resize: none;
+            }
+          .error-text-password{
+            color: $progress-color;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+          }
+
+          .error-text-password-limit{
+            color: $progress-color;
+            font-size: 14px;
+            margin-top: 10px;
+            display:none;
+          }
+          }
+          &--password-confirmation{
+            margin: 40px 0 0;
+            display: block;
+
+            label.new-registration--password-confirmation-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+            span.form-add-necesarry-password-confirmation{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--password-confirmation{
+              width: 100%;
+              margin: 8px 0 0 ;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-password-confirmation{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+            .error-text-password-confirmation-match{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--identification{
+            margin: 40px 0 0;
+            padding: 0;
+            display: block;
+
+            h3.identification-title{
+              font-size: 16px;
+            }
+
+            p.identification-text{
+              margin: 8px 0 0;
+              padding: 0;
+              line-height: 1.5;
+              display: block;
+              font-weight: 200;
+              font-size: 14px;
+            }
+          }
+          &--family-name{
+            margin: 40px 0 0;
+            display: block;
+
+            label.new-registration--family-name-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+
+            span.form-add-necesarry-family-name{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--family-name{
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-family-name{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--personal-name{
+            margin: 40px 0 0;
+            display: block;
+
+            label.new-registration--personal-name-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+
+            span.form-add-necesarry-personal-name{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--personal-name{
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-personal-name{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--family-name-kana{
+            margin: 40px 0 0;
+            display: block;
+
+            label.new-registration--family-name-kana-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+
+            span.form-add-necesarry-family-name-kana{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--family-name-kana{
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-family-name-kana{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--personal-name-kana{
+            margin: 40px 0 0;
+            display: block;
+
+            label.new-registration--personal-name-kana-label{
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px;
+            }
+
+            span.form-add-necesarry-personal-name-kana{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .new-registration--personal-name-kana{
+              width: 100%;
+              margin: 8px 0 0;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing: border-box;
+              resize: none;
+            }
+
+            .error-text-personal-name-kana{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--birth{
+            margin: 40px 0 0;
+            display: block;
+            font-size: 14px;
+
+            label.new-registration--birth{
+              font-weight: 600;
+              display: inline-block;
+            }
+
+            span.form-add-necesarry-birth{
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+
+            .error-text-birthday{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+
+            &--year{
+              right: 16px;
+              top: 50%;
+              z-index: 2;
+              color: #888;
+              font-size: 8px;
+              line-height: 1;
+
+              &--inner{
+                width: 140px;
+                margin: 8px 0 0;
+                position: relative;
+                overflow: auto;
+                display: inline-block;
+
+                .new-registration--select{
+                  width: 100%;
+                  position: relative;
+                  z-index: 2;
+                  height: 48px;
+                  padding: 0 16px;
+                  border-radius: 4px;
+                  border: 1px solid #ccc;
+                  font-size: 16px;
+                  line-height: 1.5;
+                  cursor: pointer;
+                  background: #fff;
+                  margin-top: 10px;
+                }
+              }
+              .new-registration--year{
+                display: inline-block;
+                position: absolute;
+                padding: 50px 0 0 10px;
+                font-size: 15px;
+                color: #333;
+              }
+              .new-registration--month{
+                display: inline-block;
+                position: absolute;
+                padding: 105px 0 0 10px;
+                font-size: 15px;
+                color: #333;
+              }
+             .new-registration--day{
+                display: inline-block;
+                position: absolute;
+                padding: 160px 0 0 10px;
+                font-size: 15px;
+                color: #333;
+              }
+            }
+          }
+          p.confirmation-about-information{
+            margin: 8px 0 0;
+            line-height: 1.5;
+            color: #888;
+            font-size: 14px;
+          }
+        }
+
+        .new-registration--content--inner--bottom{
+          max-width: 320px;
+          margin: 0 auto;
+
+          &--recaptcha{
+            margin: 40px 0 0;
+
+
+          }
+          &--agree-text{
+            margin: 40px 0 0;
+
+            .form-login-no-robot-recaptcha{
+              iframe.function{
+                box-sizing: border-box;
+                width: 100%;
+              }
+            }
+            p.bottom--agree-text-inner-top {
+              margin: 0;
+              padding: 0;
+              line-height: 1.5;
+              text-align: center;
+              font-size: 14px;
+            }
+            .terms-of-service{
+              color: $link-text-color;
+              text-decoration: none;
+              font-size: 14px;
+            }
+            .bottom--agree-text-inner-bottom{
+              margin: 0;
+              padding: 0;
+              line-height: 1.5;
+              text-align: center;
+              font-size: 14px;
+            }
+          }
+
+          .new-registration--net-btn{
+            margin: 40px 0 0;
+            background: $progress-color;
+            border: 1px solid $progress-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+          .new-registration--content--inner--bottom--about-registration{
+            margin: 40px 0;
+            text-align: right;
+
+            .about-registration--link{
+              color: $link-text-color;
+              text-decoration: none;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
