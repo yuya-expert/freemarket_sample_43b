@@ -12,7 +12,7 @@
             .content-my-product--detail--inner--main--box--photo--inner
               = image_tag @product.images[0].image,class: "item-main" if @product.images != []
               .item-tag-sold-out-top
-                .sold-out-text-top SOLD
+                .sold-out-text-top.sold SOLD
             .content-my-product--detail--inner--main--box--photo--underbox
               %ul.content-item-main-photo-sub
                 %li.item-sub
