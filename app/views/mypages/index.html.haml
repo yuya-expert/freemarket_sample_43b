@@ -11,13 +11,19 @@
     = link_to "#", class: "no-line" do
       .my-page__header-image
         .user-data__wrapper
-          = image_tag "rikishi.png", class: "my-page__header-profimage"
-          .my-page__name アルカリ
+          - unless @user.image.nil?
+            = image_tag @user.image, class: "my-page__header-profimage"
+          - else
+            = image_tag "rikishi.png", class: "my-page__header-profimage"
+          .my-page__name
+            = @user.nickname
           .review-wrapper
             .user-page__review
-              評価 1000
+              評価
+              = @reviews
             .user-page__exhibit-count
-              出品数 1000
+              出品数
+              = @products
     // お知らせとやることリストのタブ部分
     .my-page__tabs
       .my-page__title-left.info.active-tab
@@ -28,7 +34,10 @@
     .my-page__left-wrapper.info.active-area
       .my-page__left
         .my-page__left-image
-          = image_tag "rikishi.png", {class: "left-image"}
+          - unless @user.image.nil?
+            = image_tag @user.image, {class: "left-image"}
+          - else
+            = image_tag "rikishi.png", {class: "left-image"}
         .my-page__left-texts
           .my-page__left-text yuya arakiさんがmarginマスターしました
           .my-page__left-time
@@ -38,7 +47,10 @@
     .my-page__right-wrapper.todo.inactive-area
       .my-page__right
         .my-page__right-image
-          = image_tag "rikishi.png", {class: "right-image"}
+          - unless @user.image.nil?
+            = image_tag @user.image, {class: "right-image"}
+          - else
+            = image_tag "rikishi.png", {class: "right-image"}
         .my-page__right-texts
           .my-page__right-text yuya arakiさんがpaddinをマスターしました
           .my-page__right-time
@@ -59,7 +71,10 @@
     .my-page__left-wrapper.now.active-area
       .my-page__left
         .my-page__left-image
-          = image_tag "rikishi.png", {class: "left-image"}
+          - unless @user.image.nil?
+            = image_tag @user.image, {class: "left-image"}
+          - else
+            = image_tag "rikishi.png", {class: "left-image"}
         .my-page__left-texts
           .my-page__left-text yuya arakiさんがRuby on Railsをマスターしました
           .my-page__left-time
@@ -69,7 +84,10 @@
     .my-page__right-wrapper.past.inactive-area
       .my-page__right
         .my-page__right-image
-          = image_tag "rikishi.png", {class: "right-image"}
+          - unless @user.image.nil?
+            = image_tag @user.image, {class: "right-image"}
+          - else
+            = image_tag "rikishi.png", {class: "right-image"}
         .my-page__right-texts
           .my-page__right-text yuya arakiさんがjQueryをマスターしました
           .my-page__right-time
