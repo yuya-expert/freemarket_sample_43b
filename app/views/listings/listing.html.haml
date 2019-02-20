@@ -1,0 +1,34 @@
+= render "/shared/header"
+= render "/shared/exhibit"
+.mypages-body
+  = render "shared/side-bar"
+  .main-all
+    .toransaction-title
+      出品した商品
+    // 取引中と過去の取引のタブ部分
+    .my-page__tabs
+      .my-page__Exhibit.listing.active-tab
+        出品中
+      .my-page__Exhibit.in_progress.inactive-tab
+        = link_to "取引中", in_progress_mypage_listings_path
+      .my-page__Exhibit.completed.inactive-tab
+        = link_to "売却済み", completed_mypage_listings_path
+    // 取引中のリスト
+    .my-page__left-wrapper.now.active-area
+      %ul.my-product
+        - @products.each do |product|
+          %li.my-product--list
+            = link_to product_path(product) do
+              .my-product--image
+                - unless product.images.first.nil?
+                  = image_tag product.images.first.image, class: "my-product--image-image"
+                - else
+                  = image_tag "rikishi.png", class: "my-product--image-image"
+              .my-product--box
+                .my-product--name
+                  = product.name
+                .my-product--like
+                  %i.far.fa-heart
+                  = p product.likes.count
+              %i.fas.fa-chevron-right.my-product--arrow-right
+= render "/shared/footer"
