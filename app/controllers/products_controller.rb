@@ -1,13 +1,14 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :detail]
-  before_action :set_categories, only: [:new, :edit, :search]
+  before_action :set_categories, only: [:index, :new, :search]
   before_action :set_category_id, only: [:show, :detail]
   before_action :set_images, only: [:show, :edit, :detail]
   protect_from_forgery except: :update
 
   def index
-    @products = Product.limit(4).order("created_at desc")
+    @products = Product.where("delivery_status = 0").order("created_at desc")
+    @brands = Brand.where('id < 3')
   end
 
   def new
@@ -39,6 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @top_categories = Category.where("parent_id = 0").map{|a| [a[:name], a[:id]] }
+    @middle_categories = Category.where("parent_id = #{Category.find(@product.middle_category_id).parent_id}").map{|a| [a[:name], a[:id]] }
+    @bottom_categories = Category.where("parent_id = #{Category.find(@product.category_id).parent_id}").map{|a| [a[:name], a[:id]] }
   end
 
   def update
@@ -102,7 +106,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :top_category_id, :middle_category_id, :category_id, images_attributes: [:id, :image, :product_id])
   end
 
   def set_product
@@ -122,4 +126,5 @@ class ProductsController < ApplicationController
   def set_categories
     @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
+
 end

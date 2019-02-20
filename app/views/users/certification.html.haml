@@ -1,0 +1,18 @@
+= render "header-registration"
+.certification-main
+  %section.certification-title
+    %h2.phone-number-certification 電話番号の確認
+    = form_for @user, url: check_users_path do |f|
+      .certification-main--content
+        .certification-main--content--inner
+          .certification-main--content--inner--text-group
+            %label.phone-number-label 携帯電話の番号
+            = f.number_field :phone_number, class: "phone-number-text-field", placeholder: "携帯電話の番号を入力"
+            .error-text-certification 電話番号の書式を確認してください
+          %p.certification-text 本人確認のため、携帯電話のSNS(ショートメッセージサービス)を利用して認証を行います。
+          = button_tag "SMSを送信する", class: "SMS-submit"
+          %p.certification-advice-text ※電話番号は本人認証や不正利用の防止のために利用します。他のユーザーに公開されることはありません。
+          .certification-main--content--inner--reason-phonenumber
+            =link_to "電話番号の確認が必要な理由", "#",class: "reason-need"
+            %i.fas.fa-angle-right
+  = render "registrations/footer"
