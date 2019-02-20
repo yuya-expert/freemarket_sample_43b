@@ -1,8 +1,13 @@
 = render "/shared/header"
+
 - breadcrumb :destroy, @destroy
 = breadcrumbs separator: " &rsaquo; ", style: :ul
-.wrapper
+
+= render "shared/exhibit"
+.mypages-body
   = render "/shared/side-bar"
-  .logout--container
-    = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "logout--btn")
+  .main-all
+    .main-all__background
+      .main-all__btn
+        = link_to("ログアウト", destroy_user_session_path, method: :delete, class: "main-all__btn-text no-line")
 = render "/shared/footer"

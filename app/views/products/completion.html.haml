@@ -8,7 +8,8 @@
   %p.completion--message
     購入が完了しました
   .completion--product-img
-    = image_tag @image.image ,class: 'completion--product-img'
+    = image_tag(@image.image ,class: 'completion--product-img') if @image
+    = image_tag("rikishi.png" ,class: 'completion--product-img') if @image.nil?
   %p.completion--product-name
     = @product.name
   %ul.completion--price
