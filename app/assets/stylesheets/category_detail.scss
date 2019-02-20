@@ -1,0 +1,54 @@
+.category-detail{
+  &--wrapper{
+    margin: 0 auto;
+    width: 80%;
+  }
+  &--head{
+    &--items{
+      margin: 0 5px;
+
+    }
+    &--item{
+      display: inline-block;
+    }
+  }
+  &--container{
+    align-content: flex-start;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: 35px;
+  }
+  &--content{
+    margin: 12px;
+    text-decoration: none;
+    color: black;
+
+    &--title{
+      font-weight: bold;
+      height: 50px;
+      display: inline-block;
+    }
+    &--item-box{
+      background-color: #fff;
+      width: 188px;
+    }
+    &--clerefix{
+      width: 188px;
+      background-color: #fff;
+      height: 70px;
+      position: relative;
+
+    }
+    &--price{
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+    }
+    &--like{
+      display: inline-block;
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+    }
+  }
+}

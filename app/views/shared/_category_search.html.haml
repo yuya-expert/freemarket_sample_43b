@@ -1,0 +1,18 @@
+- @large = Category.where(parent_id: 0)
+%ul.nav
+  %li.nav
+    = link_to "カテゴリーから探す", category_index_products_path, class: "category-search--root"
+    %ul
+      - @large.each do |l|
+        %li
+          = link_to "#{l.name}", category_detail_product_path(l.id), class: "nav"
+          %ul.asdf
+            - @middle = Category.where(parent_id: l.id)
+            - @middle.each do |m|
+              %li
+                = link_to m.name, category_detail_product_path(m.id), class: "nav"
+                %ul
+                  - @small = Category.where(parent_id: m.id)
+                  - @small.each do |s|
+                    %li
+                      = link_to s.name, category_detail_product_path(s.id), class: "nav"
