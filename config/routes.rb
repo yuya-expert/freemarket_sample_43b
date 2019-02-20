@@ -15,7 +15,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, only: [:index, :edit, :update, :destroy]
+  resources :mypages, only: [:index, :edit, :update, :destroy] do
+    resources :listings do
+      collection do
+        get "listing"
+        get "in_progress"
+        get "completed"
+      end
+    end
+  end
   resources :products, only: [:new, :create, :edit, :update, :show, :destroy] do
     resources :images, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
