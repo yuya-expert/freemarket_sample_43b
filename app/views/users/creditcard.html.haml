@@ -1,0 +1,75 @@
+= render "header-registration"
+//クレジットカード情報を保存するテーブル、カラムがないためinput,selectで代用
+.creditcard-registration
+  .creditcard-registration--content
+    .creditcard-registration--content--inner
+      %h2.creditcard-title 支払い方法
+      = form_for @user  do |f|
+        = f.hidden_field :nickname
+        = f.hidden_field :email
+        = f.hidden_field :password
+        = f.hidden_field :last_name
+        = f.hidden_field :first_name
+        = f.hidden_field :last_name_ja
+        = f.hidden_field :first_name_ja
+        = f.hidden_field :birthday
+        = f.hidden_field :postal_code
+        = f.hidden_field :prefecture
+        = f.hidden_field :city
+        = f.hidden_field :add_ress
+        = f.hidden_field :building
+        = f.hidden_field :phone_number
+        .creditcard-registration--content--inner--form
+          .creditcard-registration--content--inner--form--content
+            .creditcard-registration--content--inner--form--content--card-number
+              %label.creditcard-registration--card-number カード番号
+              %span.creditcard-registration-form-necesarry-card-number 必須
+              %input.creditcard-registration--card-number-textarea{:placeholder => "半角数字のみ"}
+              -# = f.text_area :number, class: "creditcard-registration--card-number-textarea", placeholder: "半角数字のみ"
+              .error-text-card-number カード番号を入力してください
+            .creditcard-registration--content--inner--form--content--expiration-date
+              %label.creditcard-registration--expiration-date 有効期限
+              %span.creditcard-registration-form-necesarry-expiration-date 必須
+              %select.select-expiration-date-month
+                %option{:value => ""} --
+                %option{:value => "1"} 1
+                %option{:value => "2"} 2
+                %option{:value => "3"} 3
+                %option{:value => "4"} 4
+                %option{:value => "5"} 5
+                %option{:value => "6"} 6
+                %option{:value => "7"} 7
+                %option{:value => "8"} 8
+                %option{:value => "9"} 9
+                %option{:value => "10"} 10
+                %option{:value => "11"} 11
+                %option{:value => "12"} 12
+              -# = f.select :expiration,["---", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], {}, {class: "select-expiration-date-month"}
+              %span.expiration-date-month-letter 月
+              %select.select-expiration-date-year
+                %option{:value => ""} --
+                %option{:value => "2010"} 2010
+                %option{:value => "2011"} 2011
+                %option{:value => "2012"} 2012
+                %option{:value => "2013"} 2013
+                %option{:value => "2014"} 2014
+                %option{:value => "2015"} 2015
+                %option{:value => "2016"} 2016
+                %option{:value => "2017"} 2017
+                %option{:value => "2018"} 2018
+                %option{:value => "2019"} 2019
+              -# = f.select :expiration,["---", "20", "21","22", "23",], {}, {class: "select-expiration-date-day"}
+              %span.expiration-date-year-letter 年
+              .error-text-expiration-date-month 月を選択してください
+              .error-text-expiration-date-year 年を選択してください
+            .creditcard-registration--content--inner--form--content--security-code
+              %label.creditcard-registration--security-code カード番号
+              %span.creditcard-registration-form-necesarry-security-code 必須
+              %input.creditcard-registration--security-code-textarea{:placeholder => "カードの背面４桁もしくは３桁の番号"}
+              .error-text-security-code カード番号を入力してください
+              -# = f.password_field :number, class: "creditcard-registration--security-code-textarea", placeholder: "カードの背面４桁もしくは３桁の番号"
+              = link_to "カード裏面の番号とは？", "#", class: "creditcard-registration--link"
+              %i.fas.fa-question-circle
+          .creditcard-registration--content--inner--form--bottom
+            = button_tag "次に進む", class: "creditcard-registration--net-btn"
+  = render "registrations/footer"

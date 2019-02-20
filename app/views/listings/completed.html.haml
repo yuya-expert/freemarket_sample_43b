@@ -1,4 +1,6 @@
 = render "/shared/header"
+- breadcrumb :completed
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 = render "/shared/exhibit"
 .mypages-body
   = render "shared/side-bar"

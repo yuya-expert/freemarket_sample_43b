@@ -8,7 +8,7 @@
   = render "shared/side-bar"
   // マイページのメイン部分
   .main-all
-    = link_to "#", class: "no-line" do
+    = link_to "#", class: "no-line link-no-decoration" do
       .my-page__header-image
         .user-data__wrapper
           - unless @user.image.nil?
@@ -56,7 +56,7 @@
           .my-page__right-time
             %span.far.fa-clock
             %span 9時間前
-    = link_to "#", {class: "no-line"} do
+    = link_to "#", {class: "no-line link-no-decoration"} do
       .info-todo__show-all 一覧を見る
 
     .toransaction-title

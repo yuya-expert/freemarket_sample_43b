@@ -1,0 +1,11 @@
+// $(function(){
+//   //タブの切り替え
+//   $(".my-page__Exhibit").click(function(){
+//     if($(this).hasClass("inactive-tab")){
+//       $(".my-page__tabs").children(".active-tab").removeClass("active-tab").addClass("inactive-tab");
+//       $(this).removeClass("inactive-tab").addClass("active-tab");
+//       $(".active-area").show();
+//       $(".inactive-area").hide();
+//     }
+//   });
+// })
