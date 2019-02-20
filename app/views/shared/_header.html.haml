@@ -14,7 +14,7 @@
       .l-left
         .header-nav
           .list
-            カテゴリーから探す
+            = render "/shared/category_search"
           .list
             ブランドから探す
       .l-right
@@ -22,7 +22,7 @@
           - if user_signed_in?
             .list-mypage
               = image_tag("//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png")
-              = link_to mypages_path do
+              = link_to mypages_path, class: "link-no-decoration" do
                 %div マイページ
             .list-notice
               .fas.fa-bell
@@ -31,9 +31,9 @@
               .fas.fa-check
                 やることリスト
           - else
-            = link_to new_user_session_path, class: "no-line" do
+            = link_to new_user_session_path, class: "no-line link-no-decoration" do
               .header-btn.header-btn__login
                 ログイン
-            = link_to new_user_registration_path, class: "no-line" do
+            = link_to new_user_registration_path, class: "no-line link-no-decoration" do
               .header-btn.header-btn__signup
                 新規会員登録

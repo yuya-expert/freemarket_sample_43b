@@ -1,13 +1,13 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :detail]
-  before_action :set_categories, only: [:index, :new, :edit, :search]
+  before_action :set_categories, only: [:index, :new, :search]
   before_action :set_category_id, only: [:show, :detail]
   before_action :set_images, only: [:show, :edit, :detail]
   protect_from_forgery except: :update
 
   def index
-    @products = Product.order("created_at desc")
+    @products = Product.where("delivery_status = 0").order("created_at desc")
     @brands = Brand.where('id < 3')
   end
 
@@ -40,6 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @top_categories = Category.where("parent_id = 0").map{|a| [a[:name], a[:id]] }
+    @middle_categories = Category.where("parent_id = #{Category.find(@product.middle_category_id).parent_id}").map{|a| [a[:name], a[:id]] }
+    @bottom_categories = Category.where("parent_id = #{Category.find(@product.category_id).parent_id}").map{|a| [a[:name], a[:id]] }
   end
 
   def update
@@ -97,17 +100,33 @@ class ProductsController < ApplicationController
   def search
     # 商品名検索
     @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%") if params[:product][:name].present?
+    @products = [] if params[:product][:name].empty?
     @all_products = Product.order("id DESC")
+  end
+
+  def category_index
+    @large = Category.where(parent_id: 0 )
+  end
+
+  def category_detail
+    @products = Product.where(category_id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   private
 
-  def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
-  end
-
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :top_category_id, :middle_category_id, :category_id, images_attributes: [:id, :image, :product_id])
+  end
+
+  def set_category_id
+    @category_id = Category.find(@product.category_id)
+    @category_child_id = Category.find(@category_id.parent_id) unless @category_id.parent_id == 0
+    @category_parent_id = Category.find(@category_child_id.parent_id) unless @category_child_id.nil? || @category_child_id.parent_id == 0
   end
 
   def set_images
@@ -123,4 +142,5 @@ class ProductsController < ApplicationController
   def set_categories
     @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
+
 end

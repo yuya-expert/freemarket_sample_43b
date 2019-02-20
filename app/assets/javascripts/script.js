@@ -8,7 +8,7 @@ $(document).on("turbolinks:load",function(){
       // 親カテゴリー決定後の非同期通信
       function addSecondForm(categories) {
         var $hidden = $("#hidden-form__wrapper")
-        $hidden.append(`<div id="hidden-form__second"><select class="product-detail__category select-field select-field__add" id="second-select" name="product[category_id]"></select></div>`);
+        $hidden.append(`<div id="hidden-form__second"><select class="product-detail__category select-field select-field__add" id="second-select" name="product[middle_category_id]"></select></div>`);
         var $select = $("#second-select");
         var html_unselect = `<option value="">---</option>`;
         $select.append(html_unselect);
@@ -97,8 +97,8 @@ $(document).on("turbolinks:load",function(){
     $("#profit-field").html("¥" + numberWithComma.format(profit));
   })
 })
+// 商品カテゴリー中 選択時の処理
 $(document).on("change", "#second-select", function(){
-  // 商品カテゴリー中 選択時の処理
   $("#hidden-form__third").remove();
   if($("#second-select option:selected").text() == "---"){
   } else {
