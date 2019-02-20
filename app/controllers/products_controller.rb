@@ -111,7 +111,6 @@ class ProductsController < ApplicationController
   def category_detail
     @products = Product.where("top_category_id = ? OR  middle_category_id = ? OR category_id = ?", params[:id], params[:id], params[:id])
     @category = Category.find(params[:id])
-    binding.pry
   end
 
   private
