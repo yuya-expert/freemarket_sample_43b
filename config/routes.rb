@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     collection do
       get "main_data"
       post "sms_confirmation"
+      post "certification"
+      post "check"
+      post "creditcard"
+      get "address"
     end
   end
 

@@ -34,3 +34,7 @@ crumb :show do |product|
   link "#{product.name}", product_path
   parent :mypages
 end
+
+crumb :search do |search|
+  link "#{params[:product][:name]}", search_products_path
+end

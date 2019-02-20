@@ -42,17 +42,19 @@ end
 30.times do |number|
   number = number + 1
   product = Product.create!(
-    name: "product_#{number}",
+    name: Faker::Pokemon.name,
     detail: Faker::Food.description,
     status: rand(1..6),
     delivery_fee: rand(1..2),
     shipping_method: rand(1..4),
     area: rand(1..47),
     shipping_dates: rand(1..3),
-    price: rand(1..9)*1000,
+    price: rand(3..99)*100,
     delivery_status: 0,
     user_id: rand(1..5),
-    brand_id: rand(1..10),
+    brand_id: rand(1..3),
+    top_category_id: rand(1..13),
+    middle_category_id: rand(14..158),
     category_id: rand(159..581)
   )
   product.save!

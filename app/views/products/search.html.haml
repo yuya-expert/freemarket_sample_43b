@@ -1,6 +1,7 @@
 = render "shared/header"
 = render "shared/exhibit"
-= render "shared/gretel"
+- breadcrumb :search, @search
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .search-body
   = form_tag "/products/search", method: :get do
     .search-body__side-bar

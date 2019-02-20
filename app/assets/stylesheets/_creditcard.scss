@@ -1,0 +1,244 @@
+.creditcard-registration{
+  background: rgb(245, 245, 245);
+  width: 1405px;
+  height: 1500px;
+  display: block;
+  position: absolute;
+
+  &--content{
+    display: block;
+
+    &--inner{
+      width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      overflow: auto;
+
+      h2.creditcard-title{
+        padding: 32px 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .creditcard-registration--content--inner--form{
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        margin: 0;
+
+        &--content{
+          max-width: 320px;
+          margin: 0 126px;
+          display: block;
+
+          &--card-number{
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.creditcard-registration--card-number {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+            span.creditcard-registration-form-necesarry-card-number{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .creditcard-registration--card-number-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+            .error-text-card-number{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+          }
+          &--expiration-date{
+            width: 40%;
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+
+            label.creditcard-registration--expiration-date {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+
+            span.creditcard-registration-form-necesarry-expiration-date{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+
+            .select-expiration-date-month{
+              width: 80%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+              -webkit-appearance: none;
+              display: inline-block;
+            }
+            .error-text-expiration-date-month{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 12px;
+              display: none;
+            }
+
+            span.expiration-date-month-letter{
+              font-size: 18px;
+              font-weight: 400;
+            }
+
+            .select-expiration-date-year{
+              width: 80%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+              -webkit-appearance: none;
+              display: inline-block;
+            }
+
+            .error-text-expiration-date-year{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 12px;
+              display: none;
+            }
+
+            span.expiration-date-month-letter{
+              font-size: 18px;
+              font-weight: 400;
+            }
+          }
+          &--security-code{
+            margin: 0;
+            padding: 0;
+            display: block;
+            margin: 40px 0 0;
+            overflow: auto;
+            position: relative;
+            overflow-x:hidden;
+
+            label.creditcard-registration--security-code {
+              font-weight: 600;
+              display: inline-block;
+              font-size: 14px
+            }
+            span.creditcard-registration-form-necesarry-security-code{
+              line-height: 1.8;
+              background: $progress-color;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .creditcard-registration--security-code-textarea{
+              width: 100%;
+              height: 48px;
+              line-height:1.5;
+              margin: 8px 0 0;
+              padding: 15px 16px 15px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 14px;
+              min-height: 1.5em;
+              box-sizing: border-box;
+              resize: none;
+              overflow-y:hidden;
+            }
+            .error-text-security-code{
+              margin-top: 10px;
+              color: $progress-color;
+              font-size: 14px;
+              display: none;
+            }
+
+            .creditcard-registration--link{
+              color: $link-text-color;
+              text-decoration: none;
+              font-size: 14px;
+              float: right;
+              display: block;
+            }
+
+            i.fas.fa-question-circle{
+              color: $link-text-color;
+              float: right;
+            }
+          }
+        }
+        &--bottom{
+          max-width: 320px;
+          margin: 0 auto;
+
+          .creditcard-registration--net-btn{
+            margin: 40px 0 0;
+            background: $progress-color;
+            border: 1px solid $progress-color;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

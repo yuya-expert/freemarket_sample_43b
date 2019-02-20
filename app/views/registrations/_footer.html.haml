@@ -1,5 +1,5 @@
-.main-content__footer
-  .main-content__footer-text-box
+.main-content--footer
+  .main-content--footer--text-box
     .clearfix
       .list-privacy-policy
         = link_to 'プライバシーポリシー','https://www.mercari.com/jp/privacy/',class: 'privacy'
@@ -8,5 +8,5 @@
       .list-tokutei
         = link_to '特定商取引に関する表記','https://www.mercari.com/jp/tokutei/',class:'tokutei'
   = link_to root_path,class: 'mercari-logo'  do
-    %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2540802024", :width => "80"}/
-  %p © 2019 Mercari
+    = image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2540802024", class: "mercari-logo-footer")
+  .mercari--under-logo © 2019 Mercari
