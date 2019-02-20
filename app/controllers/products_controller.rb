@@ -110,7 +110,7 @@ class ProductsController < ApplicationController
 
   def category_detail
     @products = Product.where(category_id: params[:id])
-    @category = Category.find(id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   private
