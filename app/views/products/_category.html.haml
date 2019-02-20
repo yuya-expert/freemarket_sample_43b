@@ -5,10 +5,7 @@
     - count = 0
     - @products.each do |product|
       - unless count >= 4
-      - bottom_category = Category.find(product.category_id)
-      - middle_category = Category.find(bottom_category.parent_id)
-      - top_category = Category.find(middle_category.parent_id)
-        - if category[1] == top_category.id
+        - if category[1] == product.top_category_id
           = link_to detail_product_path(product) do
             .item
               = image_tag("rikishi.png")

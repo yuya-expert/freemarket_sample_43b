@@ -53,6 +53,8 @@ end
     delivery_status: 0,
     user_id: rand(1..5),
     brand_id: rand(1..3),
+    top_category_id: rand(1..13),
+    middle_category_id: rand(14..158),
     category_id: rand(159..581)
   )
   product.save!
