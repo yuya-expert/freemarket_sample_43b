@@ -103,21 +103,6 @@ class ProductsController < ApplicationController
     @all_products = Product.order("id DESC")
   end
 
-  private
-
-  def product_params
-    params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
-  end
-
-  def set_product
-    @product = Product.find(params[:id])
-  end
-
-  def set_images
-    @images = Image.where(product_id: params[:id])
-  end
-
-<<<<<<< HEAD
   def category_index
     @large = Category.where(parent_id: 0 )
   end
@@ -128,6 +113,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id, images_attributes: [:id, :image, :product_id])
@@ -143,8 +132,6 @@ class ProductsController < ApplicationController
     @images = Image.where(product_id: params[:id])
   end
 
-=======
->>>>>>> wonder-boooy/master
   def set_category_id
     @category_id = Category.find(@product.category_id)
     @category_child_id = Category.find(@category_id.parent_id) unless @category_id.parent_id == 0
