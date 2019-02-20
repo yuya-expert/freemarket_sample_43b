@@ -1,0 +1,27 @@
+= render 'shared/header'
+= render 'shared/gretel'
+.category-index--wrapper
+  .category-index--head--conteiner
+    %h2.category-index--head
+      カテゴリー一覧
+    - @large.each do |l|
+      .category-index--root
+        .category-index--root--text
+          =link_to "#{l.name}","#{l.id}/category_detail", class: "category-index--root--text"
+    - @large.each do |l|
+      .category-index--conteiner
+        %h3.category-index--name
+          = "#{l.name}"
+        .category-index--body
+          .category-index--all
+            =link_to "すべて","/products/#{l.id}/category_detail", class: "category-index--all--category"
+            - @middle = Category.where(parent_id: l.id)
+            - @middle.each do |m|
+              .category-index--title
+                = m.name
+              .category-index--contents--conteiner
+                - @small = Category.where(parent_id: m.id )
+                - @small.each do |s|
+                  .category-index--contents
+                    =link_to "#{s.name}","/products/#{s.id}/category_detail", class: "category-index--contents"
+= render 'shared/footer'

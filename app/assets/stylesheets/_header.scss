@@ -3,6 +3,7 @@
   position: relative;
   z-index: 1001;
   background-color: white;
+  height: 95px;
   &__inner{
     width: 1020px;
     margin: 0 auto;
@@ -47,14 +48,12 @@
     .header-nav-box{
       margin: 8px 0 0 ;
       border-width: 0;
-      overflow:auto;
       .l-left{
         float: left;
         padding: 0;
-        margin: 0;
+        margin-left: -25px;
         .header-nav{
           font-size: 0;
-          overflow:auto;
           .list{
             font-size: 14px;
             font-weight: 400;

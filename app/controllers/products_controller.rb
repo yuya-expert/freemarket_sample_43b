@@ -87,6 +87,15 @@ class ProductsController < ApplicationController
     @before_item = Product.order("RAND()").last
   end
 
+  def category_index
+    @large = Category.where(parent_id: 0 )
+  end
+
+  def category_detail
+    @products = Product.where(category_id: params[:id])
+    @category = Category.find_by(id: params[:id])
+  end
+
   private
   def product_params
     params.require(:product).permit(:name, :detail, :status, :delivery_fee, :area, :shipping_dates, :price, :delivery_status, :shipping_method, :user_id, :brand_id, :category_id)

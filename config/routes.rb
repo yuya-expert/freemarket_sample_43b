@@ -18,6 +18,10 @@ Rails.application.routes.draw do
       get "confirmation"
       get "detail"
       post "completion"
+      get "category_detail"
+    end
+    collection do
+      get "category_index"
     end
   end
   resources :registrations, only: [:index, :new]
