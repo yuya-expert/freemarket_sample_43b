@@ -53,3 +53,12 @@ crumb :completed do
   link "出品した商品 - 売却済み", completed_mypage_listings_path
   parent :mypages
 end
+
+crumb :categories do
+  link "カテゴリー一覧", category_index_products_path
+end
+
+crumb :category do |category|
+  link "#{category.name}", category_detail_product_path
+  parent :categories
+end

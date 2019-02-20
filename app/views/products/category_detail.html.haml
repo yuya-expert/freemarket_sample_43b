@@ -1,5 +1,6 @@
 = render 'shared/header'
-= render 'shared/gretel'
+- breadcrumb :category, @category
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .category-detail--wrapper
   %h2.category-index--head
     = "#{@category.name}の商品一覧"

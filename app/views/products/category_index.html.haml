@@ -1,5 +1,6 @@
 = render 'shared/header'
-= render 'shared/gretel'
+- breadcrumb :categories
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .category-index--wrapper
   .category-index--head--conteiner
     %h2.category-index--head
