@@ -1,10 +1,11 @@
 - products.each do |product|
-  .search-result__item
-    = image_tag(product.images[0].image, {class: "search-result__image"}) if product.images[0]
-    = image_tag("rikishi.png", {class: "search-result__image"}) if product.images[0].nil?
-    %h4.search-result__introduction
-      = product.name
-    %h4.search-result__price
-      ¥
-      = product.price
-    %p (税込)
+  = link_to detail_product_path(product) do
+    .search-result__item
+      = image_tag(product.images[0].image, {class: "search-result__image"}) if product.images[0]
+      = image_tag("rikishi.png", {class: "search-result__image"}) if product.images[0].nil?
+      %h4.search-result__introduction
+        = product.name
+      %h4.search-result__price
+        ¥
+        = product.price
+      %p (税込)
