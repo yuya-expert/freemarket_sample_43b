@@ -100,6 +100,7 @@ class ProductsController < ApplicationController
   def search
     # 商品名検索
     @products = Product.where('name LIKE(?)', "%#{params[:product][:name]}%") if params[:product][:name].present?
+    @products = [] if params[:product][:name].empty?
     @all_products = Product.order("id DESC")
   end
 
