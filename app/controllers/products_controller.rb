@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_product, only: [:show, :edit, :update, :detail]
-  before_action :set_categories, only: [:index, :new, :edit, :search]
+  before_action :set_categories, only: [:index, :new, :search]
   before_action :set_category_id, only: [:show, :detail]
   before_action :set_images, only: [:show, :edit, :detail]
   protect_from_forgery except: :update
@@ -40,6 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @top_categories = Category.where("parent_id = 0").map{|a| [a[:name], a[:id]] }
+    @middle_categories = Category.where("parent_id = #{Category.find(@product.middle_category_id).parent_id}").map{|a| [a[:name], a[:id]] }
+    @bottom_categories = Category.where("parent_id = #{Category.find(@product.category_id).parent_id}").map{|a| [a[:name], a[:id]] }
   end
 
   def update
@@ -123,4 +126,5 @@ class ProductsController < ApplicationController
   def set_categories
     @categories = Category.where("parent_id= '0'").map{|a| [a[:name], a[:id]] }
   end
+
 end

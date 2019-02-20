@@ -97,8 +97,8 @@ $(document).on("turbolinks:load",function(){
     $("#profit-field").html("¥" + numberWithComma.format(profit));
   })
 })
+// 商品カテゴリー中 選択時の処理
 $(document).on("change", "#second-select", function(){
-  // 商品カテゴリー中 選択時の処理
   $("#hidden-form__third").remove();
   if($("#second-select option:selected").text() == "---"){
   } else {
