@@ -117,6 +117,7 @@ class ProductsController < ApplicationController
     @images = Image.where(product_id: params[:id])
   end
 
+<<<<<<< HEAD
   def category_index
     @large = Category.where(parent_id: 0 )
   end
@@ -142,6 +143,8 @@ class ProductsController < ApplicationController
     @images = Image.where(product_id: params[:id])
   end
 
+=======
+>>>>>>> wonder-boooy/master
   def set_category_id
     @category_id = Category.find(@product.category_id)
     @category_child_id = Category.find(@category_id.parent_id) unless @category_id.parent_id == 0

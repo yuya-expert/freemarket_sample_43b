@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190213024445) do
+ActiveRecord::Schema.define(version: 20190220014605) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "list",       null: false
@@ -55,20 +55,22 @@ ActiveRecord::Schema.define(version: 20190213024445) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                                      null: false
-    t.text     "detail",          limit: 65535,             null: false
-    t.integer  "status",                                    null: false
-    t.integer  "delivery_fee",                              null: false
-    t.integer  "area",                                      null: false
-    t.integer  "shipping_dates",                            null: false
-    t.integer  "price",                                     null: false
-    t.integer  "delivery_status",               default: 1, null: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.string   "name",                                         null: false
+    t.text     "detail",             limit: 65535,             null: false
+    t.integer  "status",                                       null: false
+    t.integer  "delivery_fee",                                 null: false
+    t.integer  "area",                                         null: false
+    t.integer  "shipping_dates",                               null: false
+    t.integer  "price",                                        null: false
+    t.integer  "delivery_status",                  default: 0, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "user_id"
     t.integer  "brand_id"
     t.integer  "category_id"
     t.integer  "shipping_method"
+    t.integer  "top_category_id",                              null: false
+    t.integer  "middle_category_id",                           null: false
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -81,6 +83,15 @@ ActiveRecord::Schema.define(version: 20190213024445) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -99,7 +110,7 @@ ActiveRecord::Schema.define(version: 20190213024445) do
     t.string   "postal_code"
     t.integer  "prefecture"
     t.string   "city"
-    t.string   "address"
+    t.string   "add_ress"
     t.string   "building"
     t.string   "phone_number"
     t.date     "birthday"
@@ -114,4 +125,5 @@ ActiveRecord::Schema.define(version: 20190213024445) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sns_credentials", "users"
 end

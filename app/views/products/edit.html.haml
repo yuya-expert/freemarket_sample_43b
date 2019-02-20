@@ -45,9 +45,13 @@
       .title-wrapper
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
-      = f.select :category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
-      %p.error-message.error_category 選択してください
+      = f.select :top_category_id, @top_categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
       #hidden-form__wrapper
+        #hidden-form__second
+          = f.select :middle_category_id, @middle_categories, {}, {class: "product-detail__category select-field select-field__add", id: "second-select"}
+        #hidden-form__third
+          = f.select :category_id, @bottom_categories, {}, {class: "product-detail__category select-field select-field__add", id: "third-select"}
+      %p.error-message.error_category 選択してください
       // 隠しサイズフィールド
       .hidden-wrapper.select-field__hidden#size-select
         .title-wrapper.next

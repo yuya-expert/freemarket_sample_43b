@@ -32,6 +32,10 @@ ul.mypage-nav--list {
     i.fa-lg{
       color: #CCC;
     }
+  .mypage-link-side{
+    text-decoration: none;
+    color: #333;
+  }
   }
   &--list--item:hover{
     background-color: #fafafa;
@@ -42,4 +46,12 @@ ul.mypage-nav--list {
       margin-right: -2px;
     }
   }
+}
+.product-sell-side{
+  text-decoration: none;
+  color: #333;
+}
+.product-profile-side{
+  text-decoration: none;
+  color: #333;
 }

@@ -1,5 +1,5 @@
 crumb :root do
-  link "Home", root_path
+  link "メルカリ", root_path
 end
 
 crumb :mypages do
@@ -24,4 +24,17 @@ end
 crumb :payments do |payments|
   link "支払い方法", payments_user_path
   parent :mypages
+end
+
+crumb :detail do |product|
+  link "#{product.name}", detail_product_path
+end
+
+crumb :show do |product|
+  link "#{product.name}", product_path
+  parent :mypages
+end
+
+crumb :search do |search|
+  link "#{params[:product][:name]}", search_products_path
 end

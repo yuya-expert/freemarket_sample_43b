@@ -2,7 +2,7 @@
   .mypage-nav
     %ul.mypage-nav--list
       %li.mypage-nav--list--item
-        マイページ
+        = link_to 'マイページ', mypages_path ,class: "mypage-link-side"
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
         お知らせ
@@ -14,7 +14,7 @@
         いいね！一覧
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
-        出品する
+        = link_to '出品する', new_product_path, class: "product-sell-side"
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
         出品した商品 - 出品中
@@ -58,7 +58,7 @@
       設定
     %ul.mypage-nav--list
       %li.mypage-nav--list--item
-        プロフィール
+        = link_to 'プロフィール', edit_mypage_path(current_user.id), class: "product-profile-side"
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
         住所変更

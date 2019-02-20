@@ -1,6 +1,7 @@
-%input{name: "sold", type: "hidden", value:  @product.shipping_method, class: 'sold' }/
+%input{name: "sold", type: "hidden", value:  @product.delivery_status, class: 'sold' }/
 = render 'shared/header'
-= render 'shared/gretel'
+- breadcrumb :detail, @product
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .content
   .content-item
     %h1.content-item-name
@@ -25,7 +26,7 @@
           .content-item-main-table-list-user
             %p.table-list-user-name-left 出品者
             .table-list-user-name-right
-              = link_to "#{@product.user}", '#',class: 'table-list-user-name-right-name'
+              = link_to "#{@product.user.nickname}", '#',class: 'table-list-user-name-right-name'
               .user-evaluation
                 %i.fas.fa-grin
                   %span.user-evaluation-count
@@ -38,13 +39,14 @@
                   = @review_bad
           .content-item-main-table-list-category
             %p.table-list-category-name-left カテゴリー
-            = link_to "#{@category_parent_id.name}",'#',class: 'table-list-category-name-right--top'
-            %p
-            %i.fas.fa-chevron-right.category-icon
-            = link_to "#{@category_child_id.name}",'#',class: 'table-list-category-name-right'
-
-            %p
-            %i.fas.fa-chevron-right.category-icon
+            - unless @category_parent_id.nil?
+              = link_to "#{@category_parent_id.name}",'#',class: 'table-list-category-name-right--top'
+              %p
+              %i.fas.fa-chevron-right.category-icon
+            - unless @category_child_id.nil?
+              = link_to "#{@category_child_id.name}",'#', class: 'table-list-category-name-right'
+              %p
+              %i.fas.fa-chevron-right.category-icon
             = link_to "#{@product.category.name}",'#',class: 'table-list-category-name-right'
 
           .content-item-main-table-list-brand
@@ -52,10 +54,10 @@
             = link_to "#{@product.brand.list}",'#',class: 'table-list-brand-name-right'
           .content-item-main-table-list-state
             %p.table-list-state-rank-left 商品状態
-            = link_to ' やや傷や汚れあり','#',class: 'table-list-state-rank-right'
+            = link_to @product.status,'#',class: 'table-list-state-rank-right'
           .content-item-main-table-list-delivery-fee
             %p.table-list-delivery-fee-rank-left 配送料の負担
-            = link_to '送料込み(出品者負担)','#',class: 'table-list-delivery-fee-rank-right'
+            = link_to @product.delivery_fee,'#',class: 'table-list-delivery-fee-rank-right'
           .content-item-main-table-list-delivery-method
             %p.table-list-delivery-method-dicide-left 配送の方法
             = @product.shipping_method
@@ -72,7 +74,8 @@
       %span.price-total
         = "¥#{@product.price}"
       %span.price-tax (税込)
-      %span.price-delivery-fee 送料込み
+      %span.price-delivery-fee
+      = @product.delivery_fee
     .content-item-product-state
       %p.buy-button-soldout 売り切れました
     .content-item-product-state-buy
