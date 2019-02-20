@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   protect_from_forgery except: :update
 
   def index
-    @products = Product.order("created_at desc")
+    @products = Product.where("delivery_status = 0").order("created_at desc")
     @brands = Brand.where('id < 3')
   end
 
