@@ -38,7 +38,7 @@
       .title-wrapper
         %span.product-detail__title.title-small カテゴリー
         %span.must-icon 必須
-      = f.select :category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
+      = f.select :top_category_id, @categories, {prompt: "---"}, {class: "product-detail__category select-field", id: "first-select"}
       %p.error-message.error_category 選択してください
       #hidden-form__wrapper
       // 隠しサイズフィールド
