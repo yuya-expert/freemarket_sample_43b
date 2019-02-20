@@ -8,8 +8,8 @@
         - if product.brand_id == brand.id
           = link_to detail_product_path(product) do
             .item
-              = image_tag @product.images.first.image if @product.images.first.image
-              = image_tag("rikishi.png") if @product.images.first.image.nil?
+              = image_tag product.images[0].image if product.images[0]
+              = image_tag("rikishi.png") if product.images[0].nil?
               .title
                 = product.name
               .price
