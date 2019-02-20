@@ -1,5 +1,5 @@
 - products.each do |product|
-  = link_to detail_product_path(product), class: "link-no-decoration" do
+  = link_to detail_product_path(product) do
     .search-result__item
       = image_tag(product.images[0].image, {class: "search-result__image"}) if product.images[0]
       = image_tag("rikishi.png", {class: "search-result__image"}) if product.images[0].nil?

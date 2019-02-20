@@ -1,4 +1,4 @@
-$(function(){
+$(document).on("turbolinks:load", function(){
   //画像の枚数に応じて枠を調節する
   function previewSize(){
     var text = $('p');

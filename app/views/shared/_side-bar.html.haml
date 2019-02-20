@@ -14,7 +14,11 @@
         いいね！一覧
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
+<<<<<<< HEAD
         = link_to '出品する', new_product_path, class: "product-sell-side link-no-decoration"
+=======
+        = link_to '出品する', new_product_path, class: "product-sell-side"
+>>>>>>> wonder-boooy/master
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
         = link_to "出品した商品 - 出品中", listing_mypage_listings_path(:id), class: "link-no-decoration"
@@ -76,5 +80,9 @@
         電話番号の確認
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
       %li.mypage-nav--list--item
+<<<<<<< HEAD
         = link_to"ログアウト", "/mypages/#{current_user.id}", method: :delete, class: "link-no-decoration"
+=======
+        = link_to("ログアウト", "/mypages/#{current_user.id}" , {method: :delete})
+>>>>>>> wonder-boooy/master
         %i.fas.fa-angle-right.fa-pull-right.fa-lg
