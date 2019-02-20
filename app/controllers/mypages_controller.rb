@@ -1,4 +1,5 @@
 class MypagesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @user = current_user
@@ -19,7 +20,7 @@ class MypagesController < ApplicationController
   def update
     user = current_user
     user.update(user_params)
-    redirect_to action: :edit
+    redirect_to action: :index
   end
 
   def destroy
