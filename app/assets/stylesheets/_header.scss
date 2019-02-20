@@ -34,6 +34,7 @@
           border: 1px solid #ccc;
           line-height: 1.5;
           font-size: 16px;
+          outline: none;
         }
         .fas.fa-search{
           position: absolute;
@@ -75,6 +76,7 @@
         .header-user-nav{
           font-size: 0;
           overflow:auto;
+          width: 380px;
           .list-mypage{
             color:black;
             display:inline-block;
@@ -83,7 +85,7 @@
             vertical-align: middle;
             overflow:auto;
             img{
-              width: 32px;
+              width: 30px;
               overflow:hidden;;
               border-radius: 50%;
             }
@@ -112,11 +114,27 @@
             display: inline-block;
             padding: 0 0 0 16px;
             vertical-align: middle;
+
             div{
               margin: 8px 0 0 8px;
               display: block;
               font-size: 14px;
               color: #333;
+            }
+            .fas.fa-check{
+              display:inline-block;
+              font-size: 12px;
+              display: inline-block;
+            }
+            .to-do-list{
+              color: #333;
+              font-size: 12px;
+              text-decoration: none;
+              display: inline-block;
+              margin: 0;
+            }
+            .to-do-text {
+              display: inline-block;
             }
           }
           .header-btn {

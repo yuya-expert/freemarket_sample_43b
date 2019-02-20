@@ -6,14 +6,14 @@
     - @products.each do |product|
       - unless count >= 4
         - if product.brand_id == brand.id
-          = link_to detail_product_path(product) do
+          = link_to detail_product_path(product), {class: "link-no-decoration"} do
             .item
               = image_tag product.images[0].image if product.images[0]
               = image_tag("rikishi.png") if product.images[0].nil?
               .title
                 = product.name
               .price
-                = product.price
+                = "¥ #{product.price}"
               .tax (税込)
           - count += 1
   .show-all-items

@@ -1,19 +1,23 @@
 = render 'shared/header'
-= render 'shared/gretel'
+- breadcrumb :category, @category
+= breadcrumbs separator: " &rsaquo; ", style: :ul
 .category-detail--wrapper
   %h2.category-index--head
     = "#{@category.name}の商品一覧"
   .category-detail--container
-    - @products.each do |product|
-      = link_to product_path(product.id) do
-        .category-detail--content
-          = image_tag(product.images[0].image , size: "188x188") if product.images[0]
-          = image_tag( "rikishi.png", size: "188x188") if product.images[0].nil?
-          .category-detail--content--item-box
-            .category-detail--content--title
-              = product.name
-            .category-detail--content--clerefix
-              %p.category-detail--content--price
-                = "¥#{product.price}円"
-              %p.category-detail--content--like
-                = "♡1"
+    - unless @products.empty?
+      - @products.each do |product|
+        = link_to product_path(product.id) do
+          .category-detail--content
+            = image_tag(product.images[0].image , size: "188x188") if product.images[0]
+            = image_tag( "rikishi.png", size: "188x188") if product.images[0].nil?
+            .category-detail--content--item-box
+              .category-detail--content--title
+                = product.name
+              .category-detail--content--clerefix
+                %p.category-detail--content--price
+                  = "¥#{product.price}円"
+                %p.category-detail--content--like
+                  = "♡1"
+    - else
+      商品はござあせん！！
