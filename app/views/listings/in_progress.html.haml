@@ -10,17 +10,17 @@
     // 取引中と過去の取引のタブ部分
     .my-page__tabs
       .my-page__Exhibit.listing.inactive-tab
-        = link_to "出品中", listing_mypage_listings_path
+        = link_to "出品中", listing_mypage_listings_path, class: "link-no-decoration"
       .my-page__Exhibit.in_progress.active-tab
         取引中
       .my-page__Exhibit.completed.inactive-tab
-        = link_to "売却済み", completed_mypage_listings_path
+        = link_to "売却済み", completed_mypage_listings_path, class: "link-no-decoration"
     // 取引中のリスト
     .my-page__left-wrapper.now.active-area
       %ul.my-product
         - @products.each do |product|
           %li.my-product--list
-            = link_to product_path(product) do
+            = link_to product_path(product), class: "link-no-decoration" do
               .my-product--image
                 - unless product.images.first.nil?
                   = image_tag product.images.first.image, class: "my-product--image-image"
